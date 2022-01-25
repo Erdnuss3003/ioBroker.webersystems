@@ -1,0 +1,74 @@
+{
+    "common": {
+        "name": "webersystems",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Webersystems",
+        "titleLang": {
+            "en": "Webersystems",
+            "de": "Webersysteme",
+            "ru": "Веберсистемс",
+            "pt": "Webersystems",
+            "nl": "Webersystems",
+            "fr": "Systèmes Weber",
+            "it": "Sistemi Weber",
+            "es": "sistemas weber",
+            "pl": "Systemy Weber",
+            "zh-cn": "韦伯系统"
+        },
+        "desc": {
+            "en": "Webersystems Test",
+            "de": "Webersystems-Test",
+            "ru": "Веберсистемс Тест",
+            "pt": "Teste Webersystems",
+            "nl": "Webersystems-test",
+            "fr": "Test Webersystems",
+            "it": "Test dei sistemi Weber",
+            "es": "Prueba de sistemas Weber",
+            "pl": "Test Webersystems",
+            "zh-cn": "韦伯系统测试"
+        },
+        "authors": [
+            "Christoph Weber <christophweber2@gmx.de>"
+        ],
+        "keywords": [
+            "Webersystems"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "webersystems.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/Erdnuss3003/ioBroker.webersystems/master/admin/webersystems.png",
+        "readme": "https://github.com/Erdnuss3003/ioBroker.webersystems/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "infrastructure",
+        "compact": true,
+        "materialize": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
