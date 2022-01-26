@@ -37,16 +37,6 @@ function startAdapter(options) {
 var snmpsession = snmp.createSession ("192.168.10.12", "public");
 var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
 
-snmpsession.get (oids, function (error, varbinds) {
-    if (error) {
-        
-    } else {
-        
-        } else {
-           
-        }
-    }
-});
         // is called when adapter shuts down - callback has to be called under any circumstances!
         // wird beim Beenden des Adapters aufgerufen - Callback muss auf jeden Fall aufgerufen werden!
         unload: (callback) => {
