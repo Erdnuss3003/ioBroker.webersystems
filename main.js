@@ -107,17 +107,22 @@ async function main() {
     adapter.log.info('config option2: ' + adapter.config.option2);
     adapter.log.info('config IP Adresse: ' + adapter.config.ipadresse);
     adapter.log.info('config SNMP Community: ' + adapter.config.snmpcommunity);
-var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
-var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
-session.get (oids, function (error, varbinds) {
-    if (error) {
-        adapter.log.info('snmp error');
-    } else {
-adapter.log.info('SNMP sysname: ' + varbinds[0].value);
-adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
+       var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
+       var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
+       session.get (oids, function (error, varbinds) {
+          if (error) {
+             adapter.log.info('snmp error');
+          } else {
+             adapter.log.info('SNMP sysname: ' + varbinds[0].value);
+             adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
+             await adapter.setObjectNotExistsAsync('testVariable', {
+                type: 'state',
+                common: {name: 'testVariable', type: 'boolean', role: 'indicator', read: true, write: true},
+                native: {},
+             });
     
-   }
-});
+          }
+        });
 
     /*
         For every state in the system there has to be also an object of type state
@@ -127,11 +132,7 @@ adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
         Hier eine einfache Vorlage für eine boolesche Variable namens "testVariable"
         Da jede Adapterinstanz ihren eigenen eindeutigen Namespace verwendet, können Variablennamen nicht mit anderen Adaptervariablen kollidieren
     */
-    await adapter.setObjectNotExistsAsync('testVariable', {
-        type: 'state',
-        common: {name: 'testVariable', type: 'boolean', role: 'indicator', read: true, write: true},
-        native: {},
-    });
+
 
     // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
     adapter.subscribeStates('testVariable');
