@@ -34,10 +34,10 @@ function startAdapter(options) {
         // start here!
 
         ready: main, // Main method defined below for readability
-var session = snmp.createSession ("192.168.10.12", "public");
+var snmpsession = snmp.createSession ("192.168.10.12", "public");
 var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
 
-session.get (oids, function (error, varbinds) {
+snmpsession.get (oids, function (error, varbinds) {
     if (error) {
         
     } else {
