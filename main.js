@@ -103,6 +103,8 @@ async function main() {
     // adapter.config:
     adapter.log.info('config option1: ' + adapter.config.option1);
     adapter.log.info('config option2: ' + adapter.config.option2);
+    adapter.log.info('config IP Adresse: ' + adapter.config.ipadresse);
+    adapter.log.info('config SNMP Community: ' + adapter.config.snmpcommunity);
 
     /*
         For every state in the system there has to be also an object of type state
