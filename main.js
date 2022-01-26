@@ -72,9 +72,7 @@ function startAdapter(options) {
             if (state) {
                 // The state was changed
                 adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-				if (${id} == 'webersystems.0.sysname') {
-				adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-				}
+								
             } else {
                 // The state was deleted
                 adapter.log.info(`state ${id} deleted`);
