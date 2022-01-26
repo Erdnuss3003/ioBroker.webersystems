@@ -119,7 +119,6 @@ adapter.log.info('SNMP sysname: ' + varbinds[0].value);
         common: {name: 'sysname', type: 'string', role: 'value', read: true, write: true},
         native: {},
     });
-await this.setStateAsync('sysname', {val: 'varbinds[0].value', ack: true});
    }
 });
 
