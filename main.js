@@ -101,8 +101,8 @@ function startAdapter(options) {
 
 async function main() {
 	var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
-	oids[0]= oids[0].replaceAll(".", "_");
-    await adapter.setObjectNotExistsAsync(oids[0], {
+	oidss[0]= oids[0].replaceAll(".", "_");
+    await adapter.setObjectNotExistsAsync(oidss[0], {
         type: 'state',
         common: {name: 'sysname', type: 'string', role: 'value', read: true, write: true},
         native: {},
@@ -120,7 +120,7 @@ async function main() {
              adapter.log.info('snmp error');
           } else {
              adapter.log.info('SNMP sysname: ' + varbinds[0].value);
-			 adapter.setState(oids[0], varbinds[0].value.toString(), true);
+			 adapter.setState(oidss[0], varbinds[0].value.toString(), true);
              adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
           }
         });
