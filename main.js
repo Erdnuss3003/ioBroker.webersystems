@@ -109,6 +109,10 @@ async function main() {
     adapter.log.info('config SNMP Community: ' + adapter.config.snmpcommunity);
 var snmpsession = snmp.createSession ("192.168.10.12", "public");
 var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
+session.get (oids, function (error, varbinds) {
+   
+   
+});
 
     /*
         For every state in the system there has to be also an object of type state
