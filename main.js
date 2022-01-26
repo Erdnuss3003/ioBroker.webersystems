@@ -110,8 +110,11 @@ async function main() {
 var session = snmp.createSession ("192.168.10.12", "public");
 var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
 session.get (oids, function (error, varbinds) {
-   
-   
+    if (error) {
+        adapter.log.info('snmp error');
+    } else {
+adapter.log.info('SNMP sysname: ' + varbinds[0].value);
+   }
 });
 
     /*
