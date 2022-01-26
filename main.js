@@ -114,11 +114,7 @@ session.get (oids, function (error, varbinds) {
         adapter.log.info('snmp error');
     } else {
 adapter.log.info('SNMP sysname: ' + varbinds[0].value);
-    await adapter.setObjectNotExistsAsync('sysname', {
-        type: 'state',
-        common: {name: 'sysname', type: 'string', role: 'value', read: true, write: true},
-        native: {},
-    });
+    
    }
 });
 
