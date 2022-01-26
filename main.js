@@ -118,7 +118,6 @@ async function main() {
              adapter.log.info('snmp error');
           } else {
              adapter.log.info('SNMP sysname: ' + varbinds[0].value);
-			 await adapter.setStateAsync('sysname', { val: varbinds[0].value, ack: true });
              adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
           }
         });
