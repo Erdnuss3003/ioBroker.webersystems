@@ -119,8 +119,7 @@ async function main() {
              adapter.log.info('snmp error');
           } else {
              adapter.log.info('SNMP sysname: ' + varbinds[0].value);
-			 var oids[0] = oids[0].replace(".","_");
-			 adapter.setState('sysname', varbinds[0].value.toString(), true);
+			 adapter.setState(oids[0], varbinds[0].value.toString(), true);
              adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
           }
         });
