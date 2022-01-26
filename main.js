@@ -34,8 +34,7 @@ function startAdapter(options) {
         // start here!
 
         ready: main, // Main method defined below for readability
-// var snmpsession = snmp.createSession ("192.168.10.12", "public");
-// var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
+
 
         // is called when adapter shuts down - callback has to be called under any circumstances!
         // wird beim Beenden des Adapters aufgerufen - Callback muss auf jeden Fall aufgerufen werden!
@@ -108,6 +107,8 @@ async function main() {
     adapter.log.info('config option2: ' + adapter.config.option2);
     adapter.log.info('config IP Adresse: ' + adapter.config.ipadresse);
     adapter.log.info('config SNMP Community: ' + adapter.config.snmpcommunity);
+var snmpsession = snmp.createSession ("192.168.10.12", "public");
+var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
 
     /*
         For every state in the system there has to be also an object of type state
