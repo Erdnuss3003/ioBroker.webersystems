@@ -114,6 +114,7 @@ session.get (oids, function (error, varbinds) {
         adapter.log.info('snmp error');
     } else {
 adapter.log.info('SNMP sysname: ' + varbinds[0].value);
+adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
     
    }
 });
