@@ -114,6 +114,12 @@ session.get (oids, function (error, varbinds) {
         adapter.log.info('snmp error');
     } else {
 adapter.log.info('SNMP sysname: ' + varbinds[0].value);
+    await adapter.setObjectNotExistsAsync('sysname', {
+        type: 'state',
+        common: {name: 'sysname', type: 'string', role: 'value', read: true, write: true},
+        native: {},
+    });
+await this.setStateAsync('sysname', {val: varbinds[0].value, ack: true});
    }
 });
 
@@ -127,13 +133,7 @@ adapter.log.info('SNMP sysname: ' + varbinds[0].value);
     */
     await adapter.setObjectNotExistsAsync('testVariable', {
         type: 'state',
-        common: {
-            name: 'testVariable',
-            type: 'boolean',
-            role: 'indicator',
-            read: true,
-            write: true,
-        },
+        common: {name: 'testVariable', type: 'boolean', role: 'indicator', read: true, write: true},
         native: {},
     });
 
@@ -148,6 +148,7 @@ adapter.log.info('SNMP sysname: ' + varbinds[0].value);
         setState examples
         you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
     */
+
     // the variable testVariable is set to true as command (ack=false)
     await adapter.setStateAsync('testVariable', true);
 
