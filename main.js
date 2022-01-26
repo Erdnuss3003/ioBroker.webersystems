@@ -156,7 +156,7 @@ async function main() {
 
     // same thing, but the value is flagged "ack"
     // ack should be always set to true if the value is received from or acknowledged from the target system
-    await adapter.setStateAsync('1.3.6.1.2.1.1.5.0', { val: varbinds[0].value, ack: true });
+    await adapter.setStateAsync('1.3.6.1.2.1.1.5.0', { val: 'varbinds[0].value', ack: true });
     await adapter.setStateAsync('testVariable', { val: true, ack: true });
 
     // same thing, but the state is deleted after 30s (getState will return null afterwards)
