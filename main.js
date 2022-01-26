@@ -114,7 +114,7 @@ async function main() {
              adapter.log.info('snmp error');
           } else {
              adapter.log.info('SNMP sysname: ' + varbinds[0].value);
-	     var sysname = varbinds[0].value;
+	     var sysname = varbinds[0].value.toString();
              adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
           }
         });
@@ -157,7 +157,7 @@ async function main() {
 
     // same thing, but the value is flagged "ack"
     // ack should be always set to true if the value is received from or acknowledged from the target system
-    await adapter.setStateAsync('sysname', { val: varbinds[0].value.toString(), ack: true });
+    await adapter.setStateAsync('sysname', { val: sysname, ack: true });
     await adapter.setStateAsync('testVariable', { val: true, ack: true });
 
     // same thing, but the state is deleted after 30s (getState will return null afterwards)
