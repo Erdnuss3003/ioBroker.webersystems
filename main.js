@@ -11,6 +11,7 @@ const utils = require('@iobroker/adapter-core');
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
+const snmp = require ("net-snmp");
 
 /**
  * The adapter instance
@@ -33,7 +34,19 @@ function startAdapter(options) {
         // start here!
 
         ready: main, // Main method defined below for readability
-
+var session = snmp.createSession ("192.168.10.12", "public");
+var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
+    } else {
+        if (varbinds[0].type != snmp.ErrorStatus.NoSuchObject
+                && varbinds[0].type != snmp.ErrorStatus.NoSuchInstance
+                && varbinds[0].type != snmp.ErrorStatus.EndOfMibView) {
+            var sysName = varbinds[0].value;
+        } else {
+            console.error (snmp.ObjectType[varbinds[0].type] + ": "
+                    + varbinds[0].oid);
+        }
+    }
+});
         // is called when adapter shuts down - callback has to be called under any circumstances!
         // wird beim Beenden des Adapters aufgerufen - Callback muss auf jeden Fall aufgerufen werden!
         unload: (callback) => {
