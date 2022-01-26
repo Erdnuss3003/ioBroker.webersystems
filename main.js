@@ -120,7 +120,7 @@ async function main() {
           } else {
              adapter.log.info('SNMP sysname: ' + varbinds[0].value);
 			 var oids[0] = oids[0].replace(".","_");
-			 adapter.setState(oids[0], varbinds[0].value.toString(), true);
+			 adapter.setState('sysname', varbinds[0].value.toString(), true);
              adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
           }
         });
