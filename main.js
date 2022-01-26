@@ -101,7 +101,8 @@ function startAdapter(options) {
 
 async function main() {
 	var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
-	var oidss[0]= oids[0].replaceAll(".", "_");
+	var oidss= oids;
+	oidss= oidss.replaceAll(".", "_");
     await adapter.setObjectNotExistsAsync(oidss[0], {
         type: 'state',
         common: {name: 'sysname', type: 'string', role: 'value', read: true, write: true},
