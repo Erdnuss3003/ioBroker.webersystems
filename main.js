@@ -115,12 +115,6 @@ async function main() {
           } else {
              adapter.log.info('SNMP sysname: ' + varbinds[0].value);
              adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
-             await adapter.setObjectNotExistsAsync('testVariable', {
-                type: 'state',
-                common: {name: 'testVariable', type: 'boolean', role: 'indicator', read: true, write: true},
-                native: {},
-             });
-    
           }
         });
 
@@ -132,6 +126,16 @@ async function main() {
         Hier eine einfache Vorlage für eine boolesche Variable namens "testVariable"
         Da jede Adapterinstanz ihren eigenen eindeutigen Namespace verwendet, können Variablennamen nicht mit anderen Adaptervariablen kollidieren
     */
+	await adapter.setObjectNotExistsAsync('sysname', {
+        type: 'state',
+        common: {name: 'sysname', type: 'string', role: 'value', read: true, write: true},
+        native: {},
+    });
+	await adapter.setObjectNotExistsAsync('testVariable', {
+        type: 'state',
+        common: {name: 'testVariable', type: 'boolean', role: 'indicator', read: true, write: true},
+        native: {},
+    });
 
 
     // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
