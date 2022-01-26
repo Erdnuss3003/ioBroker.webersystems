@@ -100,9 +100,10 @@ function startAdapter(options) {
 }
 
 async function main() {
-    await adapter.setObjectNotExistsAsync('sysname', {
+	var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
+    await adapter.setObjectNotExistsAsync(oids[0], {
         type: 'state',
-        common: {name: '1.3.6.1.2.1.1.5.0', type: 'string', role: 'value', read: true, write: true},
+        common: {name: 'sysname', type: 'string', role: 'value', read: true, write: true},
         native: {},
     });
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
@@ -113,7 +114,6 @@ async function main() {
     adapter.log.info('config IP Adresse: ' + adapter.config.ipadresse);
     adapter.log.info('config SNMP Community: ' + adapter.config.snmpcommunity);
        var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
-       var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
        session.get (oids, function (error, varbinds) {
           if (error) {
              adapter.log.info('snmp error');
