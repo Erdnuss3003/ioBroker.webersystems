@@ -4,8 +4,9 @@
  * Created with @iobroker/create-adapter v1.26.3
  */
 // The adapter-core module gives you access to the core ioBroker functions
-// The adapter-core module gives you access to the core ioBroker functions
+// Das Adapter-Core-Modul gibt Ihnen Zugriff auf die Kernfunktionen von ioBroker 
 // you need to create an adapter
+// Sie müssen einen Adapter erstellen 
 const utils = require('@iobroker/adapter-core');
 
 // Load your modules here, e.g.:
@@ -23,17 +24,22 @@ let adapter;
  */
 function startAdapter(options) {
     // Create the adapter and define its methods
+    // Den Adapter erstellen und seine Methoden definieren 
     return adapter = utils.adapter(Object.assign({}, options, {
         name: 'webersystems',
 
         // The ready callback is called when databases are connected and adapter received configuration.
+	// Der Ready-Callback wird aufgerufen, wenn Datenbanken verbunden sind und der Adapter die Konfiguration erhalten hat. 
         // start here!
+
         ready: main, // Main method defined below for readability
 
         // is called when adapter shuts down - callback has to be called under any circumstances!
+        // wird beim Beenden des Adapters aufgerufen - Callback muss auf jeden Fall aufgerufen werden!
         unload: (callback) => {
             try {
                 // Here you must clear all timeouts or intervals that may still be active
+                // Hier müssen Sie alle eventuell noch aktiven Timeouts oder Intervalle löschen 
                 // clearTimeout(timeout1);
                 // clearTimeout(timeout2);
                 // ...
@@ -46,6 +52,7 @@ function startAdapter(options) {
         },
 
         // If you need to react to object changes, uncomment the following method.
+        // Wenn Sie auf Objektänderungen reagieren müssen, kommentieren Sie die folgende Methode aus. 
         // You also need to subscribe to the objects with `adapter.subscribeObjects`, similar to `adapter.subscribeStates`.
         // objectChange: (id, obj) => {
         //     if (obj) {
@@ -58,6 +65,7 @@ function startAdapter(options) {
         // },
 
         // is called if a subscribed state changes
+        // wird aufgerufen, wenn sich ein abonnierter Status ändert 
         stateChange: (id, state) => {
             if (state) {
                 // The state was changed
@@ -69,6 +77,7 @@ function startAdapter(options) {
         },
 
         // If you need to accept messages in your adapter, uncomment the following block.
+        // Wenn Sie Nachrichten in Ihrem Adapter akzeptieren müssen, kommentieren Sie den folgenden Block aus.
         // /**
         //  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
         //  * Using this method requires "common.message" property to be set to true in io-package.json
@@ -90,6 +99,7 @@ function startAdapter(options) {
 async function main() {
 
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
+    // Die Adapterkonfiguration (im Instanzobjekt alles unter dem Attribut "native") ist erreichbar über
     // adapter.config:
     adapter.log.info('config option1: ' + adapter.config.option1);
     adapter.log.info('config option2: ' + adapter.config.option2);
@@ -98,6 +108,9 @@ async function main() {
         For every state in the system there has to be also an object of type state
         Here a simple template for a boolean variable named "testVariable"
         Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
+        Für jeden Zustand im System muss es auch ein Objekt vom Typ Zustand geben
+        Hier eine einfache Vorlage für eine boolesche Variable namens "testVariable"
+        Da jede Adapterinstanz ihren eigenen eindeutigen Namespace verwendet, können Variablennamen nicht mit anderen Adaptervariablen kollidieren
     */
     await adapter.setObjectNotExistsAsync('testVariable', {
         type: 'state',
