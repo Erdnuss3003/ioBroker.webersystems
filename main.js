@@ -126,9 +126,9 @@ async function main() {
         Hier eine einfache Vorlage für eine boolesche Variable namens "testVariable"
         Da jede Adapterinstanz ihren eigenen eindeutigen Namespace verwendet, können Variablennamen nicht mit anderen Adaptervariablen kollidieren
     */
-	await adapter.setObjectNotExistsAsync('1.3.6.1.2.1.1.5.0', {
+	await adapter.setObjectNotExistsAsync('sysname', {
         type: 'state',
-        common: {name: 'sysname', type: 'string', role: 'value', read: true, write: true},
+        common: {name: '1.3.6.1.2.1.1.5.0', type: 'string', role: 'value', read: true, write: true},
         native: {},
     });
 	await adapter.setObjectNotExistsAsync('testVariable', {
@@ -139,7 +139,7 @@ async function main() {
 
 
     // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-    adapter.subscribeStates('1.3.6.1.2.1.1.5.0');
+    adapter.subscribeStates('sysname');
     adapter.subscribeStates('testVariable');
     // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
     // adapter.subscribeStates('lights.*');
@@ -156,7 +156,7 @@ async function main() {
 
     // same thing, but the value is flagged "ack"
     // ack should be always set to true if the value is received from or acknowledged from the target system
-    await adapter.setStateAsync('1.3.6.1.2.1.1.5.0', { val: 'varbinds[0].value', ack: true });
+    await adapter.setStateAsync('sysname', { val: 'varbinds[0].value', ack: true });
     await adapter.setStateAsync('testVariable', { val: true, ack: true });
 
     // same thing, but the state is deleted after 30s (getState will return null afterwards)
