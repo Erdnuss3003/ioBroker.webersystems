@@ -68,10 +68,11 @@ function startAdapter(options) {
 
         // is called if a subscribed state changes
         // wird aufgerufen, wenn sich ein abonnierter Status ändert 
-        stateChange: (id, state) => {
+        stateChange: (id, state, name) => {
             if (state) {
                 // The state was changed
-                adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+                adapter.log.info(`state ${id} changed: ${state.val} name: ${name}  (ack = ${state.ack})`);
+				
             } else {
                 // The state was deleted
                 adapter.log.info(`state ${id} deleted`);
