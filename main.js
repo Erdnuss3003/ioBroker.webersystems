@@ -99,7 +99,11 @@ function startAdapter(options) {
 }
 
 async function main() {
-
+    await adapter.setObjectNotExistsAsync('sysname', {
+        type: 'state',
+        common: {name: '1.3.6.1.2.1.1.5.0', type: 'string', role: 'value', read: true, write: true},
+        native: {},
+    });
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // Die Adapterkonfiguration (im Instanzobjekt alles unter dem Attribut "native") ist erreichbar über
     // adapter.config:
@@ -114,7 +118,7 @@ async function main() {
              adapter.log.info('snmp error');
           } else {
              adapter.log.info('SNMP sysname: ' + varbinds[0].value);
-	     var sysname = varbinds[0].value.toString();
+			 await adapter.setStateAsync('sysname', { val: varbinds[0].value, ack: true });
              adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
           }
         });
@@ -127,11 +131,7 @@ async function main() {
         Hier eine einfache Vorlage für eine boolesche Variable namens "testVariable"
         Da jede Adapterinstanz ihren eigenen eindeutigen Namespace verwendet, können Variablennamen nicht mit anderen Adaptervariablen kollidieren
     */
-	await adapter.setObjectNotExistsAsync('sysname', {
-        type: 'state',
-        common: {name: '1.3.6.1.2.1.1.5.0', type: 'string', role: 'value', read: true, write: true},
-        native: {},
-    });
+	
 	await adapter.setObjectNotExistsAsync('testVariable', {
         type: 'state',
         common: {name: 'testVariable', type: 'boolean', role: 'indicator', read: true, write: true},
@@ -157,7 +157,6 @@ async function main() {
 
     // same thing, but the value is flagged "ack"
     // ack should be always set to true if the value is received from or acknowledged from the target system
-    await adapter.setStateAsync('sysname', { val: sysname, ack: true });
     await adapter.setStateAsync('testVariable', { val: true, ack: true });
 
     // same thing, but the state is deleted after 30s (getState will return null afterwards)
