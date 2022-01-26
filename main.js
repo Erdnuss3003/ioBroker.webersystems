@@ -39,15 +39,11 @@ var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
 
 session.get (oids, function (error, varbinds) {
     if (error) {
-        console.error (error.toString ());
+        
     } else {
-        if (varbinds[0].type != snmp.ErrorStatus.NoSuchObject
-                && varbinds[0].type != snmp.ErrorStatus.NoSuchInstance
-                && varbinds[0].type != snmp.ErrorStatus.EndOfMibView) {
-            var sysName = varbinds[0].value;
+        
         } else {
-            console.error (snmp.ObjectType[varbinds[0].type] + ": "
-                    + varbinds[0].oid);
+           
         }
     }
 });
