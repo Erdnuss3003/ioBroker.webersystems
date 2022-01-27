@@ -73,6 +73,9 @@ function startAdapter(options) {
                 // The state was changed
                 adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 				var changeoid = id;
+				changeoid = changeoid.replace(webersystems\.\d\., '');
+				
+				adapter.log.info(`changeoid`);
             } else {
                 // The state was deleted
                 adapter.log.info(`state ${id} deleted`);
