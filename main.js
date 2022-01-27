@@ -73,7 +73,7 @@ function startAdapter(options) {
                 // The state was changed
                 adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 				var changeoid = id;
-				changeoid = changeoid.replace(/\./g, '');
+				changeoid = changeoid.replace(\.\d\., '');
 				
 				adapter.log.info(changeoid);
             } else {
