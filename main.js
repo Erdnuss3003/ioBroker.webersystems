@@ -73,7 +73,7 @@ function startAdapter(options) {
                 // The state was changed
                 adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 				var changeoid = id;
-				changeoid = changeoid.replace(webersystems\.\d\., '');
+				changeoid = changeoid.replace(/\./g, '');
 				
 				adapter.log.info(`changeoid`);
             } else {
