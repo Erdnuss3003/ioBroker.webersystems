@@ -75,7 +75,7 @@ function startAdapter(options) {
 				var changeoid = id;
 				changeoid = changeoid.replace(/\./g, '');
 				
-				adapter.log.info(`changeoid`);
+				adapter.log.info(changeoid);
             } else {
                 // The state was deleted
                 adapter.log.info(`state ${id} deleted`);
