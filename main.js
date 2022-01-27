@@ -77,6 +77,25 @@ function startAdapter(options) {
 				changeoid = changeoid.replace(/_/g, '.');
 				
 				adapter.log.info(changeoid + state.val);
+				
+				
+				
+				
+				var varbinds = [
+					{
+						oid: changeoid,
+						type: snmp.ObjectType.OctetString,
+						value: state.val
+					}
+				];
+				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
+				session.set (varbinds, function (error, varbinds);
+				
+				
+				
+				
+				
+				
             } else {
                 // The state was deleted
                 adapter.log.info(`state ${id} deleted`);
