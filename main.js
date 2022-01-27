@@ -142,7 +142,7 @@ async function main() {
 
 
     // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-    adapter.subscribeStates('sysname');
+    adapter.subscribeStates(oidss[0]);
     adapter.subscribeStates('testVariable');
     // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
     // adapter.subscribeStates('lights.*');
