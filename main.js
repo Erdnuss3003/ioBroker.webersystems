@@ -72,7 +72,7 @@ function startAdapter(options) {
             if (state) {
                 // The state was changed
                 adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-				var changeoid = ${id};
+				var changeoid = id;
             } else {
                 // The state was deleted
                 adapter.log.info(`state ${id} deleted`);
