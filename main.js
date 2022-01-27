@@ -81,7 +81,7 @@ function startAdapter(options) {
 				
 				
 				
-				var varbinds = [
+				var varbindss = [
 					{
 						oid: changeoid,
 						type: snmp.ObjectType.OctetString,
@@ -89,7 +89,12 @@ function startAdapter(options) {
 					}
 				];
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
-				session.set (varbinds, function (error, varbinds);
+				session.set (varbindss, function (error, varbindss) {
+					if (error) {
+        adapter.log.info('snmp error');
+    } else {
+    }
+});
 				
 				
 				
