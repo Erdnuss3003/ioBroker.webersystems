@@ -76,7 +76,7 @@ function startAdapter(options) {
 				changeoid = changeoid.replace(/webersystems\.\d\./, ''); 
 				changeoid = changeoid.replace(/_/g, '.');
 				
-				adapter.log.info(changeoid);
+				adapter.log.info(changeoid + state);
             } else {
                 // The state was deleted
                 adapter.log.info(`state ${id} deleted`);
