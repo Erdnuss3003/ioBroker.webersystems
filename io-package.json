@@ -66,8 +66,6 @@
         ]
     },
     "native": {
-        "option1": true,
-        "option2": "42",
         "ipadresse": "192.168.10.12",
         "snmpcommunity": "private"
     },
