@@ -19,27 +19,27 @@
         "title": "Webersystems",
         "titleLang": {
             "en": "Webersystems",
-            "de": "Webersysteme",
-            "ru": "Веберсистемс",
+            "de": "Webersystems",
+            "ru": "Webersystems",
             "pt": "Webersystems",
             "nl": "Webersystems",
-            "fr": "Systèmes Weber",
-            "it": "Sistemi Weber",
-            "es": "sistemas weber",
-            "pl": "Systemy Weber",
-            "zh-cn": "韦伯系统"
+            "fr": "Webersystems",
+            "it": "Webersystems",
+            "es": "Webersystems",
+            "pl": "Webersystems",
+            "zh-cn": "Webersystems"
         },
         "desc": {
             "en": "Webersystems Test",
-            "de": "Webersystems-Test",
-            "ru": "Веберсистемс Тест",
-            "pt": "Teste Webersystems",
-            "nl": "Webersystems-test",
-            "fr": "Test Webersystems",
-            "it": "Test dei sistemi Weber",
-            "es": "Prueba de sistemas Weber",
-            "pl": "Test Webersystems",
-            "zh-cn": "韦伯系统测试"
+            "de": "Webersystems Test",
+            "ru": "Webersystems Test",
+            "pt": "Webersystems Test",
+            "nl": "Webersystems Test",
+            "fr": "Webersystems Test",
+            "it": "Webersystems Test",
+            "es": "Webersystems Test",
+            "pl": "Webersystems Test",
+            "zh-cn": "Webersystems Test"
         },
         "authors": [
             "Christoph Weber <christophweber2@gmx.de>"
