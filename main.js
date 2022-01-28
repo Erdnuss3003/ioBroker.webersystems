@@ -186,18 +186,32 @@ async function main() {
           }
         });
 		var oids = ["1.3.6.1.2.1.2.2.1.2"];
-		session.getNext (oids, function (error, varbinds) {
-			if (error) {
-				adapter.log.info (error.toString ());
-			} else {
-				for (var i = 0; i < varbinds.length; i++) {
-					// for version 1 we can assume all OIDs were successful
-					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
-					// for version 2c we must check each OID for an error condition
-					if (snmp.isVarbindError (varbinds[i]))
-						adapter.log.info (snmp.varbindError (varbinds[i]));
-					else
-						adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+		var nonRepeaters = 2;
+
+session.getBulk (oids, nonRepeaters, function (error, varbinds) {
+    if (error) {
+        adapter.log.info (error.toString ());
+    } else {
+        // step through the non-repeaters which are single varbinds
+        for (var i = 0; i < nonRepeaters; i++) {
+            if (i >= varbinds.length)
+                break;
+
+            if (snmp.isVarbindError (varbinds[i]))
+                adapter.log.info (snmp.varbindError (varbinds[i]));
+            else
+                adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+        }
+
+        // then step through the repeaters which are varbind arrays
+        for (var i = nonRepeaters; i < varbinds.length; i++) {
+            for (var j = 0; j < varbinds[i].length; j++) {
+                if (snmp.isVarbindError (varbinds[i][j]))
+                    adapter.log.info (snmp.varbindError (varbinds[i][j]));
+                else
+                    adapter.log.info (varbinds[i][j].oid + "|"
+                    		+ varbinds[i][j].value);
+            }
         }
     }
 });
