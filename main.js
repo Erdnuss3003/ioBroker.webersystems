@@ -128,14 +128,39 @@ function startAdapter(options) {
 }
 
 async function main() {
-	var oids = ["1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
+	var oids = ["1.3.6.1.2.1.1.1.0", "1.3.6.1.2.1.1.3.0", "1.3.6.1.2.1.1.4.0", "1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
 	var oidss = Array.from(oids);
 	oidss[0] = oidss[0].replace(/\./g, '_');
+	oidss[1] = oidss[1].replace(/\./g, '_');
+	oidss[2] = oidss[2].replace(/\./g, '_');
+	oidss[3] = oidss[3].replace(/\./g, '_');
+	oidss[4] = oidss[4].replace(/\./g, '_');
     await adapter.setObjectNotExistsAsync(oidss[0], {
+        type: 'state',
+        common: {name: 'sysdescr', type: 'string', role: 'value', read: true, write: true},
+        native: {},
+    });
+	await adapter.setObjectNotExistsAsync(oidss[1], {
+        type: 'state',
+        common: {name: 'sysuptime', type: 'string', role: 'value', read: true, write: true},
+        native: {},
+    });
+	await adapter.setObjectNotExistsAsync(oidss[2], {
+        type: 'state',
+        common: {name: 'syscontact', type: 'string', role: 'value', read: true, write: true},
+        native: {},
+    });
+	await adapter.setObjectNotExistsAsync(oidss[3], {
         type: 'state',
         common: {name: 'sysname', type: 'string', role: 'value', read: true, write: true},
         native: {},
     });
+	await adapter.setObjectNotExistsAsync(oidss[4], {
+        type: 'state',
+        common: {name: 'syslocation', type: 'string', role: 'value', read: true, write: true},
+        native: {},
+    });
+	
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // Die Adapterkonfiguration (im Instanzobjekt alles unter dem Attribut "native") ist erreichbar über
     // adapter.config:
@@ -148,9 +173,16 @@ async function main() {
           if (error) {
              adapter.log.info('snmp error');
           } else {
-             adapter.log.info('SNMP sysname: ' + varbinds[0].value);
-			 adapter.setState(oidss[0], varbinds[0].value.toString(), true);
-             adapter.log.info('SNMP syslocation: ' + varbinds[1].value);
+			 adapter.log.info('SNMP sysDescr: ' + varbinds[0].value);
+			 adapter.log.info('SNMP sysUpTime: ' + varbinds[1].value);
+			 adapter.log.info('SNMP sysContact: ' + varbinds[2].value);
+             adapter.log.info('SNMP sysName: ' + varbinds[3].value);			 
+             adapter.log.info('SNMP sysLocation: ' + varbinds[4].value);
+			 adapter.setState(oidss[0], varbinds[0].value.toString(), true);			 
+			 adapter.setState(oidss[1], varbinds[1].value.toString(), true);			 
+			 adapter.setState(oidss[2], varbinds[2].value.toString(), true);			 
+			 adapter.setState(oidss[3], varbinds[3].value.toString(), true);			 
+			 adapter.setState(oidss[4], varbinds[4].value.toString(), true);
           }
         });
 
@@ -172,6 +204,10 @@ async function main() {
 
     // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
     adapter.subscribeStates(oidss[0]);
+	adapter.subscribeStates(oidss[1]);
+	adapter.subscribeStates(oidss[2]);
+	adapter.subscribeStates(oidss[3]);
+	adapter.subscribeStates(oidss[4]);
     adapter.subscribeStates('testVariable');
     // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
     // adapter.subscribeStates('lights.*');
