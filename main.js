@@ -71,7 +71,7 @@ function startAdapter(options) {
         stateChange: (id, state) => {
             if (state) {
                 // The state was changed
-                adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+                // adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 				var changeoid = id;				
 				changeoid = changeoid.replace(/webersystems\.\d\./, ''); 
 				changeoid = changeoid.replace(/_/g, '.');
@@ -164,8 +164,8 @@ async function main() {
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // Die Adapterkonfiguration (im Instanzobjekt alles unter dem Attribut "native") ist erreichbar über
     // adapter.config:
-    adapter.log.info('config option1: ' + adapter.config.option1);
-    adapter.log.info('config option2: ' + adapter.config.option2);
+    // adapter.log.info('config option1: ' + adapter.config.option1);
+    // adapter.log.info('config option2: ' + adapter.config.option2);
     adapter.log.info('config IP Adresse: ' + adapter.config.ipadresse);
     adapter.log.info('config SNMP Community: ' + adapter.config.snmpcommunity);
        var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
@@ -194,13 +194,13 @@ async function main() {
         Hier eine einfache Vorlage für eine boolesche Variable namens "testVariable"
         Da jede Adapterinstanz ihren eigenen eindeutigen Namespace verwendet, können Variablennamen nicht mit anderen Adaptervariablen kollidieren
     */
-	
+	/*
 	await adapter.setObjectNotExistsAsync('testVariable', {
         type: 'state',
         common: {name: 'testVariable', type: 'boolean', role: 'indicator', read: true, write: true},
         native: {},
     });
-
+	*/
 
     // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
 	adapter.subscribeStates(oidss[2]);
@@ -218,23 +218,25 @@ async function main() {
     */
 
     // the variable testVariable is set to true as command (ack=false)
-    await adapter.setStateAsync('testVariable', true);
+    // await adapter.setStateAsync('testVariable', true);
 
     // same thing, but the value is flagged "ack"
     // ack should be always set to true if the value is received from or acknowledged from the target system
-    await adapter.setStateAsync('testVariable', { val: true, ack: true });
+    // await adapter.setStateAsync('testVariable', { val: true, ack: true });
 
     // same thing, but the state is deleted after 30s (getState will return null afterwards)
-    await adapter.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
+    // await adapter.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
 
     // examples for the checkPassword/checkGroup functions
-    adapter.checkPassword('admin', 'iobroker', (res) => {
+    /*
+	adapter.checkPassword('admin', 'iobroker', (res) => {
         adapter.log.info('check user admin pw iobroker: ' + res);
     });
 
     adapter.checkGroup('admin', 'admin', (res) => {
         adapter.log.info('check group user admin group admin: ' + res);
     });
+	*/
 }
 
 // @ts-ignore parent is a valid property on module
