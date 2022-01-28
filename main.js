@@ -137,12 +137,12 @@ async function main() {
 	oidss[4] = oidss[4].replace(/\./g, '_');
     await adapter.setObjectNotExistsAsync(oidss[0], {
         type: 'state',
-        common: {name: 'sysdescr', type: 'string', role: 'value', read: true, write: true},
+        common: {name: 'sysdescr', type: 'string', role: 'value', read: true, write: false},
         native: {},
     });
 	await adapter.setObjectNotExistsAsync(oidss[1], {
         type: 'state',
-        common: {name: 'sysuptime', type: 'string', role: 'value', read: true, write: true},
+        common: {name: 'sysuptime', type: 'string', role: 'value', read: true, write: false},
         native: {},
     });
 	await adapter.setObjectNotExistsAsync(oidss[2], {
@@ -203,8 +203,6 @@ async function main() {
 
 
     // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-    adapter.subscribeStates(oidss[0]);
-	adapter.subscribeStates(oidss[1]);
 	adapter.subscribeStates(oidss[2]);
 	adapter.subscribeStates(oidss[3]);
 	adapter.subscribeStates(oidss[4]);
