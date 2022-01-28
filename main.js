@@ -186,7 +186,7 @@ async function main() {
           }
         });
 		var oids = ["1.3.6.1.2.1.2.2.1.2", "1.3.6.1.2.1.2.2.1.3"];
-		var nonRepeaters = 0;
+		var nonRepeaters = 1;
 
 			session.getBulk (oids, nonRepeaters, function (error, varbinds) {
 				if (error) {
