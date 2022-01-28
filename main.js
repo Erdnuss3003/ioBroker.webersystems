@@ -91,10 +91,10 @@ function startAdapter(options) {
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 				session.set (varbindss, function (error, varbindss) {
 					if (error) {
-        adapter.log.info('snmp error');
-    } else {
-    }
-});
+						adapter.log.info('snmp error');
+					} else {
+						}
+				});
 				
 				
 				
@@ -185,6 +185,22 @@ async function main() {
 			 adapter.setState(oidss[4], varbinds[4].value.toString(), true);
           }
         });
+		var oids = ["1.3.6.1.2.1.2.2.1.2"];
+		session.getNext (oids, function (error, varbinds) {
+			if (error) {
+				adapter.log.info (error.toString ());
+			} else {
+				for (var i = 0; i < varbinds.length; i++) {
+					// for version 1 we can assume all OIDs were successful
+					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+					// for version 2c we must check each OID for an error condition
+					if (snmp.isVarbindError (varbinds[i]))
+						adapter.log.info (snmp.varbindError (varbinds[i]));
+					else
+						adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+        }
+    }
+});
 
     /*
         For every state in the system there has to be also an object of type state
