@@ -185,12 +185,12 @@ async function main() {
 			 adapter.setState(oidss[4], varbinds[4].value.toString(), true);
           }
         });
-		var oids = ["1.3.6.1.2.1.2.2.1.2"];
+		var oids = ["1.3.6.1.2.1.2.2.1.2", "1.3.6.1.2.1.2.2.1.3"];
 		var nonRepeaters = 2;
 
 			session.getBulk (oids, nonRepeaters, function (error, varbinds) {
 				if (error) {
-					// adapter.log.info (error.toString ());
+					adapter.log.info (error.toString ());
 				} else {
 					// step through the non-repeaters which are single varbinds
 					for (var i = 0; i < nonRepeaters; i++) {
@@ -198,19 +198,19 @@ async function main() {
 							break;
 
 						if (snmp.isVarbindError (varbinds[i]))
-							// adapter.log.info (snmp.varbindError (varbinds[i]));
+							adapter.log.info (snmp.varbindError (varbinds[i]));
 						else
-							// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+							adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					}
 
 					// then step through the repeaters which are varbind arrays
 					for (var i = nonRepeaters; i < varbinds.length; i++) {
 						for (var j = 0; j < varbinds[i].length; j++) {
 							if (snmp.isVarbindError (varbinds[i][j]))
-								// adapter.log.info (snmp.varbindError (varbinds[i][j]));
+								adapter.log.info (snmp.varbindError (varbinds[i][j]));
 							else
-								// adapter.log.info (varbinds[i][j].oid + "|"
-								//	+ varbinds[i][j].value);
+								adapter.log.info (varbinds[i][j].oid + "|"
+									+ varbinds[i][j].value);
 						}
 					}
 				}
