@@ -185,8 +185,8 @@ async function main() {
 			 adapter.setState(oidss[4], varbinds[4].value.toString(), true);
           }
         });
-		var oids = ["1.3.6.1.2.1.2.2.1.2", "1.3.6.1.2.1.2.2.1.3"];
-		var nonRepeaters = 1;
+		var oids = ["1.3.6.1.2.1.2.2.1.2"];
+		var nonRepeaters = 0;
 
 			session.getBulk (oids, nonRepeaters, function (error, varbinds) {
 				if (error) {
