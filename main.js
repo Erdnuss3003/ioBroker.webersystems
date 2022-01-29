@@ -186,6 +186,26 @@ async function main() {
           }
         });
 		var oids = ["1.3.6.1.2.1.2.2.1.2"];
+		function doneCb (error) {
+    if (error)
+         adapter.log.info (error.toString ());
+}
+
+function feedCb (varbinds) {
+    for (var i = 0; i < varbinds.length; i++) {
+        if (snmp.isVarbindError (varbinds[i]))
+             adapter.log.info (snmp.varbindError (varbinds[i]));
+        else
+             adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+    }
+}
+
+var maxRepetitions = 20;
+
+// The maxRepetitions argument is optional, and will be ignored unless using
+// SNMP verison 2c
+session.walk (oid, maxRepetitions, feedCb, doneCb);
+		/*
 		var nonRepeaters = 0;
 
 			session.getBulk (oids, nonRepeaters, function (error, varbinds) {
@@ -215,7 +235,7 @@ async function main() {
 					}
 				}
 			});
-
+		*/
     /*
         For every state in the system there has to be also an object of type state
         Here a simple template for a boolean variable named "testVariable"
