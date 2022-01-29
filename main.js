@@ -200,7 +200,7 @@ function feedCb (varbinds) {
     }
 }
 
-var maxRepetitions = 20;
+var maxRepetitions = 1;
 
 // The maxRepetitions argument is optional, and will be ignored unless using
 // SNMP verison 2c
