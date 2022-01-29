@@ -204,7 +204,7 @@ var maxRepetitions = 1;
 
 // The maxRepetitions argument is optional, and will be ignored unless using
 // SNMP verison 2c
-session.walk (oid, maxRepetitions, feedCb, doneCb);
+session.subtree (oid, maxRepetitions, feedCb, doneCb);
 		/*
 		var nonRepeaters = 0;
 
