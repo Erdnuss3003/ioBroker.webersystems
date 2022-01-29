@@ -168,39 +168,40 @@ async function main() {
     // adapter.log.info('config option2: ' + adapter.config.option2);
     adapter.log.info('config IP Adresse: ' + adapter.config.ipadresse);
     adapter.log.info('config SNMP Community: ' + adapter.config.snmpcommunity);
-       var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
-       session.get (oids, function (error, varbinds) {
-          if (error) {
-             adapter.log.info('snmp error');
-          } else {
-			 adapter.log.info('SNMP sysDescr: ' + varbinds[0].value);
-			 adapter.log.info('SNMP sysUpTime: ' + varbinds[1].value);
-			 adapter.log.info('SNMP sysContact: ' + varbinds[2].value);
-             adapter.log.info('SNMP sysName: ' + varbinds[3].value);			 
-             adapter.log.info('SNMP sysLocation: ' + varbinds[4].value);
-			 adapter.setState(oidss[0], varbinds[0].value.toString(), true);			 
-			 adapter.setState(oidss[1], varbinds[1].value.toString(), true);			 
-			 adapter.setState(oidss[2], varbinds[2].value.toString(), true);			 
-			 adapter.setState(oidss[3], varbinds[3].value.toString(), true);			 
-			 adapter.setState(oidss[4], varbinds[4].value.toString(), true);
-          }
+		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
+		session.get (oids, function (error, varbinds) {
+			if (error) {
+				adapter.log.info('snmp error');
+			} else {
+				adapter.log.info('SNMP sysDescr: ' 		+ varbinds[0].value);
+				adapter.log.info('SNMP sysUpTime: ' 	+ varbinds[1].value);
+				adapter.log.info('SNMP sysContact: ' 	+ varbinds[2].value);
+				adapter.log.info('SNMP sysName: ' 		+ varbinds[3].value);			 
+				adapter.log.info('SNMP sysLocation: ' 	+ varbinds[4].value);
+				adapter.setState(oidss[0], varbinds[0].value.toString(), true);			 
+				adapter.setState(oidss[1], varbinds[1].value.toString(), true);			 
+				adapter.setState(oidss[2], varbinds[2].value.toString(), true);			 
+				adapter.setState(oidss[3], varbinds[3].value.toString(), true);			 
+				adapter.setState(oidss[4], varbinds[4].value.toString(), true);
+			}
         });
+		
 		var oid = "1.3.6.1.2.1.2.2.1.2";
 		function doneCb (error) {
-    if (error)
-         adapter.log.info (error.toString ());
-}
+			if (error)
+				adapter.log.info (error.toString ());
+		}
 
-function feedCb (varbinds) {
-    for (var i = 0; i < varbinds.length; i++) {
-        if (snmp.isVarbindError (varbinds[i]))
-             adapter.log.info (snmp.varbindError (varbinds[i]));
-        else
-             adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
-    }
-}
+		function feedCb (varbinds) {
+			for (var i = 0; i < varbinds.length; i++) {
+				if (snmp.isVarbindError (varbinds[i]))
+					adapter.log.info (snmp.varbindError (varbinds[i]));
+				else
+					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+			}
+		}
 
-var maxRepetitions = 20;
+		var maxRepetitions = 20;
 
 // The maxRepetitions argument is optional, and will be ignored unless using
 // SNMP verison 2c
