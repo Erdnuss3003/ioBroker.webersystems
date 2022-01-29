@@ -185,7 +185,7 @@ async function main() {
 			 adapter.setState(oidss[4], varbinds[4].value.toString(), true);
           }
         });
-		var oids = ["1.3.6.1.2.1.2.2.1.2"];
+		var oid = "1.3.6.1.2.1.2.2.1.2";
 		function doneCb (error) {
     if (error)
          adapter.log.info (error.toString ());
