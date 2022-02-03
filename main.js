@@ -198,7 +198,7 @@ async function main() {
 					adapter.log.info (snmp.varbindError (varbinds[i]));
 				else
 					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
-					await adapter.setObjectNotExistsAsync(varbinds[i].oid, {type: 'state', common: {name: 'varbinds[i].value', type: 'string', role: 'value', read: true, write: true}, native: {},    });
+					adapter.setObjectNotExistsAsync(varbinds[i].oid, {type: 'state', common: {name: 'varbinds[i].value', type: 'string', role: 'value', read: true, write: true}, native: {}, });
 			}
 		}
 
