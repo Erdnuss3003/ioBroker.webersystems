@@ -187,7 +187,7 @@ async function main() {
         });
 		
 		var oid = "1.3.6.1.2.1.2.2.1.2";
-		var oida = "1.3.6.1.2.1.2.2.1.2";
+		var oids = "1.3.6.1.2.1.2.2.1.2";
 		function doneCb (error) {
 			if (error)
 				adapter.log.info (error.toString ());
@@ -199,9 +199,6 @@ async function main() {
 					adapter.log.info (snmp.varbindError (varbinds[i]));
 				else
 					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
-					oids = oida;				
-					oids = oids.replace(/\./g, '_');
-					oids = oids + "_" + i;
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: varbinds[i].value, type: 'string', role: 'value', read: true, write: true}, native: {}, });
 			}
 		}
