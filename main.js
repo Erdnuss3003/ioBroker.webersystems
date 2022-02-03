@@ -199,9 +199,9 @@ async function main() {
 					adapter.log.info (snmp.varbindError (varbinds[i]));
 				else
 					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
-					oids[i] = oids + "." + i;				
-					oids[i] = oids[i].replace(/\./g, '_');
-					adapter.setObjectNotExistsAsync(oids[i], {type: 'state', common: {name: varbinds[i].value, type: 'string', role: 'value', read: true, write: true}, native: {}, });
+					oidss = oids + "." + i;				
+					oidss = oidss.replace(/\./g, '_');
+					adapter.setObjectNotExistsAsync(oidss, {type: 'state', common: {name: varbinds[i].value, type: 'string', role: 'value', read: true, write: true}, native: {}, });
 			}
 		}
 
