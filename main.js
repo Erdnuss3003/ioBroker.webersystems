@@ -194,11 +194,12 @@ async function main() {
 		}
 
 		function feedCb (varbinds) {
-			for (var i = 1; i < varbinds.length; i++) {
+			for (var i = 0; i < varbinds.length; i++) {
 				if (snmp.isVarbindError (varbinds[i]))
 					adapter.log.info (snmp.varbindError (varbinds[i]));
 				else
 					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+				
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: varbinds[i].value, type: 'string', role: 'value', read: true, write: true}, native: {}, });
 			}
 		}
