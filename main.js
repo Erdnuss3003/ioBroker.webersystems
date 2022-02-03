@@ -200,7 +200,7 @@ async function main() {
 					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
-					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: varbinds[i].value, type: 'string', role: 'value', read: true, write: true}, native: {}, });
+					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'varbinds[i].value', type: 'string', role: 'value', read: true, write: false}, native: {}, });
 			}
 		}
 
