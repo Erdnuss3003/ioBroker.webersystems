@@ -58,6 +58,7 @@
         "mode": "daemon",
         "type": "infrastructure",
         "compact": true,
+        "connectionType": "local",
         "materialize": true,
         "dependencies": [
             {
