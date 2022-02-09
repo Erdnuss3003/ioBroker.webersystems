@@ -59,6 +59,7 @@
         "type": "infrastructure",
         "compact": true,
         "connectionType": "local",
+        "dataSource": "poll",
         "materialize": true,
         "dependencies": [
             {
