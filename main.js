@@ -187,6 +187,7 @@ async function main() {
         });
 		
 		var oid = "1.3.6.1.2.1.2.2.1.1";
+		var oiddescr = "1.3.6.1.2.1.2.2.1.2";
 		function doneCb (error) {
 			if (error)
 				adapter.log.info (error.toString ());
@@ -200,8 +201,25 @@ async function main() {
 					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
 					oids = "interface." + varbinds[i].value + "." + oids;
-					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifindex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
+					
+					var oiddescr = oiddescr + varbinds[i].value;
+					session.get (oiddescr, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error');
+							} else {
+								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
+								oids = varbinds[i].oid;
+								oids = oids.replace(/\./g, '_');
+								oids = "interface." + varbinds[i].value + "." + oids;
+								adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifindex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oiddescr[0], varbinds[0].value.toString(), true);
+						}
+        });
+					
+					
+					
 			}
 		}
 		var maxRepetitions = 20;
