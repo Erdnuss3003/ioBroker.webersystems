@@ -207,7 +207,7 @@ async function main() {
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
 					oiddescrvalue = oiddescr + "." + varbinds[i].value;
-					oiddescrvaluee = oiddescrvaluee.replace(/\./g, '_');
+					oiddescrvaluee = oiddescrvalue.replace(/\./g, '_');
 					oiddescrvaluee = "interface." + varbinds[i].value + "." + oiddescrvaluee;
 					oids = [oiddescrvalue];
 					session.get (oids, function (error, varbinds) {
