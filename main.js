@@ -186,12 +186,12 @@ async function main() {
 			}
         });
 		
-		var oid = "1.3.6.1.2.1.2.2.1.2";
+		var oid = "1.3.6.1.2.1.2.2.1.1";
 		function doneCb (error) {
 			if (error)
 				adapter.log.info (error.toString ());
 		}
-
+		var count = 0;
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
 				if (snmp.isVarbindError (varbinds[i]))
@@ -200,9 +200,10 @@ async function main() {
 					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
-					oids = "interface." + i + oids;
+					oids = "interface." + count + "." + oids;
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'varbinds[i].value', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
+					count = count++;
 			}
 		}
 		var maxRepetitions = 20;
