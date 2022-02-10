@@ -206,6 +206,8 @@ async function main() {
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
 					oiddescrvalue = oiddescr + "." + varbinds[i].value;
+					oiddescrvaluee = oiddescrvaluee.replace(/\./g, '_');
+					oiddescrvaluee = "interface." + varbinds[i].value + "." + oiddescrvaluee;
 					oids = [oiddescrvalue];
 					session.get (oids, function (error, varbinds) {
 						if (error) {
@@ -215,7 +217,7 @@ async function main() {
 								//oids = varbinds[i].oid;
 								//oids = oids.replace(/\./g, '_');
 								//oids = "interface." + varbinds[i].value + "." + oids;
-								adapter.setObjectNotExistsAsync(oiddescrvalue, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 								//adapter.setState(oiddescr[0], varbinds[0].value.toString(), true);
 						}
 					
