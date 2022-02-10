@@ -204,7 +204,7 @@ async function main() {
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
-					var oiddescr = oiddescr + "." + varbinds[i].value;
+					oiddescr = oiddescr + "." + varbinds[i].value;
 					session.get (oiddescr, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error' + oiddescr);
