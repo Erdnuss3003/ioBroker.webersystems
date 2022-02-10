@@ -206,9 +206,10 @@ async function main() {
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
 					oiddescrvalue = oiddescr + "." + varbinds[i].value;
-					session.get (oiddescrvalue, function (error, varbinds) {
+					oid = oiddescrvalue;
+					session.get (oid, function (error, varbinds) {
 						if (error) {
-							adapter.log.info('snmp error' + oiddescrvalue);
+							adapter.log.info('snmp error' + oid);
 							} else {
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
 								//oids = varbinds[i].oid;
@@ -227,6 +228,7 @@ async function main() {
 
 // The maxRepetitions argument is optional, and will be ignored unless using
 // SNMP verison 2c
+oid = "1.3.6.1.2.1.2.2.1.1";
 session.subtree (oid, maxRepetitions, feedCb, doneCb);
 		/*
 		var nonRepeaters = 0;
