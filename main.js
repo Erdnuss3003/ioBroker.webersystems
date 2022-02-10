@@ -79,8 +79,6 @@ function startAdapter(options) {
 				adapter.log.info(changeoid + state.val);
 				
 				
-				
-				
 				var varbindss = [
 					{
 						oid: changeoid,
@@ -94,12 +92,7 @@ function startAdapter(options) {
 						adapter.log.info('snmp error');
 					} else {
 						}
-				});
-				
-				
-				
-				
-				
+				});		
 				
             } else {
                 // The state was deleted
@@ -200,11 +193,11 @@ async function main() {
 					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
+					oids = "interface" + "_" + oids;
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'varbinds[i].value', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 			}
 		}
-
 		var maxRepetitions = 20;
 
 // The maxRepetitions argument is optional, and will be ignored unless using
