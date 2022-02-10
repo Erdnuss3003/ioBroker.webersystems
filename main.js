@@ -207,7 +207,7 @@ async function main() {
 					var oiddescr = oiddescr + "." + varbinds[i].value;
 					session.get (oiddescr, function (error, varbinds) {
 						if (error) {
-							adapter.log.info('snmp error');
+							adapter.log.info('snmp error' + oiddescr);
 							} else {
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
 								oids = varbinds[i].oid;
