@@ -204,17 +204,17 @@ async function main() {
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
-					oiddescr = oiddescr + "." + varbinds[i].value;
-					session.get (oiddescr, function (error, varbinds) {
+					oiddescr[i] = oiddescr + "." + varbinds[i].value;
+					session.get (oiddescr[i], function (error, varbinds) {
 						if (error) {
-							adapter.log.info('snmp error' + oiddescr);
+							adapter.log.info('snmp error' + oiddescr[i]);
 							} else {
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
-								oids = varbinds[i].oid;
-								oids = oids.replace(/\./g, '_');
-								oids = "interface." + varbinds[i].value + "." + oids;
-								adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifindex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-								adapter.setState(oiddescr[0], varbinds[0].value.toString(), true);
+								//oids = varbinds[i].oid;
+								//oids = oids.replace(/\./g, '_');
+								//oids = "interface." + varbinds[i].value + "." + oids;
+								//adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifindex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								//adapter.setState(oiddescr[0], varbinds[0].value.toString(), true);
 						}
         });
 					
