@@ -211,11 +211,12 @@ async function main() {
 						if (error) {
 							adapter.log.info('snmp error' + oid);
 							} else {
-								adapter.log.info('ifDescr: ' 		+ varbinds[0].value + oids[0]);
-								oiddescrvaluee = oiddescrvalue.replace(/\./g, '_');
-								oiddescrvaluee = "interface." + varbinds[i].value + "." + oiddescrvaluee;
-								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-								adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
+								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
+								//oids = varbinds[i].oid;
+								//oids = oids.replace(/\./g, '_');
+								//oids = "interface." + varbinds[i].value + "." + oids;
+								adapter.setObjectNotExistsAsync(oids[0], {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								//adapter.setState(oiddescr[0], varbinds[0].value.toString(), true);
 						}
 					
 					});
