@@ -129,11 +129,11 @@ async function main() {
 	oidss[3] = oidss[3].replace(/\./g, '_');
 	oidss[4] = oidss[4].replace(/\./g, '_');
 	
-	oidss[0] = "system_" + oidss[0];
-	oidss[1] = "system_" + oidss[1];
-	oidss[2] = "system_" + oidss[2];
-	oidss[3] = "system_" + oidss[3];
-	oidss[4] = "system_" + oidss[4];
+	oidss[0] = "system." + oidss[0];
+	oidss[1] = "system." + oidss[1];
+	oidss[2] = "system." + oidss[2];
+	oidss[3] = "system." + oidss[3];
+	oidss[4] = "system." + oidss[4];
 	
     await adapter.setObjectNotExistsAsync(oidss[0], {
         type: 'state',
@@ -200,7 +200,7 @@ async function main() {
 					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
-					oids = "interface" + "_" + oids;
+					oids = "interface." + oids;
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'varbinds[i].value', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 			}
