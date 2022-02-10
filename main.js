@@ -128,6 +128,13 @@ async function main() {
 	oidss[2] = oidss[2].replace(/\./g, '_');
 	oidss[3] = oidss[3].replace(/\./g, '_');
 	oidss[4] = oidss[4].replace(/\./g, '_');
+	
+	oidss[0] = "system_" + oidss[0];
+	oidss[1] = "system_" + oidss[1];
+	oidss[2] = "system_" + oidss[2];
+	oidss[3] = "system_" + oidss[3];
+	oidss[4] = "system_" + oidss[4];
+	
     await adapter.setObjectNotExistsAsync(oidss[0], {
         type: 'state',
         common: {name: 'sysdescr', type: 'string', role: 'value', read: true, write: false},
