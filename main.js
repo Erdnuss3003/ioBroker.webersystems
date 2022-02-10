@@ -204,6 +204,7 @@ async function main() {
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					ifindex[i] = varbinds[i].value;
+					adapter.log.info ('ifindex info= ' + ifindex[i]);
 					
 			}
 		}
