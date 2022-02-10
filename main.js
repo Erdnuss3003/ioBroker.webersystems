@@ -187,9 +187,15 @@ async function main() {
         });
 		
 		var oid = "1.3.6.1.2.1.2.2.1.1";
+		
 		var oiddescr = "1.3.6.1.2.1.2.2.1.2";
 		var oiddescrvalue = "0";
 		var oiddescrvaluee = "0";
+		
+		var oidadminstatus = "1.3.6.1.2.1.2.2.1.7";
+		var oidadminstatusvalue = "0";
+		var oidadminstatusvaluee = "0";
+		
 		function doneCb (error) {
 			if (error)
 				adapter.log.info (error.toString ());
@@ -209,17 +215,29 @@ async function main() {
 					oiddescrvalue = oiddescr + "." + varbinds[i].value;
 					oiddescrvaluee = oiddescrvalue.replace(/\./g, '_');
 					oiddescrvaluee = "interface." + varbinds[i].value + "." + oiddescrvaluee;
-					oids = [oiddescrvalue];
+					
+					oidadminstatusvalue = oidadminstatus + "." + varbinds[i].value;
+					oidadminstatusvaluee = oidadminstatusvalue.replace(/\./g, '_');
+					oidadminstatusvaluee = "interface." + varbinds[i].value + "." + oidadminstatusvaluee;
+					
+					
+					oids = [oiddescrvalue, oidadminstatusvalue];
+					
 					session.get (oids, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error' + oid);
 							} else {
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
+								
+								adapter.log.info('ifAdminStatus: ' 		+ varbinds[1].value);
 								//oids = varbinds[i].oid;
 								//oids = oids.replace(/\./g, '_');
 								//oids = "interface." + varbinds[i].value + "." + oids;
 								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 								adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidadminstatusvaluee, varbinds[0].value.toString(), true);
 						}
 					
 					});
