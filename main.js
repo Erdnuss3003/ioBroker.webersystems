@@ -188,7 +188,7 @@ async function main() {
 		
 		var oid = "1.3.6.1.2.1.2.2.1.1";
 		var oiddescr = "1.3.6.1.2.1.2.2.1.2";
-		var oiddescr = "0";
+		var oiddescrvalue = "0";
 		function doneCb (error) {
 			if (error)
 				adapter.log.info (error.toString ());
