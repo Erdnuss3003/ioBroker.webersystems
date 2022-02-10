@@ -219,7 +219,7 @@ async function main() {
 								//oids = oids.replace(/\./g, '_');
 								//oids = "interface." + varbinds[i].value + "." + oids;
 								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-								//adapter.setState(oiddescr[0], varbinds[0].value.toString(), true);
+								adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
 						}
 					
 					});
