@@ -187,7 +187,8 @@ async function main() {
         });
 		
 		var oid = "1.3.6.1.2.1.2.2.1.1";
-		var ifindex = [];
+		var oiddescr = "1.3.6.1.2.1.2.2.1.2";
+		var oiddescrvalue = "0";
 		function doneCb (error) {
 			if (error)
 				adapter.log.info (error.toString ());
@@ -203,8 +204,24 @@ async function main() {
 					oids = "interface." + varbinds[i].value + "." + oids;
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
-					ifindex[i] = varbinds[i].value;
-					adapter.log.info ('ifindex info= ' + ifindex[i]);
+					
+					oiddescrvalue = oiddescr + "." + varbinds[i].value;
+					oids = [oiddescrvalue];
+					session.get (oids, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error' + oid);
+							} else {
+								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
+								//oids = varbinds[i].oid;
+								//oids = oids.replace(/\./g, '_');
+								//oids = "interface." + varbinds[i].value + "." + oids;
+								//adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifindex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								//adapter.setState(oiddescr[0], varbinds[0].value.toString(), true);
+						}
+					
+					});
+					
+					
 					
 			}
 		}
@@ -212,11 +229,8 @@ async function main() {
 
 // The maxRepetitions argument is optional, and will be ignored unless using
 // SNMP verison 2c
+oid = "1.3.6.1.2.1.2.2.1.1";
 session.subtree (oid, maxRepetitions, feedCb, doneCb);
-
-
-var oid = "1.3.6.1.2.1.2.2.1.2";	
-	
 		/*
 		var nonRepeaters = 0;
 
