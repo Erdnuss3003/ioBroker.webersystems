@@ -211,7 +211,7 @@ async function main() {
 						if (error) {
 							adapter.log.info('snmp error' + oid);
 							} else {
-								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
+								adapter.log.info('ifDescr: ' 		+ varbinds[0].value + oids[0]);
 								oids = oids.replace(/\./g, '_');
 								oids = "interface." + varbinds[i].value + "." + oids;
 								adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
