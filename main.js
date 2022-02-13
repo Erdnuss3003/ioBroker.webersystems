@@ -121,10 +121,7 @@ function startAdapter(options) {
 }
 
 async function main() {
-	var durchgang = 1;
-	
-	
-	while (durchgang > 0) {
+
 	var oids = ["1.3.6.1.2.1.1.1.0", "1.3.6.1.2.1.1.3.0", "1.3.6.1.2.1.1.4.0", "1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
 	var oidss = Array.from(oids);
 	oidss[0] = oidss[0].replace(/\./g, '_');
@@ -338,8 +335,7 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
         adapter.log.info('check group user admin group admin: ' + res);
     });
 	*/
-sleep(30000);	
-}
+
 }
 
 // @ts-ignore parent is a valid property on module
