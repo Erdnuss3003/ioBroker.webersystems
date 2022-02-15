@@ -10,7 +10,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.webersystems.png?downloads=true)](https://nodei.co/npm/iobroker.webersystems/)
 
-## webersystems adapter for ioBroker
+## SNMP Netzwork Switch Control adapter for ioBroker
 
 Webersystems Test
 
@@ -18,12 +18,12 @@ Webersystems Test
 ## Changelog
 
 ### 0.0.1
-* (Christoph Weber) initial release
+* (Erdnuss3003) initial release
 
 ## License
 MIT License
 
-Copyright (c) 2022 Christoph Weber <christophweber2@gmx.de>
+Copyright (c) 2022 Erdnuss3003 <christophweber2@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
