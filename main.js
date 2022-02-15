@@ -85,8 +85,9 @@ function startAdapter(options) {
 				
 				adapter.log.info(changeoid + " " + state.val);
 				
-				var regex = /1\.3\.6\.1\.2\.1\.3\.2\.1\.7\.[0-9]+/i;
+				var regex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/;
 
+				if (changeoid.match(regex)) {
 					var varbindss = [
 						{
 						oid: changeoid,
@@ -94,6 +95,15 @@ function startAdapter(options) {
 						value: state.val
 						}
 					];
+				} else {
+					var varbindss = [
+						{
+						oid: changeoid,
+						type: snmp.ObjectType.OctetString,
+						value: state.val
+						}
+					];
+				}
 				
 				
 				
