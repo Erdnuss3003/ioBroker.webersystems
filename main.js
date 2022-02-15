@@ -86,7 +86,7 @@ function startAdapter(options) {
 				adapter.log.info(changeoid + " " + state.val);
 				
 				var regex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/g;
-					if (changeoid.match(regex)) {
+					if (changeoid.includes('1.3.6.1.3.1.3.2.1.7')) {
 						adapter.log.info("postitv");
 					} else {
 						adapter.log.info("negativ");
@@ -99,7 +99,7 @@ function startAdapter(options) {
 						}];
 				
 			    
-				
+		
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 				session.set (varbindss, function (error, varbindss) {
 					if (error) {
