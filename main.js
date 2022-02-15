@@ -185,6 +185,9 @@ async function main() {
 				adapter.setState(oidss[2], varbinds[2].value.toString(), true);			 
 				adapter.setState(oidss[3], varbinds[3].value.toString(), true);			 
 				adapter.setState(oidss[4], varbinds[4].value.toString(), true);
+				adapter.subscribeStates(oidss[2]);
+				adapter.subscribeStates(oidss[3]);
+				adapter.subscribeStates(oidss[4]);
 			}
         });
 		
@@ -230,16 +233,15 @@ async function main() {
 							adapter.log.info('snmp error' + oid);
 							} else {
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
-								
 								adapter.log.info('ifAdminStatus: ' 		+ varbinds[1].value);
-								//oids = varbinds[i].oid;
-								//oids = oids.replace(/\./g, '_');
-								//oids = "interface." + varbinds[i].value + "." + oids;
+								
 								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 								adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
+								adapter.subscribeStates(oiddescrvaluee);
 								
 								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: true}, native: {}, });								 
 								adapter.setState(oidadminstatusvaluee, varbinds[1].value.toString(), true);
+								adapter.subscribeStates(oidadminstatusvaluee);
 						}
 					
 					});
@@ -302,9 +304,7 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 	*/
 
     // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-	adapter.subscribeStates(oidss[2]);
-	adapter.subscribeStates(oidss[3]);
-	adapter.subscribeStates(oidss[4]);
+
     adapter.subscribeStates('testVariable');
     // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
     // adapter.subscribeStates('lights.*');
