@@ -86,7 +86,11 @@ function startAdapter(options) {
 				adapter.log.info(changeoid + " " + state.val);
 				
 				var regex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/;
-
+					if (changeoid.match(regex)) {
+						adapter.log.info("postitv");
+					} else {
+						adapter.log.info("negativ");
+					}
 				var varbindss = [
 						{
 						oid: changeoid,
