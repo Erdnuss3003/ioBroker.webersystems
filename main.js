@@ -87,7 +87,6 @@ function startAdapter(options) {
 				
 				var regex = /1\.3\.6\.1\.2\.1\.3\.2\.1\.7\.[0-9]+/i;
 
-				if (changeoid.match(regex)) {
 					var varbindss = [
 						{
 						oid: changeoid,
@@ -95,15 +94,6 @@ function startAdapter(options) {
 						value: state.val
 						}
 					];
-				} else {
-					var varbindss = [
-						{
-						oid: changeoid,
-						type: snmp.ObjectType.OctetString,
-						value: state.val
-						}
-					];
-				}
 				
 				
 				
