@@ -72,6 +72,12 @@ function startAdapter(options) {
             if (state) {
                 // The state was changed
                 // adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+				
+
+				
+				
+				
+				
 				var changeoid = id;				
 				changeoid = changeoid.replace(/webersystems\.\d\./, ''); 
 				changeoid = changeoid.replace(/(.*)\./, '');
@@ -79,14 +85,28 @@ function startAdapter(options) {
 				
 				adapter.log.info(changeoid + state.val);
 				
-				
-				var varbindss = [
-					{
+				var regex = /1\.3\.6\.1\.2\.1\.3\.2\.1\.7\.[0-9]+/i;
+
+				if (changeoid.match(regex)) {
+					var varbindss = [
+						{
+						oid: changeoid,
+						type: snmp.ObjectType.Integer,
+						value: state.val
+						}
+					];
+				} else {
+					var varbindss = [
+						{
 						oid: changeoid,
 						type: snmp.ObjectType.OctetString,
 						value: state.val
-					}
-				];
+						}
+					];
+				}
+				
+				
+				
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 				session.set (varbindss, function (error, varbindss) {
 					if (error) {
