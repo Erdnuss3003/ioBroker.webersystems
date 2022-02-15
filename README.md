@@ -14,7 +14,7 @@
 
 Webersystems Test
 
-
+Sopport for SNMP v2c
 ## Changelog
 
 ### 0.0.1

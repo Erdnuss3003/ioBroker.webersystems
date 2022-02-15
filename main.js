@@ -230,7 +230,7 @@ async function main() {
 					
 					session.get (oids, function (error, varbinds) {
 						if (error) {
-							adapter.log.info('snmp error' + oid);
+							// adapter.log.info('snmp error' + oid);
 							} else {
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
 								adapter.log.info('ifAdminStatus: ' 		+ varbinds[1].value);
@@ -240,7 +240,8 @@ async function main() {
 								
 								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: true}, native: {}, });								 
 								adapter.setState(oidadminstatusvaluee, varbinds[1].value.toString(), true);
-								// adapter.subscribeStates(oidadminstatusvaluee);
+								adapter.subscribeStates(oidadminstatusvaluee);
+								
 						}
 					
 					});
