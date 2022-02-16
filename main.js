@@ -88,11 +88,11 @@ function startAdapter(options) {
 								
 
 				var regex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/g;
-
+				var varbintype = "snmp.ObjectType.OctetString";
 				var varbindss = [
 						{
 						oid: changeoid,
-						type: snmp.ObjectType.OctetString,
+						type: varbintype,
 						value: state.val
 						}];
 				
