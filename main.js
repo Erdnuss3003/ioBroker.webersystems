@@ -218,11 +218,9 @@ async function main() {
 		
 		var oiddescr = "1.3.6.1.2.1.2.2.1.2";
 		var oiddescrvalue = "0";
-		var oiddescrvaluee = "0";
 		
 		var oidadminstatus = "1.3.6.1.2.1.2.2.1.7";
 		var oidadminstatusvalue = "0";
-		var oidadminstatusvaluee = "0";
 		
 		function doneCb (error) {
 			if (error)
@@ -237,16 +235,17 @@ async function main() {
 					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
 					oids = "interface." + varbinds[i].value + "." + oids;
+					
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
 					oiddescrvalue = oiddescr + "." + varbinds[i].value;
-					oiddescrvaluee = oiddescrvalue.replace(/\./g, '_');
-					oiddescrvaluee = "interface." + varbinds[i].value + "." + oiddescrvaluee;
+					oiddescrvalue = oiddescrvalue.replace(/\./g, '_');
+					oiddescrvalue = "interface." + varbinds[i].value + "." + oiddescrvalue;
 					
 					oidadminstatusvalue = oidadminstatus + "." + varbinds[i].value;
-					oidadminstatusvaluee = oidadminstatusvalue.replace(/\./g, '_');
-					oidadminstatusvaluee = "interface." + varbinds[i].value + "." + oidadminstatusvaluee;
+					oidadminstatusvalue = oidadminstatusvalue.replace(/\./g, '_');
+					oidadminstatusvalue = "interface." + varbinds[i].value + "." + oidadminstatusvalue;
 					
 					
 					oids = [oiddescrvalue, oidadminstatusvalue];
@@ -258,12 +257,12 @@ async function main() {
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
 								adapter.log.info('ifAdminStatus: ' 		+ varbinds[1].value);
 								
-								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-								adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
+								adapter.setObjectNotExistsAsync(oiddescrvalue, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oiddescrvalue, varbinds[0].value.toString(), true);
 								
-								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'number', role: 'value', read: true, write: true}, native: {}, });								 
-								adapter.setState(oidadminstatusvaluee, varbinds[1].value.toString(), true);
-								adapter.subscribeStates(oidadminstatusvaluee);
+								adapter.setObjectNotExistsAsync(oidadminstatusvalue, {type: 'state', common: {name: 'ifAdminStatus', type: 'number', role: 'value', read: true, write: true}, native: {}, });								 
+								adapter.setState(oidadminstatusvalue, varbinds[1].value.toString(), true);
+								adapter.subscribeStates(oidadminstatusvalue);
 								
 						}
 					
