@@ -89,8 +89,7 @@ function startAdapter(options) {
 
 				var regex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/g;
 				
-				if (text.match(/1.3.6.1.3.1.3.2.1.7.[0-9]+/g)) {
-
+				
 				var varbindssstring = [
 						{
 						oid: changeoid,
