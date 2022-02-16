@@ -89,14 +89,14 @@ function startAdapter(options) {
 
 				var regex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/g;
 					if (changeoid.match(regex)) {
-						var varbindesstype = "snmp.ObjectType.Integer32";
+						var varbindesstype = "Integer32";
 					} else {
-						var varbindesstype = "snmp.ObjectType.OctetString";
+						var varbindesstype = "OctetString";
 					}
 				var varbindss = [
 						{
 						oid: changeoid,
-						type: varbindesstype,
+						type: snmp.ObjectType.varbindesstype,
 						value: state.val
 						}];
 				
