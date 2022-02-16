@@ -102,7 +102,7 @@ function startAdapter(options) {
 						type: snmp.ObjectType.Integer32,
 						value: state.val
 						}];
-				if (text.match(/1.3.6.1.3.1.3.2.1.7.[0-9]+/g)) {
+				if (changeoid.match(/1.3.6.1.3.1.3.2.1.7.[0-9]+/g)) {
 					var varbindss = varbindssinteger;
 				} else {
 					var varbindss = varbindssstring;
