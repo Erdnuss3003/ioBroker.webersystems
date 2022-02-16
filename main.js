@@ -102,10 +102,10 @@ function startAdapter(options) {
 						type: snmp.ObjectType.Integer32,
 						value: state.val
 						}];
-				if (changeoid.match(/1.3.6.1.3.1.3.2.1.7.[0-9]+/g)) {
+				if (regex.test(changeoid)) {
 					var varbindss = varbindssinteger;
 				} else {
-					var varbindss = varbindssinteger;
+					var varbindss = varbindssstring;
 				}
 				
 			   
