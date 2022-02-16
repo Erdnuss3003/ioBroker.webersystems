@@ -84,17 +84,19 @@ function startAdapter(options) {
 				changeoid = changeoid.replace(/_/g, '.');
 				
 				adapter.log.info(changeoid + " " + state.val);
-				
+							
+								
+
 				var regex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/g;
-					if (changeoid.includes('1.3.7.1.3.1.3.2.1.7')) {
-						adapter.log.info("postitv");
+					if (changeoid.match(regex)) {
+						var varbindesstype = "snmp.ObjectType.Integer32";
 					} else {
-						adapter.log.info("negativ");
+						var varbindesstype = "snmp.ObjectType.String";
 					}
 				var varbindss = [
 						{
 						oid: changeoid,
-						type: snmp.ObjectType.Integer32,
+						type: varbindesstype,
 						value: state.val
 						}];
 				
