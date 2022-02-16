@@ -91,7 +91,7 @@ function startAdapter(options) {
 					if (changeoid.match(regex)) {
 						var varbindesstype = "snmp.ObjectType.Integer32";
 					} else {
-						var varbindesstype = "snmp.ObjectType.String";
+						var varbindesstype = "snmp.ObjectType.OctetString";
 					}
 				var varbindss = [
 						{
