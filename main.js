@@ -105,7 +105,7 @@ function startAdapter(options) {
 				if (changeoid.match(/1.3.6.1.3.1.3.2.1.7.[0-9]+/g)) {
 					var varbindss = varbindssinteger;
 				} else {
-					var varbindss = varbindssstring;
+					var varbindss = varbindssinteger;
 				}
 				
 			   
