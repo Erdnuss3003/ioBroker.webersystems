@@ -290,14 +290,14 @@ async function main() {
 							// adapter.log.info('snmp error' + oid);
 							} else {
 								
-								
-								var varbinds[4].value = varbinds[4].value.replace(/:/g, '_');
+								var varbinds4physaddress = varbinds[4].value;
+								var  varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
 								
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
 								// adapter.log.info('ifType: ' 		+ varbinds[1].value);
 								// adapter.log.info('ifMtu: ' 		+ varbinds[2].value);
 								// adapter.log.info('ifSpeed: ' 		+ varbinds[3].value);
-								adapter.log.info('ifPhysAddress: ' 		+ varbinds[4].value);
+								adapter.log.info('ifPhysAddress: ' 		+ varbinds4physaddressrepl);
 								// adapter.log.info('ifAdminStatus: ' 		+ varbinds[5].value);
 								
 								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
@@ -313,7 +313,7 @@ async function main() {
 								adapter.setState(oidspeedvaluee, varbinds[3].value.toString(), true);
 								
 								adapter.setObjectNotExistsAsync(oidphysaddressvaluee, {type: 'state', common: {name: 'ifPhysAddress', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-								adapter.setState(oidphysaddressvaluee, varbinds[4].value.toString(), true);
+								adapter.setState(oidphysaddressvaluee, varbinds4physaddressrepl.toString(), true);
 								
 								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: true}, native: {}, });								 
 								adapter.setState(oidadminstatusvaluee, varbinds[5].value.toString(), true);
