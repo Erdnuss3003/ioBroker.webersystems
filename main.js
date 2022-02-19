@@ -220,13 +220,27 @@ async function main() {
 		var oiddescrvalue = "0";
 		var oiddescrvaluee = "0";
 		
+		var oidtype = "1.3.6.1.2.1.2.2.1.3";
+		var oidtypevalue = "0";
+		var oidtypevaluee = "0";
+		
+		var oidmtu = "1.3.6.1.2.1.2.2.1.4";
+		var oidmtuvalue = "0";
+		var oidmtuvaluee = "0";
+		
+		var oidspeed = "1.3.6.1.2.1.2.2.1.5";
+		var oidspeedvalue = "0";
+		var oidspeedvaluee = "0";
+		
+		var oidphysaddress = "1.3.6.1.2.1.2.2.1.6";
+		var oidphysaddressvalue = "0";
+		var oidphysaddressvaluee = "0";
+		
 		var oidadminstatus = "1.3.6.1.2.1.2.2.1.7";
 		var oidadminstatusvalue = "0";
 		var oidadminstatusvaluee = "0";
 		
-		var oidifspeed = "1.3.6.1.2.1.2.2.1.5";
-		var oidifspeedvalue = "0";
-		var oidifspeedvaluee = "0";
+
 		
 		function doneCb (error) {
 			if (error)
@@ -248,33 +262,56 @@ async function main() {
 					oiddescrvaluee = oiddescrvalue.replace(/\./g, '_');
 					oiddescrvaluee = "interface." + varbinds[i].value + "." + oiddescrvaluee;
 					
+					oidtypevalue = oidtype + "." + varbinds[i].value;
+					oidtypevaluee = oidtypevalue.replace(/\./g, '_');
+					oidtypevaluee = "interface." + varbinds[i].value + "." + oidtypevaluee;
+					
+					oidmtuvalue = oidmtu + "." + varbinds[i].value;
+					oidmtuvaluee = oidmtuvalue.replace(/\./g, '_');
+					oidmtuvaluee = "interface." + varbinds[i].value + "." + oidmtuvaluee;
+					
+					oidspeedvalue = oidspeed + "." + varbinds[i].value;
+					oidspeedvaluee = oidspeedvalue.replace(/\./g, '_');
+					oidspeedvaluee = "interface." + varbinds[i].value + "." + oidspeedvaluee;
+					
+					oidphysaddressvalue = oidphysaddress + "." + varbinds[i].value;
+					oidphysaddressvaluee = oidphysaddressvalue.replace(/\./g, '_');
+					oidphysaddressvaluee = "interface." + varbinds[i].value + "." + oidphysaddressvaluee;
+					
 					oidadminstatusvalue = oidadminstatus + "." + varbinds[i].value;
 					oidadminstatusvaluee = oidadminstatusvalue.replace(/\./g, '_');
 					oidadminstatusvaluee = "interface." + varbinds[i].value + "." + oidadminstatusvaluee;
+											
 					
-					oidifspeedvalue = oidifspeed + "." + varbinds[i].value;
-					oidifspeedvaluee = oidifspeedvalue.replace(/\./g, '_');
-					oidifspeedvaluee = "interface." + varbinds[i].value + "." + oidifspeedvaluee;
-					
-					
-					oids = [oiddescrvalue, oidadminstatusvalue, oidifspeedvalue];
+					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue];
 					
 					session.get (oids, function (error, varbinds) {
 						if (error) {
 							// adapter.log.info('snmp error' + oid);
 							} else {
-								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
-								adapter.log.info('ifAdminStatus: ' 		+ varbinds[1].value);
+								// adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
+								// adapter.log.info('ifAdminStatus: ' 		+ varbinds[1].value);
 								
-								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 								adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
 								
+								adapter.setObjectNotExistsAsync(oidtypevaluee, {type: 'state', common: {name: 'ifType', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidtypevaluee, varbinds[1].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidmtuvaluee, {type: 'state', common: {name: 'ifMtu', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidmtuvaluee, varbinds[2].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidspeedvaluee, {type: 'state', common: {name: 'ifSpeed', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidspeedvaluee, varbinds[3].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidphysaddressvaluee, {type: 'state', common: {name: 'ifPhysAddress', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidphysaddressvaluee, varbinds[4].value.toString(), true);
+								
 								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: true}, native: {}, });								 
-								adapter.setState(oidadminstatusvaluee, varbinds[1].value.toString(), true);
+								adapter.setState(oidadminstatusvaluee, varbinds[5].value.toString(), true);
 								adapter.subscribeStates(oidadminstatusvaluee);
 								
-								adapter.setObjectNotExistsAsync(oidifspeedvaluee, {type: 'state', common: {name: 'ifSpeed', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-								adapter.setState(oidifspeedvaluee, varbinds[2].value.toString(), true);
+								
 								
 						}
 					
