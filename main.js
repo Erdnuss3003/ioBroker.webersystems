@@ -313,7 +313,7 @@ async function main() {
 								adapter.setState(oidspeedvaluee, varbinds[3].value.toString(), true);
 								
 								adapter.setObjectNotExistsAsync(oidphysaddressvaluee, {type: 'state', common: {name: 'ifPhysAddress', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-								adapter.setState(oidphysaddressvaluee, varbinds4physaddressrepl.toString(), true);
+								adapter.setState(oidphysaddressvaluee, varbinds[4].value.toString(), true);
 								
 								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: true}, native: {}, });								 
 								adapter.setState(oidadminstatusvaluee, varbinds[5].value.toString(), true);
