@@ -86,8 +86,8 @@ function startAdapter(options) {
 				adapter.log.info(changeoid + " " + state.val);
 							
 								
-
-				var iodregex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/g;
+				var changetest = '1.3.6.1.3.1.3.2.1.7.1';
+				var oidregex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/g;
 				
 				
 				var varbindssstring = [
@@ -102,7 +102,7 @@ function startAdapter(options) {
 						type: snmp.ObjectType.Integer32,
 						value: state.val
 						}];
-				if (changeoid.match(new RegExp(iodregex))) {
+				if (changetest.match(new RegExp(oidregex))) {
 					var varbindss = varbindssinteger;
 				} else {
 					var varbindss = varbindssstring;
