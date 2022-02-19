@@ -82,6 +82,7 @@ function startAdapter(options) {
 				changeoid = changeoid.replace(/webersystems\.\d\./, ''); 
 				changeoid = changeoid.replace(/(.*)\./, '');
 				changeoid = changeoid.replace(/_/g, '.');
+				changeoid = changeoid;
 				
 				adapter.log.info(changeoid + " " + state.val);
 							
@@ -102,7 +103,7 @@ function startAdapter(options) {
 						type: snmp.ObjectType.Integer32,
 						value: state.val
 						}];
-				if (changetest.match(new RegExp(oidregex))) {
+				if (changeoid.match(new RegExp(oidregex))) {
 					var varbindss = varbindssinteger;
 				} else {
 					var varbindss = varbindssstring;
