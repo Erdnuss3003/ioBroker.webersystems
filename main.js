@@ -196,13 +196,13 @@ async function main() {
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		session.get (oids, function (error, varbinds) {
 			if (error) {
-				adapter.log.info('snmp error');
+				// adapter.log.info('snmp error');
 			} else {
-				adapter.log.info('SNMP sysDescr: ' 		+ varbinds[0].value);
-				adapter.log.info('SNMP sysUpTime: ' 	+ varbinds[1].value);
-				adapter.log.info('SNMP sysContact: ' 	+ varbinds[2].value);
-				adapter.log.info('SNMP sysName: ' 		+ varbinds[3].value);			 
-				adapter.log.info('SNMP sysLocation: ' 	+ varbinds[4].value);
+				// adapter.log.info('SNMP sysDescr: ' 		+ varbinds[0].value);
+				// adapter.log.info('SNMP sysUpTime: ' 	+ varbinds[1].value);
+				// adapter.log.info('SNMP sysContact: ' 	+ varbinds[2].value);
+				// adapter.log.info('SNMP sysName: ' 		+ varbinds[3].value);			 
+				// adapter.log.info('SNMP sysLocation: ' 	+ varbinds[4].value);
 				adapter.setState(oidss[0], varbinds[0].value.toString(), true);			 
 				adapter.setState(oidss[1], varbinds[1].value.toString(), true);			 
 				adapter.setState(oidss[2], varbinds[2].value.toString(), true);			 
@@ -289,6 +289,10 @@ async function main() {
 						if (error) {
 							// adapter.log.info('snmp error' + oid);
 							} else {
+								
+								
+								var varbinds[4].value = varbinds[4].value.replace(/:/g, '_');
+								
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
 								// adapter.log.info('ifType: ' 		+ varbinds[1].value);
 								// adapter.log.info('ifMtu: ' 		+ varbinds[2].value);
