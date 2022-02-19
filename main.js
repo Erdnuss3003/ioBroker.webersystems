@@ -290,14 +290,14 @@ async function main() {
 							// adapter.log.info('snmp error' + oid);
 							} else {
 								
-								var varbinds4physaddress = varbinds[4].value;
-								var varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
+								// var varbinds4physaddress = varbinds[4].value;
+								// var varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
 								
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
 								// adapter.log.info('ifType: ' 		+ varbinds[1].value);
 								// adapter.log.info('ifMtu: ' 		+ varbinds[2].value);
 								// adapter.log.info('ifSpeed: ' 		+ varbinds[3].value);
-								adapter.log.info('ifPhysAddress: ' 		+ varbinds4physaddressrepl);
+								adapter.log.info('ifPhysAddress: ' 		+ varbinds[4].value);
 								// adapter.log.info('ifAdminStatus: ' 		+ varbinds[5].value);
 								
 								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
