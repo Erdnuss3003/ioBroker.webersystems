@@ -278,9 +278,7 @@ async function main() {
 								
 						}
 					
-					});
-					
-					
+					});					
 					
 			}
 		}
