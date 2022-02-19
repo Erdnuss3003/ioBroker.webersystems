@@ -291,7 +291,7 @@ async function main() {
 							} else {
 								
 								var varbinds4physaddress = varbinds[4].value;
-								var  varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
+								var varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
 								
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
 								// adapter.log.info('ifType: ' 		+ varbinds[1].value);
