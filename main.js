@@ -36,7 +36,7 @@ function startAdapter(options) {
 	// Der Ready-Callback wird aufgerufen, wenn Datenbanken verbunden sind und der Adapter die Konfiguration erhalten hat. 
         // start here!
 
-        ready: main, // Main method defined below for readability
+        ready: dataPolling, // Main method defined below for readability
 
 
         // is called when adapter shuts down - callback has to be called under any circumstances!
@@ -420,7 +420,7 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 
 }
 
-async dataPolling() {
+async function dataPolling() {
 
 		// Loop on all meter and get data
 		//
