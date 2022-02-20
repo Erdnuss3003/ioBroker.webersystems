@@ -424,9 +424,9 @@ async function dataPolling() {
 
 		// Loop on all meter and get data
 		//
-		// do {
-		//	main();
-		// } while (timer = null);
+		 do {
+			main();
+		} while (timer = null);
 		
 		// New data polling at intervall time
 		if (timer) {
