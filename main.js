@@ -429,10 +429,10 @@ async function dataPolling() {
 		// } while (timer = null);
 		
 		// New data polling at intervall time
-		// if (timer) {
-		// clearTimeout(timer)
-		// timer = null;
-		// }		
+		if (timer) {
+		clearTimeout(timer)
+		timer = null;
+		}		
 
 	}
 
