@@ -426,7 +426,7 @@ async function dataPolling() {
 		//
 		 do {
 			main();
-		} while (timer);
+		} while (timer != null);
 		
 		// New data polling at intervall time
 		if (timer) {
