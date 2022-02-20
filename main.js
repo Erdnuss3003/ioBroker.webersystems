@@ -13,11 +13,14 @@ const utils = require('@iobroker/adapter-core');
 // const fs = require("fs");
 var snmp = require ("net-snmp");
 
+
 /**
  * The adapter instance
  * @type {ioBroker.Adapter}
  */
 let adapter;
+const settings = {intervall: 30000 };
+let timer = null;
 
 /**
  * Starts the adapter instance
@@ -40,6 +43,7 @@ function startAdapter(options) {
         // wird beim Beenden des Adapters aufgerufen - Callback muss auf jeden Fall aufgerufen werden!
         unload: (callback) => {
             try {
+				if (timer) timer = null;
                 // Here you must clear all timeouts or intervals that may still be active
                 // Hier müssen Sie alle eventuell noch aktiven Timeouts oder Intervalle löschen 
                 // clearTimeout(timeout1);
@@ -415,6 +419,23 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 	*/
 
 }
+
+async dataPolling() {
+
+		// Loop on all meter and get data
+		do {
+
+			main();
+
+		} while (timer = null)
+		
+		// New data polling at intervall time
+		if (timer) {
+		clearTimeout(timer)
+		timer = null;
+		}		
+
+	}
 
 // @ts-ignore parent is a valid property on module
 if (module.parent) {
