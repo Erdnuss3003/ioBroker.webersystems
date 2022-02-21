@@ -116,7 +116,7 @@ function startAdapter(options) {
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 				session.set (varbindss, function (error, varbindss) {
 					if (error) {
-						adapter.log.info(error.toString);
+						adapter.log.info(error.toString ());
 					} else {
 						}
 				});		
@@ -252,7 +252,7 @@ async function main() {
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
 				if (snmp.isVarbindError (varbinds[i]))
-					adapter.log.info (snmp.varbindError (varbinds[i]));
+					// adapter.log.info (snmp.varbindError (varbinds[i]));
 				else
 					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					oids = varbinds[i].oid;
@@ -385,7 +385,7 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 
     // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
 
-    adapter.subscribeStates('testVariable');
+    // adapter.subscribeStates('testVariable');
     // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
     // adapter.subscribeStates('lights.*');
     // Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
