@@ -274,16 +274,16 @@ async function main() {
 					oidspeedvaluee = oidspeedvalue.replace(/\./g, '_');
 					oidspeedvaluee = "interface." + varbinds[i].value + "." + oidspeedvaluee;
 					
-					oidphysaddressvalue = oidphysaddress + "." + varbinds[i].value;
-					oidphysaddressvaluee = oidphysaddressvalue.replace(/\./g, '_');
-					oidphysaddressvaluee = "interface." + varbinds[i].value + "." + oidphysaddressvaluee;
+					// oidphysaddressvalue = oidphysaddress + "." + varbinds[i].value;
+					// oidphysaddressvaluee = oidphysaddressvalue.replace(/\./g, '_');
+					// oidphysaddressvaluee = "interface." + varbinds[i].value + "." + oidphysaddressvaluee;
 					
 					oidadminstatusvalue = oidadminstatus + "." + varbinds[i].value;
 					oidadminstatusvaluee = oidadminstatusvalue.replace(/\./g, '_');
 					oidadminstatusvaluee = "interface." + varbinds[i].value + "." + oidadminstatusvaluee;
 											
 					
-					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue];
+					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidadminstatusvalue];
 					
 					session.get (oids, function (error, varbinds) {
 						if (error) {
@@ -312,8 +312,8 @@ async function main() {
 								adapter.setObjectNotExistsAsync(oidspeedvaluee, {type: 'state', common: {name: 'ifSpeed', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 								adapter.setState(oidspeedvaluee, varbinds[3].value.toString(), true);
 								
-								adapter.setObjectNotExistsAsync(oidphysaddressvaluee, {type: 'state', common: {name: 'ifPhysAddress', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-								adapter.setState(oidphysaddressvaluee, varbinds[4].value.toString(), true);
+								// adapter.setObjectNotExistsAsync(oidphysaddressvaluee, {type: 'state', common: {name: 'ifPhysAddress', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								// adapter.setState(oidphysaddressvaluee, varbinds[4].value.toString(), true);
 								
 								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: true}, native: {}, });								 
 								adapter.setState(oidadminstatusvaluee, varbinds[5].value.toString(), true);
