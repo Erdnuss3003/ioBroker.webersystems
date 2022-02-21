@@ -95,7 +95,7 @@ function startAdapter(options) {
 				var regex = /1.3.6.1.2.1.2.2.1.7.[0-9]+/g;
 				
 				
-				var varbindssinteger = [
+				var varbindss = [
 						{
 						oid: changeoid,
 						type: snmp.ObjectType.Integer32,
