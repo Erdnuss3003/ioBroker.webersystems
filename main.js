@@ -116,7 +116,7 @@ function startAdapter(options) {
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 				session.set (varbindss, function (error, varbindss) {
 					if (error) {
-						adapter.log.info(error.toString ());
+						// adapter.log.info(error.toString ());
 					} else {
 						}
 				});		
@@ -247,7 +247,7 @@ async function main() {
 		
 		function doneCb (error) {
 			if (error)
-				adapter.log.info (error.toString ());
+				// adapter.log.info (error.toString ());
 		}
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
