@@ -19,8 +19,8 @@ var snmp = require ("net-snmp");
  * @type {ioBroker.Adapter}
  */
 let adapter;
-// var interval = 30000;
-// let timer = null;
+
+
 
 /**
  * Starts the adapter instance
@@ -36,20 +36,14 @@ function startAdapter(options) {
 	// Der Ready-Callback wird aufgerufen, wenn Datenbanken verbunden sind und der Adapter die Konfiguration erhalten hat. 
         // start here!
 
-        ready: main, // Main method defined below for readability
+        ready: dataPolling, // Main method defined below for readability
 
 
         // is called when adapter shuts down - callback has to be called under any circumstances!
         // wird beim Beenden des Adapters aufgerufen - Callback muss auf jeden Fall aufgerufen werden!
         unload: (callback) => {
             try {
-				// if (timer) timer = null;
-                // Here you must clear all timeouts or intervals that may still be active
-                // Hier müssen Sie alle eventuell noch aktiven Timeouts oder Intervalle löschen 
-                // clearTimeout(timeout1);
-                // clearTimeout(timeout2);
-                // ...
-                // clearInterval(interval1);
+                clearInterval(Timer);
 
                 callback();
             } catch (e) {
@@ -420,18 +414,13 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 
 }
 
-// async function dataPolling() {
-
-		// Loop on all meter and get data
-		// setInterval(main, interval);
+async function dataPolling() {
+		var timer = 30000;
 		
-		// New data polling at intervall time
-		// if (timer) {
-		// clearTimeout(timer)
-		// timer = null;
-		// }		
-
-	// }
+		setInterval(main, timer);
+		
+		
+	}
 
 // @ts-ignore parent is a valid property on module
 if (module.parent) {
