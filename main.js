@@ -116,7 +116,7 @@ function startAdapter(options) {
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 				session.set (varbindss, function (error, varbindss) {
 					if (error) {
-						// adapter.log.info(error.toString ());
+						adapter.log.info(error);
 					} else {
 						}
 				});		
@@ -199,7 +199,7 @@ async function main() {
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		session.get (oids, function (error, varbinds) {
 			if (error) {
-				// adapter.log.info('snmp error');
+				 adapter.log.info('snmp error');
 			} else {
 				// adapter.log.info('SNMP sysDescr: ' 		+ varbinds[0].value);
 				// adapter.log.info('SNMP sysUpTime: ' 	+ varbinds[1].value);
@@ -247,7 +247,7 @@ async function main() {
 		
 		function doneCb (error) {
 			if (error)
-				// adapter.log.info (error.toString ());
+				 adapter.log.info (error.toString ());
 		}
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
