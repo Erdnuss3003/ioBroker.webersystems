@@ -96,6 +96,7 @@ function startAdapter(options) {
 				
 				if (changeoid.match(regex)) {
 					changeoid = Number(changeoid);
+					adapter.log.info("change to Number");
 				} else {
 					changeoid = changeoid;
 				}
