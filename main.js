@@ -248,7 +248,7 @@ async function main() {
 		
 		function doneCb (error) {
 			if (error)
-				 adapter.log.info (error.toString ());
+				 adapter.log.info ("done Cb" + error.toString ());
 		}
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
