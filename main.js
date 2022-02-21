@@ -87,13 +87,20 @@ function startAdapter(options) {
 				changeoid = changeoid.replace(/webersystems\.\d\./, ''); 
 				changeoid = changeoid.replace(/(.*)\./, '');
 				changeoid = changeoid.replace(/_/g, '.');
-				changeoid = changeoid;
 				
 				adapter.log.info(changeoid + " " + state.val);
 							
 								
 
 				var regex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/g;
+				
+				if (changeoid.match(regex)) {
+					changeoid = Number(changeoid);
+				} else {
+					changeoid = changeoid;
+				}
+				
+				
 				
 				
 				var varbindssstring = [
