@@ -72,17 +72,21 @@ function startAdapter(options) {
 
         // is called if a subscribed state changes
         // wird aufgerufen, wenn sich ein abonnierter Status ändert 
+         
          stateChange: (id, state) => {
             if (state) {
                 // The state was changed
                 // adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 				
-
+				
+				
+				
 				
 				var changeoid = id;				
 				changeoid = changeoid.replace(/webersystems\.\d\./, ''); 
 				changeoid = changeoid.replace(/(.*)\./, '');
 				changeoid = changeoid.replace(/_/g, '.');
+				changeoid = changeoid;
 				
 				adapter.log.info(changeoid + " " + state.val);
 							
@@ -105,7 +109,7 @@ function startAdapter(options) {
 				if (changeoid.match(regex)) {
 					var varbindss = varbindssinteger;
 				} else {
-					var varbindss = varbindssinteger;
+					var varbindss = varbindssstring;
 				}
 				
 			   
