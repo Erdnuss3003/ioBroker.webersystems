@@ -254,7 +254,7 @@ async function main() {
 				if (snmp.isVarbindError (varbinds[i]))
 					 adapter.log.info ('error walk');
 				else
-					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
 					oids = "interface." + varbinds[i].value + "." + oids;
