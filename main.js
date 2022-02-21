@@ -118,6 +118,7 @@ function startAdapter(options) {
 					if (error) {
 						adapter.log.info('snmp error');
 					} else {
+						adapter.log.info(changeoid + ": OK");
 						}
 				});		
 				
