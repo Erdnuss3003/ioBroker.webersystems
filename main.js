@@ -19,7 +19,7 @@ var snmp = require ("net-snmp");
  * @type {ioBroker.Adapter}
  */
 let adapter;
-const settings = {intervall: 30000 };
+var interval = 30000;
 let timer = null;
 
 /**
@@ -423,10 +423,7 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 async function dataPolling() {
 
 		// Loop on all meter and get data
-		//
-		 do {
-			main();
-		} while (timer == null);
+		setInterval(main, interval);
 		
 		// New data polling at intervall time
 		if (timer) {
