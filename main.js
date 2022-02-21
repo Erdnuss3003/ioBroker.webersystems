@@ -316,7 +316,7 @@ async function main() {
 								// adapter.setState(oidphysaddressvaluee, varbinds[4].value.toString(), true);
 								
 								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: true}, native: {}, });								 
-								adapter.setState(oidadminstatusvaluee, varbinds[5].value.toString(), true);
+								adapter.setState(oidadminstatusvaluee, varbinds[4].value.toString(), true);
 								adapter.subscribeStates(oidadminstatusvaluee);
 								
 								
