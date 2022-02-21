@@ -94,12 +94,6 @@ function startAdapter(options) {
 
 				var regex = /1.3.6.1.2.1.2.2.1.7.[0-9]+/g;
 				
-				if (changeoid.match(regex)) {
-					changeoid = Number(changeoid);
-					adapter.log.info("change to Number");
-				} else {
-					changeoid = changeoid;
-				}
 				
 				
 				
@@ -118,8 +112,10 @@ function startAdapter(options) {
 						}];
 				if (changeoid.match(regex)) {
 					var varbindss = varbindssinteger;
+					adapter.log.info("change to Interger");
 				} else {
 					var varbindss = varbindssstring;
+					adapter.log.info("change to String");
 				}
 		
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
