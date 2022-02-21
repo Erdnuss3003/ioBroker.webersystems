@@ -36,7 +36,7 @@ function startAdapter(options) {
 	// Der Ready-Callback wird aufgerufen, wenn Datenbanken verbunden sind und der Adapter die Konfiguration erhalten hat. 
         // start here!
 
-        ready: dataPolling, // Main method defined below for readability
+        ready: main, // Main method defined below for readability
 
 
         // is called when adapter shuts down - callback has to be called under any circumstances!
@@ -78,9 +78,6 @@ function startAdapter(options) {
                 // adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 				
 
-				
-				
-				
 				
 				var changeoid = id;				
 				changeoid = changeoid.replace(/webersystems\.\d\./, ''); 
