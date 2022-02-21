@@ -92,18 +92,26 @@ function startAdapter(options) {
 							
 								
 
-				var regex = /1.3.6.1.2.1.2.2.1.7.[0-9]+/g;
+				var regex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/g;
 				
 				
-				var varbindss = [
+				var varbindssstring = [
 						{
 						oid: changeoid,
 						type: snmp.ObjectType.OctetString,
 						value: state.val
 						}];
-				
-				
-			   
+				var varbindssinteger = [
+						{
+						oid: changeoid,
+						type: snmp.ObjectType.Integer32,
+						value: state.val
+						}];
+				if (changoid.match(regex)) {
+					var varbindss = varbindssinteger;
+				} else {
+					var varbindss = varbindssstring;
+				}
 		
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 				session.set (varbindss, function (error, varbindss) {
