@@ -107,7 +107,7 @@ function startAdapter(options) {
 						type: snmp.ObjectType.Integer32,
 						value: state.val
 						}];
-				if (changoid.match(regex)) {
+				if (changeoid.match(regex)) {
 					var varbindss = varbindssinteger;
 				} else {
 					var varbindss = varbindssstring;
