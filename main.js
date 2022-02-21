@@ -108,7 +108,7 @@ function startAdapter(options) {
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 				session.set (varbindss, function (error, varbindss) {
 					if (error) {
-						adapter.log.info('snmp error');
+						adapter.log.info(error.toString);
 					} else {
 						}
 				});		
