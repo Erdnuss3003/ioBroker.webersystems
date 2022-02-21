@@ -98,7 +98,7 @@ function startAdapter(options) {
 				var varbindss = [
 						{
 						oid: changeoid,
-						type: snmp.ObjectType.Integer32,
+						type: snmp.ObjectType.OctetString,
 						value: state.val
 						}];
 				
