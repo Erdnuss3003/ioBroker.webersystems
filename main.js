@@ -108,8 +108,10 @@ function startAdapter(options) {
 						}];
 				if (changeoid.match(regex)) {
 					var varbindss = varbindssinteger;
+					adapter.log.info(varbindss);
 				} else {
 					var varbindss = varbindssstring;
+					adapter.log.info(varbindss);
 				}
 				
 			   
