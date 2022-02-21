@@ -95,7 +95,12 @@ function startAdapter(options) {
 				var regex = /1.3.6.1.2.1.2.2.1.7.[0-9]+/g;
 				
 				
-				
+				if (changeoid.match(regex)) {
+					var state.val = Number(state.val);
+					adapter.log.info("change to Number");
+				} else {
+					adapter.log.info("change not to Number");
+				}
 				
 				
 				var varbindssstring = [
