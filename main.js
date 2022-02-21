@@ -92,7 +92,7 @@ function startAdapter(options) {
 							
 								
 
-				var regex = /1.3.6.1.3.1.3.2.1.7.[0-9]+/g;
+				var regex = /1.3.6.1.2.1.2.2.1.7.[0-9]+/g;
 				
 				if (changeoid.match(regex)) {
 					changeoid = Number(changeoid);
