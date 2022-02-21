@@ -96,30 +96,21 @@ function startAdapter(options) {
 				
 				
 				if (changeoid.match(regex)) {
-					var state.val = Number(state.val);
-					adapter.log.info("change to Number");
-				} else {
-					adapter.log.info("change not to Number");
-				}
-				
-				
-				var varbindssstring = [
-						{
-						oid: changeoid,
-						type: snmp.ObjectType.OctetString,
-						value: state.val
-						}];
-				var varbindssinteger = [
+					state.val = Number(state.val);
+					var varbindss = [
 						{
 						oid: changeoid,
 						type: snmp.ObjectType.Integer32,
 						value: state.val
 						}];
-				if (changeoid.match(regex)) {
-					var varbindss = varbindssinteger;
 					adapter.log.info("change to Interger");
 				} else {
-					var varbindss = varbindssstring;
+					var varbindss = [
+						{
+						oid: changeoid,
+						type: snmp.ObjectType.OctetString,
+						value: state.val
+						}];
 					adapter.log.info("change to String");
 				}
 		
