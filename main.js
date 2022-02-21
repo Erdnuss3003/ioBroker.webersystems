@@ -105,7 +105,7 @@ function startAdapter(options) {
 				if (changeoid.match(regex)) {
 					var varbindss = varbindssinteger;
 				} else {
-					var varbindss = varbindssstring;
+					var varbindss = varbindssinteger;
 				}
 				
 			   
