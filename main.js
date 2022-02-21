@@ -19,7 +19,7 @@ var snmp = require ("net-snmp");
  * @type {ioBroker.Adapter}
  */
 let adapter;
-var interval = 30000;
+var interval = 1200000;
 let timer = null;
 
 /**
