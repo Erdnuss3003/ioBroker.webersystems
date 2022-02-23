@@ -290,7 +290,7 @@ async function main() {
 							} else {
 								ifphysaddressvar = varbinds[4].value;
 								ifphysaddressvar = ifphysaddressvar.replace(/ /g, '');
-								// ifphysaddressvar = ifphysaddressvar.replace(/\"/g, "");
+								ifphysaddressvar = ifphysaddressvar.replace(/\"/g, '');
 								// var varbinds4physaddress = varbinds[4].value;
 								// var varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
 								
