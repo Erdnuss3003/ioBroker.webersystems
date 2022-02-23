@@ -288,7 +288,7 @@ async function main() {
 						if (error) {
 							// adapter.log.info('snmp error' + oid);
 							} else {
-								// ifphysaddressvar = varbinds[4].value;
+								ifphysaddressvar = varbinds[4].value;
 								// ifphysaddressvar = ifphysaddressvar.replace("\"", "");
 								// var varbinds4physaddress = varbinds[4].value;
 								// var varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
@@ -297,7 +297,7 @@ async function main() {
 								// adapter.log.info('ifType: ' 		+ varbinds[1].value);
 								// adapter.log.info('ifMtu: ' 		+ varbinds[2].value);
 								// adapter.log.info('ifSpeed: ' 		+ varbinds[3].value);
-								// adapter.log.info('ifPhysAddress: ' 		+ ifPhysAddressvar);
+								adapter.log.info('ifPhysAddress: ' 		+ ifphysaddressvar);
 								// adapter.log.info('ifAdminStatus: ' 		+ varbinds[5].value);
 								
 								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
