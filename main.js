@@ -289,7 +289,7 @@ async function main() {
 							// adapter.log.info('snmp error' + oid);
 							} else {
 								ifphysaddressvar = varbinds[4].value;
-								ifphysaddressvar  = ifphysaddressvar.toString();
+								ifphysaddressvar = ifphysaddressvar.toString();
 								ifphysaddressvar = ifphysaddressvar.replace(/ /g, '');
 								ifphysaddressvar = ifphysaddressvar.replace(/\"/g, '');
 								// var varbinds4physaddress = varbinds[4].value;
