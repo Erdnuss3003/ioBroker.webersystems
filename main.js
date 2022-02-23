@@ -272,9 +272,9 @@ async function main() {
 					oidspeedvaluee = oidspeedvalue.replace(/\./g, '_');
 					oidspeedvaluee = "interface." + varbinds[i].value + "." + oidspeedvaluee;
 					
-					// oidphysaddressvalue = oidphysaddress + "." + varbinds[i].value;
-					// oidphysaddressvaluee = oidphysaddressvalue.replace(/\./g, '_');
-					// oidphysaddressvaluee = "interface." + varbinds[i].value + "." + oidphysaddressvaluee;
+					oidphysaddressvalue = oidphysaddress + "." + varbinds[i].value;
+					oidphysaddressvaluee = oidphysaddressvalue.replace(/\./g, '_');
+					oidphysaddressvaluee = "interface." + varbinds[i].value + "." + oidphysaddressvaluee;
 					
 					oidadminstatusvalue = oidadminstatus + "." + varbinds[i].value;
 					oidadminstatusvaluee = oidadminstatusvalue.replace(/\./g, '_');
