@@ -233,7 +233,7 @@ async function main() {
 		var oidphysaddress = "1.3.6.1.2.1.2.2.1.6";
 		var oidphysaddressvalue = "0";
 		var oidphysaddressvaluee = "0";
-		var ifPhysAddressvar = "0";
+		var ifphysaddressvar = "0";
 		
 		var oidadminstatus = "1.3.6.1.2.1.2.2.1.7";
 		var oidadminstatusvalue = "0";
@@ -288,8 +288,8 @@ async function main() {
 						if (error) {
 							// adapter.log.info('snmp error' + oid);
 							} else {
-								ifPhysAddressvar = varbinds[4].value;
-								ifPhysAddressvar = ifPhysAddressvar.replace("\"", "");
+								ifphysaddressvar = varbinds[4].value;
+								ifphysaddressvar = ifphysaddressvar.replace("\"", "");
 								// var varbinds4physaddress = varbinds[4].value;
 								// var varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
 								
