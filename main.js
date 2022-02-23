@@ -289,8 +289,7 @@ async function main() {
 							// adapter.log.info('snmp error' + oid);
 							} else {
 								ifPhysAddressvar = varbinds[4].value;
-								ifPhysAddressvar = ifPhysAddressvar.replace(" \"", " »");
-								ifPhysAddressvar = ifPhysAddressvar.replace("\" ", "« ");
+								ifPhysAddressvar = ifPhysAddressvar.replace("\"", "");
 								// var varbinds4physaddress = varbinds[4].value;
 								// var varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
 								
