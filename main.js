@@ -43,7 +43,7 @@ function startAdapter(options) {
         // wird beim Beenden des Adapters aufgerufen - Callback muss auf jeden Fall aufgerufen werden!
         unload: (callback) => {
             try {
-                clearInterval(Timer);
+                clearInterval(timer);
 
                 callback();
             } catch (e) {
@@ -281,7 +281,7 @@ async function main() {
 					oidadminstatusvaluee = "interface." + varbinds[i].value + "." + oidadminstatusvaluee;
 											
 					
-					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidadminstatusvalue];
+					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue];
 					
 					session.get (oids, function (error, varbinds) {
 						if (error) {
@@ -295,7 +295,7 @@ async function main() {
 								// adapter.log.info('ifType: ' 		+ varbinds[1].value);
 								// adapter.log.info('ifMtu: ' 		+ varbinds[2].value);
 								// adapter.log.info('ifSpeed: ' 		+ varbinds[3].value);
-								// adapter.log.info('ifPhysAddress: ' 		+ varbinds[4].value);
+								adapter.log.info('ifPhysAddress: ' 		+ varbinds[4].value);
 								// adapter.log.info('ifAdminStatus: ' 		+ varbinds[5].value);
 								
 								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
@@ -314,7 +314,7 @@ async function main() {
 								// adapter.setState(oidphysaddressvaluee, varbinds[4].value.toString(), true);
 								
 								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: true}, native: {}, });								 
-								adapter.setState(oidadminstatusvaluee, varbinds[4].value.toString(), true);
+								adapter.setState(oidadminstatusvaluee, varbinds[5].value.toString(), true);
 								adapter.subscribeStates(oidadminstatusvaluee);
 								
 								
