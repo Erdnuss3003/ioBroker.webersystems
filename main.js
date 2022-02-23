@@ -233,6 +233,7 @@ async function main() {
 		var oidphysaddress = "1.3.6.1.2.1.2.2.1.6";
 		var oidphysaddressvalue = "0";
 		var oidphysaddressvaluee = "0";
+		var ifPhysAddressvar = "";
 		
 		var oidadminstatus = "1.3.6.1.2.1.2.2.1.7";
 		var oidadminstatusvalue = "0";
@@ -275,7 +276,7 @@ async function main() {
 					oidphysaddressvalue = oidphysaddress + "." + varbinds[i].value;
 					oidphysaddressvaluee = oidphysaddressvalue.replace(/\./g, '_');
 					oidphysaddressvaluee = "interface." + varbinds[i].value + "." + oidphysaddressvaluee;
-					
+										
 					oidadminstatusvalue = oidadminstatus + "." + varbinds[i].value;
 					oidadminstatusvaluee = oidadminstatusvalue.replace(/\./g, '_');
 					oidadminstatusvaluee = "interface." + varbinds[i].value + "." + oidadminstatusvaluee;
@@ -287,7 +288,9 @@ async function main() {
 						if (error) {
 							// adapter.log.info('snmp error' + oid);
 							} else {
-								
+								ifPhysAddressvar = varbinds[4].value;
+								ifPhysAddressvar = ifPhysAddressvar.replace(" \"", " »");
+								ifPhysAddressvar = ifPhysAddressvar.replace("\" ", "« ");
 								// var varbinds4physaddress = varbinds[4].value;
 								// var varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
 								
@@ -295,7 +298,7 @@ async function main() {
 								// adapter.log.info('ifType: ' 		+ varbinds[1].value);
 								// adapter.log.info('ifMtu: ' 		+ varbinds[2].value);
 								// adapter.log.info('ifSpeed: ' 		+ varbinds[3].value);
-								adapter.log.info('ifPhysAddress: ' 		+ varbinds[4].value);
+								adapter.log.info('ifPhysAddress: ' 		+ ifPhysAddressvar);
 								// adapter.log.info('ifAdminStatus: ' 		+ varbinds[5].value);
 								
 								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
