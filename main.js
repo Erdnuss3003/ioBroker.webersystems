@@ -233,7 +233,7 @@ async function main() {
 		var oidphysaddress = "1.3.6.1.2.1.2.2.1.6";
 		var oidphysaddressvalue = "0";
 		var oidphysaddressvaluee = "0";
-		var ifPhysAddressvar = "";
+		var ifPhysAddressvar = "0";
 		
 		var oidadminstatus = "1.3.6.1.2.1.2.2.1.7";
 		var oidadminstatusvalue = "0";
