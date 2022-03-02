@@ -345,7 +345,8 @@ async function main() {
 					oidspecificvaluee = "interface." + varbinds[i].value + "." + oidspecificvaluee;
 											
 					
-					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue, oidoperstatusvalue, oidlastchangevalue, oidinoctetsvalue];
+					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue, oidoperstatusvalue, oidlastchangevalue, 
+					oidinoctetsvalue, oidinucastpktsvalue, oidinnucastpktsvalue, oidindiscardsvalue, oidinerrorsvalue, oidinunkownprotosvalue, oidoutoctetsvalue, oidoutucastpktsvalue, oidoutnucastpktsvalue, oidoutdiscardsvalue, oidouterrorsvalue, oidoutqlenvalue, oidspecificvalue];
 					
 					session.get (oids, function (error, varbinds) {
 						if (error) {
@@ -386,6 +387,24 @@ async function main() {
 								
 								adapter.setObjectNotExistsAsync(oidinoctetsvaluee, {type: 'state', common: {name: 'ifInOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 								adapter.setState(oidinoctetsvaluee, varbinds[8].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsyncoidinucastpktsvaluee, {type: 'state', common: {name: 'ifInUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidinucastpktsvaluee, varbinds[9].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidinnucastpktsvaluee, {type: 'state', common: {name: 'ifInNUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidinnucastpktsvaluee, varbinds[10].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidindiscardsvaluee, {type: 'state', common: {name: 'ifInDiscards', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidindiscardsvaluee, varbinds[11].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidinerrorsvaluee, {type: 'state', common: {name: 'ifInUnknownProtos', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidinerrorsvaluee, varbinds[12].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidinunkownprotosvaluee, {type: 'state', common: {name: 'ifOutOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidinunkownprotosvaluee, varbinds[13].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidoutoctetsvaluee, {type: 'state', common: {name: 'ifOutUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidoutoctetsvaluee, varbinds[14].value.toString(), true);
 								
 								
 								
