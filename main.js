@@ -345,8 +345,7 @@ async function main() {
 					oidspecificvaluee = "interface." + varbinds[i].value + "." + oidspecificvaluee;
 											
 					
-					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue, oidoperstatusvalue, oidlastchangevalue, oidinoctetsvalue, oidinucastpktsvalue, oidinnucastpktsvalue, oidindiscardsvalue, 
-					oidinerrorsvalue, oidinunkownprotosvalue, oidoutoctetsvalue, oidoutucastpktsvalue, oidoutnucastpktsvalue, oidoutdiscardsvalue, oidouterrorsvalue, oidoutqlenvalue, oidspecificvalue];
+					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue, oidoperstatusvalue, oidlastchangevalue, oidinoctetsvalue, oidinucastpktsvalue, oidinnucastpktsvalue, oidindiscardsvalue, oidinerrorsvalue, oidinunkownprotosvalue, oidoutoctetsvalue, oidoutucastpktsvalue, oidoutnucastpktsvalue, oidoutdiscardsvalue, oidouterrorsvalue, oidoutqlenvalue, oidspecificvalue];
 					
 					session.get (oids, function (error, varbinds) {
 						if (error) {
