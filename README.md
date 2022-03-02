@@ -15,6 +15,19 @@
 Webersystems Test
 
 Sopport for SNMP v2c
+
+## Beschreibung
+
+### System
+
+| Name                	| Beschreibung             											|
+|:------------------    |:-------------------:      										|
+| sysDescr      		| System Beschreibung        										|
+| sysUpTime				| Uptime vom system (hundertstel Sekunden seit Neustart)       		|
+| sysContact       		| SNMP Contact        												|
+| sysName				| SNMP Name        													|
+| sysLocation			| SNMP Location        												|
+
 ## Changelog
 
 ### 0.0.1
