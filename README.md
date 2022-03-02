@@ -40,22 +40,22 @@ Die Interfaces können Hardware, Systeminterne oder VLAN Interfaces sein.
 | ifMtu					| Maximale Paket größe       										|
 | ifSpeed				| Interface Geschwindigkeit											|
 | ifPhysAddress      	| Physikalische Adresse vom Interface       						|
-| ifAdminStatus			| Interface Admin Status up (1) down (2) testing (3)       				|
-| ifOperStatus       	| Interface Betrisbs Status up (1) down (2) testing (3) unknown (4) dormant (5) notPresent (6) lowerLayerDown (7)	|
+| ifAdminStatus			| Interface Admin Status up (1) down (2) testing (3)       			|
+| ifOperStatus       	| Interface Betriebs Status up (1) down (2) testing (3) unknown (4) dormant (5) notPresent (6) lowerLayerDown (7)	|
 | ifLastChange			| Uptime vom Interface       										|
 | ifInOctets			| Eingegangene Octets         										|
 | ifInUcastPkts      	| Eingegangene Unicast Pakete      									|
 | ifInNUcastPkts		| Eingegangene Unknon Unicast Pakete (veraltet)						|
 | ifInDiscards       	| Eingegangene verworfene Pakete          							|
 | ifInErrors			| Eingegangene fehlerhafte Pakete        							|
-| ifInUnknownProtos		| Eingegangene         							|
-| ifOutOctets      		| System Beschreibung        										|
-| ifOutUcastPkts		| Uptime vom System (hundertstel Sekunden seit Neustart)       		|
-| ifOutNUcastPkts       | SNMP Contact        												|
-| ifOutDiscards			| SNMP Name        													|
-| ifOutErrors			| SNMP Location        												|
-| ifOutQLen				| SNMP Name        													|
-| ifSpecific			| SNMP Location        												|
+| ifInUnknownProtos		| Eingegangene verworfene Pakete (nicht unterstütztes Protokoll)	|
+| ifOutOctets      		| Ausgegangene Octets        										|
+| ifOutUcastPkts		| Ausgegangene Unicast Pakete  										|
+| ifOutNUcastPkts       | Ausgegangene Unknon Unicast Pakete (veraltet)						|
+| ifOutDiscards			| Ausgegangene verworfene Pakete          							|        													
+| ifOutErrors			| Ausgegangene fehlerhafte Pakete        							|
+| ifOutQLen				| Ausgehende Pakete in Warteschlage	(veraltet)						|
+| ifSpecific			| Verweis auf spezifische SNMP MIBs									|
 
 ## Changelog
 
