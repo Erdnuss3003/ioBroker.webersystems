@@ -387,7 +387,7 @@ async function main() {
 								adapter.setObjectNotExistsAsync(oidinoctetsvaluee, {type: 'state', common: {name: 'ifInOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 								adapter.setState(oidinoctetsvaluee, varbinds[8].value.toString(), true);
 								
-								adapter.setObjectNotExistsAsyncoidinucastpktsvaluee, {type: 'state', common: {name: 'ifInUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setObjectNotExistsAsync(oidinucastpktsvaluee, {type: 'state', common: {name: 'ifInUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 								adapter.setState(oidinucastpktsvaluee, varbinds[9].value.toString(), true);
 								
 								adapter.setObjectNotExistsAsync(oidinnucastpktsvaluee, {type: 'state', common: {name: 'ifInNUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
