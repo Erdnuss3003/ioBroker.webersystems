@@ -34,11 +34,28 @@ Die Interfaces können Hardware, Systeminterne oder VLAN Interfaces sein.
 
 | Name                	| Beschreibung             											|
 |:------------------    |:-------------------:      										|
-| sysDescr      		| System Beschreibung        										|
-| sysUpTime				| Uptime vom System (hundertstel Sekunden seit Neustart)       		|
-| sysContact       		| SNMP Contact        												|
-| sysName				| SNMP Name        													|
-| sysLocation			| SNMP Location        												|
+| ifIndex      			| Index vom Interface  												|
+| ifDescr				| Beschreibung vom Interface       									|
+| ifType       			| Interface typ       												|
+| ifMtu					| Maximale Paket größe       										|
+| ifSpeed				| Interface Geschwindigkeit											|
+| ifPhysAddress      	| Physikalische Adresse vom Interface       						|
+| ifAdminStatus			| Interface Admin Status up (1) down (2) testing (3)       				|
+| ifOperStatus       	| Interface Betrisbs Status up (1) down (2) testing (3) unknown (4) dormant (5) notPresent (6) lowerLayerDown (7)	|
+| ifLastChange			| Uptime vom Interface       										|
+| ifInOctets			| Eingegangene Octets         										|
+| ifInUcastPkts      	| Eingegangene Unicast Pakete      									|
+| ifInNUcastPkts		| Eingegangene Unknon Unicast Pakete (veraltet)						|
+| ifInDiscards       	| Eingegangene verworfene Pakete          							|
+| ifInErrors			| Eingegangene fehlerhafte Pakete        							|
+| ifInUnknownProtos		| Eingegangene         							|
+| ifOutOctets      		| System Beschreibung        										|
+| ifOutUcastPkts		| Uptime vom System (hundertstel Sekunden seit Neustart)       		|
+| ifOutNUcastPkts       | SNMP Contact        												|
+| ifOutDiscards			| SNMP Name        													|
+| ifOutErrors			| SNMP Location        												|
+| ifOutQLen				| SNMP Name        													|
+| ifSpecific			| SNMP Location        												|
 
 ## Changelog
 
