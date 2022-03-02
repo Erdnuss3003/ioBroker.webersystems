@@ -107,27 +107,27 @@ async function main() {
 	
     await adapter.setObjectNotExistsAsync(oidss[0], {
         type: 'state',
-        common: {name: 'sysdescr', type: 'string', role: 'value', read: true, write: false},
+        common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false},
         native: {},
     });
 	await adapter.setObjectNotExistsAsync(oidss[1], {
         type: 'state',
-        common: {name: 'sysuptime', type: 'string', role: 'value', read: true, write: false},
+        common: {name: 'sysUpTime', type: 'string', role: 'value', read: true, write: false},
         native: {},
     });
 	await adapter.setObjectNotExistsAsync(oidss[2], {
         type: 'state',
-        common: {name: 'syscontact', type: 'string', role: 'value', read: true, write: true},
+        common: {name: 'sysContact', type: 'string', role: 'value', read: true, write: true},
         native: {},
     });
 	await adapter.setObjectNotExistsAsync(oidss[3], {
         type: 'state',
-        common: {name: 'sysname', type: 'string', role: 'value', read: true, write: true},
+        common: {name: 'sysName', type: 'string', role: 'value', read: true, write: true},
         native: {},
     });
 	await adapter.setObjectNotExistsAsync(oidss[4], {
         type: 'state',
-        common: {name: 'syslocation', type: 'string', role: 'value', read: true, write: true},
+        common: {name: 'sysLocation', type: 'string', role: 'value', read: true, write: true},
         native: {},
     });
 	

@@ -23,7 +23,19 @@ Sopport for SNMP v2c
 | Name                	| Beschreibung             											|
 |:------------------    |:-------------------:      										|
 | sysDescr      		| System Beschreibung        										|
-| sysUpTime				| Uptime vom system (hundertstel Sekunden seit Neustart)       		|
+| sysUpTime				| Uptime vom System (hundertstel Sekunden seit Neustart)       		|
+| sysContact       		| SNMP Contact        												|
+| sysName				| SNMP Name        													|
+| sysLocation			| SNMP Location        												|
+
+### Interfaces
+
+Die Interfaces können Hardware, Systeminterne oder VLAN Interfaces sein.
+
+| Name                	| Beschreibung             											|
+|:------------------    |:-------------------:      										|
+| sysDescr      		| System Beschreibung        										|
+| sysUpTime				| Uptime vom System (hundertstel Sekunden seit Neustart)       		|
 | sysContact       		| SNMP Contact        												|
 | sysName				| SNMP Name        													|
 | sysLocation			| SNMP Location        												|
