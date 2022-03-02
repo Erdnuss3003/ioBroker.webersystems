@@ -345,7 +345,8 @@ async function main() {
 					oidspecificvaluee = "interface." + varbinds[i].value + "." + oidspecificvaluee;
 											
 					
-					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue, oidoperstatusvalue, oidlastchangevalue, oidinoctetsvalue, oidinucastpktsvalue, oidinnucastpktsvalue, oidindiscardsvalue, oidinerrorsvalue, oidinunkownprotosvalue, oidoutoctetsvalue, oidoutucastpktsvalue, oidoutnucastpktsvalue, oidoutdiscardsvalue, oidouterrorsvalue, oidoutqlenvalue, oidspecificvalue];
+					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue, oidoperstatusvalue, oidlastchangevalue, oidinoctetsvalue, oidinucastpktsvalue, oidinnucastpktsvalue, oidindiscardsvalue, 
+					oidinerrorsvalue, oidinunkownprotosvalue, oidoutoctetsvalue, oidoutucastpktsvalue, oidoutnucastpktsvalue, oidoutdiscardsvalue, oidouterrorsvalue, oidoutqlenvalue, oidspecificvalue];
 					
 					session.get (oids, function (error, varbinds) {
 						if (error) {
@@ -404,6 +405,24 @@ async function main() {
 								
 								adapter.setObjectNotExistsAsync(oidoutoctetsvaluee, {type: 'state', common: {name: 'ifOutOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 								adapter.setState(oidoutoctetsvaluee, varbinds[14].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidoutucastpktsvaluee, {type: 'state', common: {name: 'ifOutUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidoutucastpktsvaluee, varbinds[15].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidoutnucastpktsvaluee, {type: 'state', common: {name: 'ifOutNUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidoutnucastpktsvaluee, varbinds[16].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidoutdiscardsvaluee, {type: 'state', common: {name: 'ifOutDiscards', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidoutdiscardsvaluee, varbinds[17].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidouterrorsvaluee, {type: 'state', common: {name: 'ifOutErrors', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidouterrorsvaluee, varbinds[18].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidoutqlenvaluee, {type: 'state', common: {name: 'ifOutQLen', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidoutqlenvaluee, varbinds[19].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidspecificvaluee, {type: 'state', common: {name: 'ifSpecific', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidspecificvaluee, varbinds[20].value.toString(), true);
 								
 								
 								
