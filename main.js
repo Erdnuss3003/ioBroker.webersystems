@@ -176,11 +176,71 @@ async function main() {
 		var oidphysaddress = "1.3.6.1.2.1.2.2.1.6";
 		var oidphysaddressvalue = "0";
 		var oidphysaddressvaluee = "0";
-		var ifphysaddressvar = "0";
 		
 		var oidadminstatus = "1.3.6.1.2.1.2.2.1.7";
 		var oidadminstatusvalue = "0";
 		var oidadminstatusvaluee = "0";
+		
+		var oidoperstatus = "1.3.6.1.2.1.2.2.1.8";
+		var oidoperstatusvalue = "0";
+		var oidoperstatusvaluee = "0";
+		
+		var oidlastchange = "1.3.6.1.2.1.2.2.1.9";
+		var oidlastchangevalue = "0";
+		var oidlastchangevaluee = "0";
+		
+		var oidinoctets = "1.3.6.1.2.1.2.2.1.10";
+		var oidinoctetsvalue = "0";
+		var oidinoctetsvaluee = "0";
+		
+		var oidinucastpkts = "1.3.6.1.2.1.2.2.1.11";
+		var oidinucastpktsvalue = "0";
+		var oidinucastpktsvaluee = "0";
+		
+		var oidinnucastpkts = "1.3.6.1.2.1.2.2.1.12";
+		var oidinnucastpktsvalue = "0";
+		var oidinnucastpktsvaluee = "0";
+		
+		var oidindiscards = "1.3.6.1.2.1.2.2.1.13";
+		var oidindiscardsvalue = "0";
+		var oidindiscardsvaluee = "0";
+		
+		var oidinerrors = "1.3.6.1.2.1.2.2.1.14";
+		var oidinerrorsvalue = "0";
+		var oidinerrorsvaluee = "0";
+		
+		var oidinunkownprotos = "1.3.6.1.2.1.2.2.1.15";
+		var oidinunkownprotosvalue = "0";
+		var oidinunkownprotosvaluee = "0";
+		
+		var oidoutoctets = "1.3.6.1.2.1.2.2.1.16";
+		var oidoutoctetsvalue = "0";
+		var oidoutoctetsvaluee = "0";
+		
+		var oidoutucastpkts = "1.3.6.1.2.1.2.2.1.17";
+		var oidoutucastpktsvalue = "0";
+		var oidoutucastpktsvaluee = "0";
+		
+		var oidoutnucastpkts = "1.3.6.1.2.1.2.2.1.18";
+		var oidoutnucastpktsvalue = "0";
+		var oidoutnucastpktsvaluee = "0";
+		
+		var oidoutdiscards = "1.3.6.1.2.1.2.2.1.19";
+		var oidoutdiscardsvalue = "0";
+		var oidoutdiscardsvaluee = "0";
+		
+		var oidouterrors = "1.3.6.1.2.1.2.2.1.20";
+		var oidouterrorsvalue = "0";
+		var oidouterrorsvaluee = "0";
+		
+		var oidoutqlen = "1.3.6.1.2.1.2.2.1.21";
+		var oidoutqlenvalue = "0";
+		var oidoutqlenvaluee = "0";
+		
+		var oidspecific = "1.3.6.1.2.1.2.2.1.22";
+		var oidspecificvalue = "0";
+		var oidspecificvaluee = "0";
+
 		
 
 		
@@ -223,26 +283,80 @@ async function main() {
 					oidadminstatusvalue = oidadminstatus + "." + varbinds[i].value;
 					oidadminstatusvaluee = oidadminstatusvalue.replace(/\./g, '_');
 					oidadminstatusvaluee = "interface." + varbinds[i].value + "." + oidadminstatusvaluee;
+					
+					oidoperstatusvalue = oidoperstatus + "." + varbinds[i].value;
+					oidoperstatusvaluee = oidoperstatusvalue.replace(/\./g, '_');
+					oidoperstatusvaluee = "interface." + varbinds[i].value + "." + oidoperstatusvaluee;
+					
+					oidlastchangevalue = oidlastchange + "." + varbinds[i].value;
+					oidlastchangevaluee = oidlastchangevalue.replace(/\./g, '_');
+					oidlastchangevaluee = "interface." + varbinds[i].value + "." + oidlastchangevaluee;
+					
+					oidinoctetsvalue = oidinoctets + "." + varbinds[i].value;
+					oidinoctetsvaluee = oidinoctetsvalue.replace(/\./g, '_');
+					oidinoctetsvaluee = "interface." + varbinds[i].value + "." + oidinoctetsvaluee;
+					
+					oidinucastpktsvalue = oidinucastpkts + "." + varbinds[i].value;
+					oidinucastpktsvaluee = oidinucastpktsvalue.replace(/\./g, '_');
+					oidinucastpktsvaluee = "interface." + varbinds[i].value + "." + oidinucastpktsvaluee;
+					
+					oidinnucastpktsvalue = oidinnucastpkts + "." + varbinds[i].value;
+					oidinnucastpktsvaluee = oidinnucastpktsvalue.replace(/\./g, '_');
+					oidinnucastpktsvaluee = "interface." + varbinds[i].value + "." + oidinnucastpktsvaluee;
+					
+					oidindiscardsvalue = oidindiscards + "." + varbinds[i].value;
+					oidindiscardsvaluee = oidindiscardsvalue.replace(/\./g, '_');
+					oidindiscardsvaluee = "interface." + varbinds[i].value + "." + oidindiscardsvaluee;
+					
+					oidinerrorsvalue = oidinerrors + "." + varbinds[i].value;
+					oidinerrorsvaluee = oidinerrorsvalue.replace(/\./g, '_');
+					oidinerrorsvaluee = "interface." + varbinds[i].value + "." + oidinerrorsvaluee;
+					
+					oidinunkownprotosvalue = oidinunkownprotos + "." + varbinds[i].value;
+					oidinunkownprotosvaluee = oidinunkownprotosvalue.replace(/\./g, '_');
+					oidinunkownprotosvaluee = "interface." + varbinds[i].value + "." + oidinunkownprotosvaluee;
+					
+					oidoutoctetsvalue = oidoutoctets + "." + varbinds[i].value;
+					oidoutoctetsvaluee = oidoutoctetsvalue.replace(/\./g, '_');
+					oidoutoctetsvaluee = "interface." + varbinds[i].value + "." + oidoutoctetsvaluee;
+					
+					oidoutucastpktsvalue = oidoutucastpkts + "." + varbinds[i].value;
+					oidoutucastpktsvaluee = oidoutucastpktsvalue.replace(/\./g, '_');
+					oidoutucastpktsvaluee = "interface." + varbinds[i].value + "." + oidoutucastpktsvaluee;
+					
+					oidoutnucastpktsvalue = oidoutnucastpkts + "." + varbinds[i].value;
+					oidoutnucastpktsvaluee = oidoutnucastpktsvalue.replace(/\./g, '_');
+					oidoutnucastpktsvaluee = "interface." + varbinds[i].value + "." + oidoutnucastpktsvaluee;
+					
+					oidoutdiscardsvalue = oidoutdiscards + "." + varbinds[i].value;
+					oidoutdiscardsvaluee = oidoutdiscardsvalue.replace(/\./g, '_');
+					oidoutdiscardsvaluee = "interface." + varbinds[i].value + "." + oidoutdiscardsvaluee;
+					
+					oidouterrorsvalue = oidouterrors + "." + varbinds[i].value;
+					oidouterrorsvaluee = oidouterrorsvalue.replace(/\./g, '_');
+					oidouterrorsvaluee = "interface." + varbinds[i].value + "." + oidouterrorsvaluee;
+					
+					oidoutqlenvalue = oidoutqlen + "." + varbinds[i].value;
+					oidoutqlenvaluee = oidoutqlenvalue.replace(/\./g, '_');
+					oidoutqlenvaluee = "interface." + varbinds[i].value + "." + oidoutqlenvaluee;
+					
+					oidspecificvalue = oidspecific + "." + varbinds[i].value;
+					oidspecificvaluee = oidspecificvalue.replace(/\./g, '_');
+					oidspecificvaluee = "interface." + varbinds[i].value + "." + oidspecificvaluee;
 											
 					
-					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue];
+					oids = [oiddescrvalue, oidtypevalue, oidmtuvalue, oidspeedvalue, oidphysaddressvalue, oidadminstatusvalue, oidoperstatusvalue, oidlastchangevalue, oidinoctetsvalue];
 					
 					session.get (oids, function (error, varbinds) {
 						if (error) {
 							// adapter.log.info('snmp error' + oid);
 							} else {
-								ifphysaddressvar = varbinds[4].value;
-								ifphysaddressvar = ifphysaddressvar.toString();
-								ifphysaddressvar = ifphysaddressvar.replace(/ /g, '');
-								ifphysaddressvar = ifphysaddressvar.replace(/\"/g, '');
-								// var varbinds4physaddress = varbinds[4].value;
-								// var varbinds4physaddressrepl = varbinds4physaddress.replace(/:/g, '_');
 								
 								// adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
 								// adapter.log.info('ifType: ' 		+ varbinds[1].value);
 								// adapter.log.info('ifMtu: ' 		+ varbinds[2].value);
 								// adapter.log.info('ifSpeed: ' 		+ varbinds[3].value);
-								adapter.log.info('ifPhysAddress: ' 		+ ifphysaddressvar);
+								// adapter.log.info('ifPhysAddress: ' 		+ varbinds[4].value);
 								// adapter.log.info('ifAdminStatus: ' 		+ varbinds[5].value);
 								
 								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
@@ -263,6 +377,15 @@ async function main() {
 								adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: true}, native: {}, });								 
 								adapter.setState(oidadminstatusvaluee, varbinds[5].value.toString(), true);
 								adapter.subscribeStates(oidadminstatusvaluee);
+								
+								adapter.setObjectNotExistsAsync(oidoperstatusvaluee, {type: 'state', common: {name: 'ifOpenStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidoperstatusvaluee, varbinds[6].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidlastchangevaluee, {type: 'state', common: {name: 'ifLastChange', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidlastchangevaluee, varbinds[7].value.toString(), true);
+								
+								adapter.setObjectNotExistsAsync(oidinoctetsvaluee, {type: 'state', common: {name: 'ifInOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+								adapter.setState(oidinoctetsvaluee, varbinds[8].value.toString(), true);
 								
 								
 								
