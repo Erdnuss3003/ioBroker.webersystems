@@ -14,7 +14,7 @@
 
 Webersystems Test
 
-Sopport for SNMP v2c
+Support for SNMP v2c
 
 ## Beschreibung
 
