@@ -21,7 +21,7 @@ Vorraussetzung ist das die Geräte SNMP v2c unterstützen.
 
 | Name                	| Beschreibung             											|
 |:------------------    |:-------------------      											|
-| sysDescr      		| System Beschreibung        										|
+| sysDescr	     		| System Beschreibung        										|
 | sysUpTime				| Uptime vom System (hundertstel Sekunden seit Neustart)       		|
 | sysContact       		| SNMP Contact        												|
 | sysName				| SNMP Name        													|
@@ -35,7 +35,7 @@ Die Interfaces können Hardware, Systeminterne oder VLAN Interfaces sein.
 |:------------------    |:-------------------      											|
 | ifIndex      			| Index vom Interface  												|
 | ifDescr				| Beschreibung vom Interface       									|
-| ifType       			| Interface typ       												|
+| ifType       			| Interface Typ       												|
 | ifMtu					| Maximale Paket größe       										|
 | ifSpeed				| Interface Geschwindigkeit											|
 | ifPhysAddress      	| Physikalische Adresse vom Interface (noch nicht implementiert)   	|
