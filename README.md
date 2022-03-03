@@ -12,8 +12,6 @@
 
 ## SNMP Netzwork Switch Control adapter for ioBroker
 
-Webersystems Test
-
 Dieser Adaptere für ioBroker ermöglicht es Netzwerk Switche via SNMP auszulesen und zu steuern.
 Vorraussetzung ist das die Geräte SNMP v2c unterstützen.
 
