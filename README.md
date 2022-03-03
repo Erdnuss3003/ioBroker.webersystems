@@ -14,7 +14,8 @@
 
 Webersystems Test
 
-Support for SNMP v2c
+Dieser Adaptere für ioBroker ermöglicht es Netzwerk Switche via SNMP auszulesen und zu steuern.
+Vorraussetzung ist das die Geräte SNMP v2c unterstützen.
 
 ## Beschreibung
 
@@ -39,7 +40,7 @@ Die Interfaces können Hardware, Systeminterne oder VLAN Interfaces sein.
 | ifType       			| Interface typ       												|
 | ifMtu					| Maximale Paket größe       										|
 | ifSpeed				| Interface Geschwindigkeit											|
-| ifPhysAddress      	| Physikalische Adresse vom Interface (noch nicht implementiert)      						|
+| ifPhysAddress      	| Physikalische Adresse vom Interface (noch nicht implementiert)   	|
 | ifAdminStatus			| Interface Admin Status up (1) down (2) testing (3)       			|
 | ifOperStatus       	| Interface Betriebs Status up (1) down (2) testing (3) unknown (4) dormant (5) notPresent (6) lowerLayerDown (7)	|
 | ifLastChange			| Uptime vom Interface       										|
