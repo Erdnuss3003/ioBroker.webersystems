@@ -250,7 +250,7 @@ async function interfaceiods() {
 		var oidspecificvaluee = "0";
 
 		
-
+		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		
 		function doneCb (error) {
 			if (error)
