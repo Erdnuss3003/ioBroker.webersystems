@@ -447,6 +447,39 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 
 }
 
+async function poeiods() {
+
+
+		
+		var oid = "1.3.6.1.2.1.105.1.1.1.3";
+				
+		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
+		
+		function doneCb (error) {
+			if (error)
+				 adapter.log.info ("done Cb" + error.toString ());
+		}
+		function feedCb (varbinds) {
+			for (var i = 0; i < varbinds.length; i++) {
+				if (snmp.isVarbindError (varbinds[i]))
+					 adapter.log.info ('error walk');
+				else
+					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+					oids = varbinds[i].oid;
+					oids = oids.replace(/\./g, '_');
+					oids = "poe." + varbinds[i].value + "." + oids;
+					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'pethPsePortAdminEnable', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+					adapter.setState(oids, varbinds[i].value.toString(), true);
+																
+				
+		}
+		var maxRepetitions = 20;
+
+
+session.subtree (oid, maxRepetitions, feedCb, doneCb);
+
+}
+
 async function dataPolling() {
 		var timer = 30000;
 		
