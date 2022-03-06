@@ -89,7 +89,7 @@ function startAdapter(options) {
     }));
 }
 
-async function main() {
+async function systemiods() {
 
 	var oids = ["1.3.6.1.2.1.1.1.0", "1.3.6.1.2.1.1.3.0", "1.3.6.1.2.1.1.4.0", "1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
 	var oidss = Array.from(oids);
@@ -154,6 +154,14 @@ async function main() {
 				adapter.subscribeStates(oidss[4]);
 			}
         });
+		
+
+
+}
+
+async function interfaceiods() {
+
+
 		
 		var oid = "1.3.6.1.2.1.2.2.1.1";
 		
@@ -442,7 +450,8 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 async function dataPolling() {
 		var timer = 30000;
 		
-		setInterval(main, timer);
+		setInterval(systemiods, timer);
+		setInterval(interfaceiods, timer);
 		
 		
 	}
