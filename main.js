@@ -450,7 +450,7 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 async function poeoids() {
 
 
-		
+		var oids = "0";
 		var oid = "1.3.6.1.2.1.105.1.1.1.3";
 				
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
@@ -464,7 +464,7 @@ async function poeoids() {
 				if (snmp.isVarbindError (varbinds[i]))
 					 adapter.log.info ('error walk');				
 				else 
-					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+					adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
 					oids = "poe." + "." + oids;
