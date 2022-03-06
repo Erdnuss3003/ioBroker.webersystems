@@ -451,7 +451,7 @@ async function poeoids() {
 
 
 		var oids = "0";
-		var oid = "1.3.6.1.2.1.105.1.1.1.3";
+		var oid = "1.3.6.1.2.1.105.1.1.1";
 				
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		
