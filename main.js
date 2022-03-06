@@ -89,7 +89,7 @@ function startAdapter(options) {
     }));
 }
 
-async function systemiods() {
+async function systemoids() {
 
 	var oids = ["1.3.6.1.2.1.1.1.0", "1.3.6.1.2.1.1.3.0", "1.3.6.1.2.1.1.4.0", "1.3.6.1.2.1.1.5.0", "1.3.6.1.2.1.1.6.0"];
 	var oidss = Array.from(oids);
@@ -159,7 +159,7 @@ async function systemiods() {
 
 }
 
-async function interfaceiods() {
+async function interfaceoids() {
 
 
 		
@@ -447,7 +447,7 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 
 }
 
-async function poeiods() {
+async function poeoids() {
 
 
 		
@@ -483,8 +483,9 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 async function dataPolling() {
 		var timer = 30000;
 		
-		setInterval(systemiods, timer);
-		setInterval(interfaceiods, timer);
+		setInterval(systemoids, timer);
+		setInterval(interfaceoids, timer);
+		setInterval(poeoids, timer);
 		
 		
 	}
