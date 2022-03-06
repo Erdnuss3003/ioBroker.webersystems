@@ -469,7 +469,7 @@ async function poeoids() {
 					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
-					oids = "poe." + varbinds[i].value + "." + oids;
+					oids = "poe." + "." + oids;
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'pethPsePortAdminEnable', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 																
