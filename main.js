@@ -462,8 +462,10 @@ async function poeoids() {
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
 				if (snmp.isVarbindError (varbinds[i]))
+				{
 					 adapter.log.info ('error walk');
-				else
+				}
+				else {
 					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
@@ -471,7 +473,8 @@ async function poeoids() {
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'pethPsePortAdminEnable', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 																
-				
+				}		
+		}	
 		}
 		var maxRepetitions = 20;
 
