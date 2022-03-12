@@ -483,9 +483,7 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 async function dataPolling() {
 		var timer = 30000;
 		
-		setInterval(systemoids, timer);
 		setInterval(interfaceoids, timer);
-		setInterval(poeoids, timer);
 		
 		
 	}
