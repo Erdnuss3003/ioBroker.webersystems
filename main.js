@@ -362,7 +362,7 @@ async function interfaceoids() {
 					
 					session.get (oids, function (error, varbinds) {
 						if (error) {
-							// adapter.log.info('snmp error' + oid);
+							adapter.log.info('snmp error' + oid);
 							} else {
 								
 								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
