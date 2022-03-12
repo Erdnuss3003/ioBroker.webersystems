@@ -360,7 +360,7 @@ async function interfaceoids() {
 							// adapter.log.info('snmp error' + oid);
 							} else {
 								
-								// adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
+								adapter.log.info('ifDescr: ' 		+ varbinds[0].value);
 								// adapter.log.info('ifType: ' 		+ varbinds[1].value);
 								// adapter.log.info('ifMtu: ' 		+ varbinds[2].value);
 								// adapter.log.info('ifSpeed: ' 		+ varbinds[3].value);
