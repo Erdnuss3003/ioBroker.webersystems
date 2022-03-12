@@ -249,8 +249,13 @@ async function interfaceoids() {
 		var oidspecificvalue = "0";
 		var oidspecificvaluee = "0";
 
-		
-		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
+		var options = {
+			port: 161,
+			retries: 2,
+			timeout: 5000,
+			version: snmp.Version2c
+		};
+		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity, options);
 		
 		function doneCb (error) {
 			if (error)
@@ -431,7 +436,6 @@ async function interfaceoids() {
 								adapter.setObjectNotExistsAsync(oidspecificvaluee, {type: 'state', common: {name: 'ifSpecific', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 								adapter.setState(oidspecificvaluee, varbinds[20].value.toString(), true);
 								
-								await sleep(100);
 								
 								
 								
