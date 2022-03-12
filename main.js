@@ -45,7 +45,7 @@ function startAdapter(options) {
 				changeoid = changeoid.replace(/(.*)\./, '');
 				changeoid = changeoid.replace(/_/g, '.');
 				
-				adapter.log.info(changeoid + " " + state.val);
+				// adapter.log.info(changeoid + " " + state.val);
 							
 								
 
@@ -60,7 +60,7 @@ function startAdapter(options) {
 						type: snmp.ObjectType.Integer32,
 						value: state.val
 						}];
-					adapter.log.info("change to Interger");
+					// adapter.log.info("change to Interger");
 				} else {
 					var varbindss = [
 						{
@@ -68,13 +68,13 @@ function startAdapter(options) {
 						type: snmp.ObjectType.OctetString,
 						value: state.val
 						}];
-					adapter.log.info("change to String");
+					// adapter.log.info("change to String");
 				}
 		
 				var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 				session.set (varbindss, function (error, varbindss) {
 					if (error) {
-						adapter.log.info("setfunktion" + error);
+						// adapter.log.info("setfunktion" + error);
 					} else {
 						}
 				});		
