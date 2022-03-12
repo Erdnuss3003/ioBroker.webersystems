@@ -431,6 +431,8 @@ async function interfaceoids() {
 								adapter.setObjectNotExistsAsync(oidspecificvaluee, {type: 'state', common: {name: 'ifSpecific', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 								adapter.setState(oidspecificvaluee, varbinds[20].value.toString(), true);
 								
+								await sleep(100);
+								
 								
 								
 						}
