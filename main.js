@@ -22,7 +22,7 @@ function startAdapter(options) {
 		
         unload: (callback) => {
             try {
-                clearInterval(timer);
+                clearInterval(systmiods);
 
                 callback();
             } catch (e) {
@@ -489,7 +489,7 @@ session.subtree (oid, maxRepetitions, feedCb, doneCb);
 async function dataPolling() {
 		var timer = 30000;
 		
-		setInterval(interfaceoids, timer);
+		setInterval(systmiods);
 		
 		
 	}
