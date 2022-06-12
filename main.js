@@ -22,7 +22,7 @@ function startAdapter(options) {
 		
         unload: (callback) => {
             try {
-                clearInterval(systemiods);
+                clearInterval(intervalsystemiods);
 
                 callback();
             } catch (e) {
@@ -162,7 +162,7 @@ async function systemoids() {
 async function dataPolling() {
 		var timer = 30000;
 		
-		setInterval(systemiods);
+		const intervalsystemiods = setInterval(systemiods, timer);
 		
 		
 	}
