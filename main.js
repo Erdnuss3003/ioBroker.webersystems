@@ -22,7 +22,7 @@ function startAdapter(options) {
 		
         unload: (callback) => {
             try {
-                clearInterval(systmiods);
+                clearInterval(systemiods);
 
                 callback();
             } catch (e) {
