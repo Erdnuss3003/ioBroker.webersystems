@@ -162,7 +162,7 @@ async function systemoids() {
 async function dataPolling() {
 		var timer = 30000;
 		
-		setInterval(systmiods);
+		setInterval(systemiods);
 		
 		
 	}
