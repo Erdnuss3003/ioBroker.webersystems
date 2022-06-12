@@ -18,7 +18,7 @@ function startAdapter(options) {
     return adapter = utils.adapter(Object.assign({}, options, {
         name: 'webersystems',
 		
-        ready: dataPolling, 
+        ready: systemiods, 
 		
         unload: (callback) => {
             try {
@@ -162,7 +162,7 @@ async function systemoids() {
 async function dataPolling() {
 		var timer = 30000;
 		
-		const intervalsystemiods = setInterval(systemiods, timer);
+		const intervalsystemiods = setInterval(systemoids, timer);
 		
 		
 	}
