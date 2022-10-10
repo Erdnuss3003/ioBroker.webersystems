@@ -99,7 +99,7 @@ async function system() {
 					oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
 					oidsysDescrvalue = "interface." + "." + oidsysDescrvalue;
 
-					var oidssysDescr = [oidsysDescrvalue];
+					var oidssysDescr = [oidsysDescr];
 
 					session.get (oidssysDescr, function (error, varbinds) {
 						if (error) {
