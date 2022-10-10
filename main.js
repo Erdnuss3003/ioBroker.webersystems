@@ -462,6 +462,86 @@ async function interfaces_ifindex() {
 						}
 					});			
 				}
+				if (adapter.config.ifoutdiscards) {			
+					var oidoutdiscards = "1.3.6.1.2.1.2.2.1.2";
+					var oidoutdiscardsvalue = "0";
+					var oidoutdiscardsvaluee = "0";
+
+					oidoutdiscardsvalue = oidoutdiscards + "." + varbinds[i].value;
+					oidoutdiscardsvaluee = oidoutdiscardsvalue.replace(/\./g, '_');
+					oidoutdiscardsvaluee = "interface." + varbinds[i].value + "." + oidoutdiscardsvaluee;
+
+					var oidsifoutdiscards = [oidoutdiscardsvalue];
+
+					session.get (oidsifoutdiscards, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error oidsifoutdiscards ');
+						} else {
+							adapter.setObjectNotExistsAsync(oidoutdiscardsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setState(oidoutdiscardsvaluee, varbinds[0].value.toString(), true);
+						}
+					});			
+				}
+				if (adapter.config.ifouterrors) {			
+					var oidouterrors = "1.3.6.1.2.1.2.2.1.2";
+					var oidouterrorsvalue = "0";
+					var oidouterrorsvaluee = "0";
+
+					oidouterrorsvalue = oidouterrors + "." + varbinds[i].value;
+					oidouterrorsvaluee = oidouterrorsvalue.replace(/\./g, '_');
+					oidouterrorsvaluee = "interface." + varbinds[i].value + "." + oidouterrorsvaluee;
+
+					var oidsifouterrors = [oidouterrorsvalue];
+
+					session.get (oidsifouterrors, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error oidsifouterrors ');
+						} else {
+							adapter.setObjectNotExistsAsync(oidouterrorsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setState(oidouterrorsvaluee, varbinds[0].value.toString(), true);
+						}
+					});			
+				}
+				if (adapter.config.ifoutqlen) {			
+					var oidoutqlen = "1.3.6.1.2.1.2.2.1.2";
+					var oidoutqlenvalue = "0";
+					var oidoutqlenvaluee = "0";
+
+					oidoutqlenvalue = oidoutqlen + "." + varbinds[i].value;
+					oidoutqlenvaluee = oidoutqlenvalue.replace(/\./g, '_');
+					oidoutqlenvaluee = "interface." + varbinds[i].value + "." + oidoutqlenvaluee;
+
+					var oidsifoutqlen = [oidoutqlenvalue];
+
+					session.get (oidsifoutqlen, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error oidsifoutqlen ');
+						} else {
+							adapter.setObjectNotExistsAsync(oidoutqlenvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setState(oidoutqlenvaluee, varbinds[0].value.toString(), true);
+						}
+					});			
+				}
+				if (adapter.config.ifspecific) {			
+					var oidspecific = "1.3.6.1.2.1.2.2.1.2";
+					var oidspecificvalue = "0";
+					var oidspecificvaluee = "0";
+
+					oidspecificvalue = oidspecific + "." + varbinds[i].value;
+					oidspecificvaluee = oidspecificvalue.replace(/\./g, '_');
+					oidspecificvaluee = "interface." + varbinds[i].value + "." + oidspecificvaluee;
+
+					var oidsifspecific = [oidspecificvalue];
+
+					session.get (oidsifspecific, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error oidsifspecific ');
+						} else {
+							adapter.setObjectNotExistsAsync(oidspecificvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setState(oidspecificvaluee, varbinds[0].value.toString(), true);
+						}
+					});			
+				}
 
 				
 				
