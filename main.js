@@ -111,7 +111,7 @@ async function system() {
 		});			
 	}
 	if (adapter.config.sysuptime) {			
-		var oidsysUpTime = "1.3.6.1.2.1.1.1.0";
+		var oidsysUpTime = "1.3.6.1.2.1.1.1.1";
 		var oidsysUpTimevalue = "0";
 
 		oidsysUpTimevalue = oidsysUpTime.replace(/\./g, '_');
@@ -129,7 +129,7 @@ async function system() {
 		});			
 	}
 	if (adapter.config.sysdescr) {			
-		var oidsysDescr = "1.3.6.1.2.1.1.1.1";
+		var oidsysDescr = "1.3.6.1.2.1.1.1.2";
 		var oidsysDescrvalue = "0";
 
 		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
@@ -147,7 +147,7 @@ async function system() {
 		});			
 	}
 	if (adapter.config.sysdescr) {			
-		var oidsysDescr = "1.3.6.1.2.1.1.1.0";
+		var oidsysDescr = "1.3.6.1.2.1.1.1.3";
 		var oidsysDescrvalue = "0";
 
 		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
@@ -165,7 +165,7 @@ async function system() {
 		});			
 	}
 	if (adapter.config.sysdescr) {			
-		var oidsysDescr = "1.3.6.1.2.1.1.1.0";
+		var oidsysDescr = "1.3.6.1.2.1.1.1.4";
 		var oidsysDescrvalue = "0";
 
 		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
