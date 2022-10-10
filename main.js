@@ -97,7 +97,7 @@ async function system() {
 					var oidsysDescrvalue = "0";
 
 					oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
-					oidsysDescrvalue = "interface." + "." + oidsysDescrvalue;
+					oidsysDescrvalue = "systems." + "." + oidsysDescrvalue;
 
 					var oidssysDescr = [oidsysDescr];
 
