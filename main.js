@@ -101,7 +101,7 @@ async function systemoids() {
 
 async function interfaces_ifindex() {
 	if (adapter.config.ifindex) {
-		var oid = "1.3.6.1.2.1.2.2.1.1";
+		var oidifindex = "1.3.6.1.2.1.2.2.1.1";
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		
 		function doneCb (error) {
@@ -111,19 +111,33 @@ async function interfaces_ifindex() {
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
 				if (snmp.isVarbindError (varbinds[i]))
-					 adapter.log.info ('error walk');
+					 adapter.log.info ('ifindex error walk');
 				else
 					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
-					var oids = varbinds[i].oid;
-					oids = oids.replace(/\./g, '_');
+					var oidsifindex = varbinds[i].oidifindex;
+					oidsifindex = oidsifindex.replace(/\./g, '_');
 					oids = "interface." + varbinds[i].value + "." + oids;
-					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-					adapter.setState(oids, varbinds[i].value.toString(), true);
+					adapter.setObjectNotExistsAsync(oidsifindex, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+					adapter.setState(oidsifindex, varbinds[i].value.toString(), true);
 					
-								
-								
-								
-								
+					if (adapter.config.ifdescr) {
+						var oiddescr = "1.3.6.1.2.1.2.2.1.2";
+						var oiddescrvalue = "0";
+						var oiddescrvaluee = "0";
+						
+						oiddescrvalue = oiddescr + "." + varbinds[i].value;
+						oiddescrvaluee = oiddescrvalue.replace(/\./g, '_');
+						oiddescrvaluee = "interface." + varbinds[i].value + "." + oiddescrvaluee;
+						
+						var oidsifdescr = [oiddescrvalue];
+					
+						session.get (oidsifdescr, function (error, varbinds) {
+						if (error) {
+								adapter.log.info('snmp error oidsifdescr ');
+							} else {
+								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+								adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);									
+					}								
 					
 			}
 		}
