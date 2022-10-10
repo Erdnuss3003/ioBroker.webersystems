@@ -100,38 +100,40 @@ async function systemoids() {
 
 
 async function interfaces_ifindex() {
-	if (adapter.config.ifindex) {
-		var oidifindex = "1.3.6.1.2.1.2.2.1.1";
+
+		
+		var oid = "1.3.6.1.2.1.2.2.1.1";		
+		
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		
 		function doneCb (error) {
 			if (error)
-				 adapter.log.info ("done Cb in interfaces" + error.toString ());
+				 adapter.log.info ("done Cb" + error.toString ());
 		}
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
-				if (snmp.isVarbindError (varbinds[i])) 
-					 adapter.log.info ('ifindex error walk');
-				
-				else 
+				if (snmp.isVarbindError (varbinds[i]))
+					 adapter.log.info ('error walk');
+				else
 					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
-					var oids = varbinds[i].oidifindex;
+					oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
 					oids = "interface." + varbinds[i].value + "." + oids;
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
-									
+					
+											
+					
 					
 			}
 		}
 		var maxRepetitions = 20;
 
 
-var oid = "1.3.6.1.2.1.2.2.1.1";
-session.subtree (oid, maxRepetitions, feedCb, doneCb);	
-	}	
-		
+oid = "1.3.6.1.2.1.2.2.1.1";
+session.subtree (oid, maxRepetitions, feedCb, doneCb);
+	
 }
 
 async function poeoids() {
