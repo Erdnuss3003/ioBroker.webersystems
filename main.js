@@ -106,7 +106,7 @@ async function interfaces_ifindex() {
 		
 		function doneCb (error) {
 			if (error)
-				 adapter.log.info ("done Cb" + error.toString ());
+				 adapter.log.info ("done Cb in interfaces" + error.toString ());
 		}
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
