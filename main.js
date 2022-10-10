@@ -91,26 +91,7 @@ function startAdapter(options) {
 }
 
 async function system() {
-if (adapter.config.sysdescr) {			
-					var oidsysDescr = "1.3.6.1.2.1.2.2.1.7";
-					var oidsysDescrvalue = "0";
-					var oidsysDescrvaluee = "0";
 
-					oidsysDescrvalue = oidsysDescr + "." + varbinds[i].value;
-					oidsysDescrvaluee = oidsysDescrvalue.replace(/\./g, '_');
-					oidsysDescrvaluee = "interface." + varbinds[i].value + "." + oidsysDescrvaluee;
-
-					var oidssysDescr = [oidsysDescrvalue];
-
-					session.get (oidssysDescr, function (error, varbinds) {
-						if (error) {
-							adapter.log.info('snmp error oidssysDescr ');
-						} else {
-							adapter.setObjectNotExistsAsync(oidsysDescrvaluee, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
-							adapter.setState(oidsysDescrvaluee, varbinds[0].value.toString(), true);
-						}
-					});			
-				}
 	
 }
 
