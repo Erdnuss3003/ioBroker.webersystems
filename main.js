@@ -93,23 +93,95 @@ function startAdapter(options) {
 async function system() {
 	var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 	if (adapter.config.sysdescr) {			
-					var oidsysDescr = "1.3.6.1.2.1.1.1.0";
-					var oidsysDescrvalue = "0";
+		var oidsysDescr = "1.3.6.1.2.1.1.1.0";
+		var oidsysDescrvalue = "0";
 
-					oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
-					oidsysDescrvalue = "systems." + oidsysDescrvalue;
+		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
+		oidsysDescrvalue = "systems." + oidsysDescrvalue;
 
-					var oidssysDescr = [oidsysDescr];
+		var oidssysDescr = [oidsysDescr];
 
-					session.get (oidssysDescr, function (error, varbinds) {
-						if (error) {
-							adapter.log.info('snmp error oidssysDescr ');
-						} else {
-							adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
-							adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
-						}
-					});			
-				}
+		session.get (oidssysDescr, function (error, varbinds) {
+			if (error) {
+				adapter.log.info('snmp error oidssysDescr ');
+			} else {
+				adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
+			}
+		});			
+	}
+	if (adapter.config.sysuptime) {			
+		var oidsysUpTime = "1.3.6.1.2.1.1.1.0";
+		var oidsysUpTimevalue = "0";
+
+		oidsysUpTimevalue = oidsysUpTime.replace(/\./g, '_');
+		oidsysUpTimevalue = "systems." + oidsysUpTimevalue;
+
+		var oidssysUpTime = [oidsysUpTime];
+
+		session.get (oidssysUpTime, function (error, varbinds) {
+			if (error) {
+				adapter.log.info('snmp error oidssysUpTime ');
+			} else {
+				adapter.setObjectNotExistsAsync(oidsysUpTimevalue, {type: 'state', common: {name: 'sysUpTime', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				adapter.setState(oidsysUpTimevalue, varbinds[0].value.toString(), true);
+			}
+		});			
+	}
+	if (adapter.config.sysdescr) {			
+		var oidsysDescr = "1.3.6.1.2.1.1.1.0";
+		var oidsysDescrvalue = "0";
+
+		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
+		oidsysDescrvalue = "systems." + oidsysDescrvalue;
+
+		var oidssysDescr = [oidsysDescr];
+
+		session.get (oidssysDescr, function (error, varbinds) {
+			if (error) {
+				adapter.log.info('snmp error oidssysDescr ');
+			} else {
+				adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
+			}
+		});			
+	}
+	if (adapter.config.sysdescr) {			
+		var oidsysDescr = "1.3.6.1.2.1.1.1.0";
+		var oidsysDescrvalue = "0";
+
+		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
+		oidsysDescrvalue = "systems." + oidsysDescrvalue;
+
+		var oidssysDescr = [oidsysDescr];
+
+		session.get (oidssysDescr, function (error, varbinds) {
+			if (error) {
+				adapter.log.info('snmp error oidssysDescr ');
+			} else {
+				adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
+			}
+		});			
+	}
+	if (adapter.config.sysdescr) {			
+		var oidsysDescr = "1.3.6.1.2.1.1.1.0";
+		var oidsysDescrvalue = "0";
+
+		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
+		oidsysDescrvalue = "systems." + oidsysDescrvalue;
+
+		var oidssysDescr = [oidsysDescr];
+
+		session.get (oidssysDescr, function (error, varbinds) {
+			if (error) {
+				adapter.log.info('snmp error oidssysDescr ');
+			} else {
+				adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
+			}
+		});			
+	}
 	
 }
 
