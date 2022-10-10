@@ -333,6 +333,7 @@ async function interfaces() {
 						} else {
 							adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidadminstatusvaluee, varbinds[0].value.toString(), true);
+							adapter.subscribeStates(oidadminstatusvaluee);
 						}
 					});			
 				}
