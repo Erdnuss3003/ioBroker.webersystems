@@ -91,7 +91,25 @@ function startAdapter(options) {
 }
 
 async function system() {
+	var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
+	if (adapter.config.sysdescr) {			
+					var oidsysDescr = "1.3.6.1.2.1.1.1.0";
+					var oidsysDescrvalue = "0";
 
+					oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
+					oidsysDescrvalue = "interface." + "." + oidsysDescrvalue;
+
+					var oidssysDescr = [oidsysDescrvalue];
+
+					session.get (oidssysDescr, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error oidssysDescr ');
+						} else {
+							adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
+						}
+					});			
+				}
 	
 }
 
