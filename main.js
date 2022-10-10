@@ -128,8 +128,8 @@ async function interfaces_ifindex() {
 		var maxRepetitions = 20;
 
 
-oidifindex = "1.3.6.1.2.1.2.2.1.1";
-session.subtree (oidifindex, maxRepetitions, feedCb, doneCb);	
+var oid = "1.3.6.1.2.1.2.2.1.1";
+session.subtree (oid, maxRepetitions, feedCb, doneCb);	
 	}	
 		
 }
