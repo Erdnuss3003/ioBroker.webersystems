@@ -90,7 +90,7 @@ function startAdapter(options) {
 }
 
 async function system() {
-if (adapter.config.sysDescr) {			
+if (adapter.config.sysdescr) {			
 					var oidsysDescr = "1.3.6.1.2.1.2.2.1.7";
 					var oidsysDescrvalue = "0";
 					var oidsysDescrvaluee = "0";
