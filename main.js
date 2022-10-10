@@ -157,7 +157,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsiftype ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidtypevaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidtypevaluee, {type: 'state', common: {name: 'ifType', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidtypevaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -177,7 +177,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifmtu ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidmtuvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidmtuvaluee, {type: 'state', common: {name: 'ifMtu', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidmtuvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -197,7 +197,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifspeed ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidspeedvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidspeedvaluee, {type: 'state', common: {name: 'ifSpeed', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidspeedvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -217,7 +217,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifphysaddress ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidphysaddressvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidphysaddressvaluee, {type: 'state', common: {name: 'ifPhysAddress', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidphysaddressvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -237,7 +237,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifadminstatus ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidadminstatusvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -257,7 +257,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoperstatus ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoperstatusvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidoperstatusvaluee, {type: 'state', common: {name: 'ifOperStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoperstatusvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -277,7 +277,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsiflastchange ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidlastchangevaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidlastchangevaluee, {type: 'state', common: {name: 'ifLastChange', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidlastchangevaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -297,7 +297,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifinoctets ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidinoctetsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidinoctetsvaluee, {type: 'state', common: {name: 'ifInOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidinoctetsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -317,7 +317,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifinucastpkts ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidinucastpktsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidinucastpktsvaluee, {type: 'state', common: {name: 'ifInUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidinucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -337,7 +337,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifinnucastpkts ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidinnucastpktsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidinnucastpktsvaluee, {type: 'state', common: {name: 'ifInNUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidinnucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -357,7 +357,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifindiscards ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidindiscardsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidindiscardsvaluee, {type: 'state', common: {name: 'ifInDiscards', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidindiscardsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -377,7 +377,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifinerrors ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidinerrorsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidinerrorsvaluee, {type: 'state', common: {name: 'ifInErrors', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidinerrorsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -397,7 +397,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifinunkownprotos ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidinunkownprotosvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidinunkownprotosvaluee, {type: 'state', common: {name: 'ifInUnknownProtos', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidinunkownprotosvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -417,7 +417,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutoctets ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoutoctetsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidoutoctetsvaluee, {type: 'state', common: {name: 'ifOutOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoutoctetsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -437,7 +437,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutucastpkts ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoutucastpktsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidoutucastpktsvaluee, {type: 'state', common: {name: 'ifOutUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoutucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -457,7 +457,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutnucastpkts ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoutnucastpktsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidoutnucastpktsvaluee, {type: 'state', common: {name: 'ifOutNUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoutnucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -477,7 +477,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutdiscards ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoutdiscardsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidoutdiscardsvaluee, {type: 'state', common: {name: 'ifOutDiscards', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoutdiscardsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -497,7 +497,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifouterrors ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidouterrorsvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidouterrorsvaluee, {type: 'state', common: {name: 'ifOutErrors', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidouterrorsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -517,7 +517,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutqlen ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoutqlenvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidoutqlenvaluee, {type: 'state', common: {name: 'ifOutQLen', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoutqlenvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -537,7 +537,7 @@ async function interfaces_ifindex() {
 						if (error) {
 							adapter.log.info('snmp error oidsifspecific ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidspecificvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setObjectNotExistsAsync(oidspecificvaluee, {type: 'state', common: {name: 'ifSpecific', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidspecificvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
