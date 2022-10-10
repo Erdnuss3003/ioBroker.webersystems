@@ -155,7 +155,7 @@ async function interfaces_ifdescr() {
 				adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
 			}
-		}			
+		});			
 	}
 }
 
