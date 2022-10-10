@@ -128,21 +128,21 @@ async function system() {
 			}
 		});			
 	}
-	if (adapter.config.sysdescr) {			
-		var oidsysDescr = "1.3.6.1.2.1.1.1.2";
-		var oidsysDescrvalue = "0";
+	if (adapter.config.syscontact) {			
+		var oidsysContact = "1.3.6.1.2.1.1.1.2";
+		var oidsysContactvalue = "0";
 
-		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
-		oidsysDescrvalue = "systems." + oidsysDescrvalue;
+		oidsysContactvalue = oidsysContact.replace(/\./g, '_');
+		oidsysContactvalue = "systems." + oidsysContactvalue;
 
-		var oidssysDescr = [oidsysDescr];
+		var oidssysContact = [oidsysContact];
 
-		session.get (oidssysDescr, function (error, varbinds) {
+		session.get (oidssysContact, function (error, varbinds) {
 			if (error) {
-				adapter.log.info('snmp error oidssysDescr ');
+				adapter.log.info('snmp error oidssysContact ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
-				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
+				adapter.setObjectNotExistsAsync(oidsysContactvalue, {type: 'state', common: {name: 'sysContact', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				adapter.setState(oidsysContactvalue, varbinds[0].value.toString(), true);
 			}
 		});			
 	}
