@@ -543,16 +543,6 @@ async function interfaces_ifindex() {
 					});			
 				}
 
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 			}
 		}
 		var maxRepetitions = 20;
