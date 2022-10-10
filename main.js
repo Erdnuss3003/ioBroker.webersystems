@@ -122,22 +122,7 @@ async function interfaces_ifindex() {
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
-					
-											
-					
-					
-			}
-		}
-		var maxRepetitions = 20;
-
-
-oid = "1.3.6.1.2.1.2.2.1.1";
-session.subtree (oid, maxRepetitions, feedCb, doneCb);
-	
-}
-async function interfaces_ifdescr() {
-
-	if (adapter.config.ifdescr) {
+				if (adapter.config.ifdescr) {
 		var oiddescr = "1.3.6.1.2.1.2.2.1.2";
 		var oiddescrvalue = "0";
 		var oiddescrvaluee = "0";
@@ -156,7 +141,18 @@ async function interfaces_ifdescr() {
 				adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
 			}
 		});			
-	}
+	}			
+											
+					
+					
+			}
+		}
+		var maxRepetitions = 20;
+
+
+oid = "1.3.6.1.2.1.2.2.1.1";
+session.subtree (oid, maxRepetitions, feedCb, doneCb);
+	
 }
 
 async function dataPolling() {
