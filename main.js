@@ -111,7 +111,7 @@ async function system() {
 		});			
 	}
 	if (adapter.config.sysuptime) {			
-		var oidsysUpTime = "1.3.6.1.2.1.1.1.1";
+		var oidsysUpTime = "1.3.6.1.2.1.1.3.0";
 		var oidsysUpTimevalue = "0";
 
 		oidsysUpTimevalue = oidsysUpTime.replace(/\./g, '_');
@@ -129,7 +129,7 @@ async function system() {
 		});			
 	}
 	if (adapter.config.syscontact) {			
-		var oidsysContact = "1.3.6.1.2.1.1.1.2";
+		var oidsysContact = "1.3.6.1.2.1.1.4.0";
 		var oidsysContactvalue = "0";
 
 		oidsysContactvalue = oidsysContact.replace(/\./g, '_');
@@ -147,7 +147,7 @@ async function system() {
 		});			
 	}
 	if (adapter.config.sysname) {			
-		var oidsysName = "1.3.6.1.2.1.1.1.3";
+		var oidsysName = "1.3.6.1.2.1.1.5.0";
 		var oidsysNamevalue = "0";
 
 		oidsysNamevalue = oidsysName.replace(/\./g, '_');
@@ -165,7 +165,7 @@ async function system() {
 		});			
 	}
 	if (adapter.config.syslocation) {			
-		var oidsysLocation = "1.3.6.1.2.1.1.1.4";
+		var oidsysLocation = "1.3.6.1.2.1.1.6.0";
 		var oidsysLocationvalue = "0";
 
 		oidsysLocationvalue = oidsysLocation.replace(/\./g, '_');
