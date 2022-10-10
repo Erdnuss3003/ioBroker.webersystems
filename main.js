@@ -146,39 +146,39 @@ async function system() {
 			}
 		});			
 	}
-	if (adapter.config.sysdescr) {			
-		var oidsysDescr = "1.3.6.1.2.1.1.1.3";
-		var oidsysDescrvalue = "0";
+	if (adapter.config.sysname) {			
+		var oidsysName = "1.3.6.1.2.1.1.1.3";
+		var oidsysNamevalue = "0";
 
-		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
-		oidsysDescrvalue = "systems." + oidsysDescrvalue;
+		oidsysNamevalue = oidsysName.replace(/\./g, '_');
+		oidsysNamevalue = "systems." + oidsysNamevalue;
 
-		var oidssysDescr = [oidsysDescr];
+		var oidssysName = [oidsysName];
 
-		session.get (oidssysDescr, function (error, varbinds) {
+		session.get (oidssysName, function (error, varbinds) {
 			if (error) {
-				adapter.log.info('snmp error oidssysDescr ');
+				adapter.log.info('snmp error oidssysName ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
-				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
+				adapter.setObjectNotExistsAsync(oidsysNamevalue, {type: 'state', common: {name: 'sysName', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				adapter.setState(oidsysNamevalue, varbinds[0].value.toString(), true);
 			}
 		});			
 	}
-	if (adapter.config.sysdescr) {			
-		var oidsysDescr = "1.3.6.1.2.1.1.1.4";
-		var oidsysDescrvalue = "0";
+	if (adapter.config.syslocation) {			
+		var oidsysLocation = "1.3.6.1.2.1.1.1.4";
+		var oidsysLocationvalue = "0";
 
-		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
-		oidsysDescrvalue = "systems." + oidsysDescrvalue;
+		oidsysLocationvalue = oidsysLocation.replace(/\./g, '_');
+		oidsysLocationvalue = "systems." + oidsysLocationvalue;
 
-		var oidssysDescr = [oidsysDescr];
+		var oidssysLocation = [oidsysLocation];
 
-		session.get (oidssysDescr, function (error, varbinds) {
+		session.get (oidssysLocation, function (error, varbinds) {
 			if (error) {
-				adapter.log.info('snmp error oidssysDescr ');
+				adapter.log.info('snmp error oidssysLocation ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
-				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
+				adapter.setObjectNotExistsAsync(oidsysLocationvalue, {type: 'state', common: {name: 'sysLocation', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				adapter.setState(oidsysLocationvalue, varbinds[0].value.toString(), true);
 			}
 		});			
 	}
