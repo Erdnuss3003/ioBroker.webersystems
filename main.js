@@ -22,7 +22,7 @@ function startAdapter(options) {
 		
         unload: (callback) => {
             try {
-                clearInterval(timer);
+                clearInterval(timer1);
 
                 callback();
             } catch (e) {
@@ -90,7 +90,26 @@ function startAdapter(options) {
 }
 
 async function systemoids() {
+if (adapter.config.sysDescr) {			
+					var oidsysDescr = "1.3.6.1.2.1.2.2.1.7";
+					var oidsysDescrvalue = "0";
+					var oidsysDescrvaluee = "0";
 
+					oidsysDescrvalue = oidsysDescr + "." + varbinds[i].value;
+					oidsysDescrvaluee = oidsysDescrvalue.replace(/\./g, '_');
+					oidsysDescrvaluee = "interface." + varbinds[i].value + "." + oidsysDescrvaluee;
+
+					var oidssysDescr = [oidsysDescrvalue];
+
+					session.get (oidssysDescr, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error oidssysDescr ');
+						} else {
+							adapter.setObjectNotExistsAsync(oidsysDescrvaluee, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setState(oidsysDescrvaluee, varbinds[0].value.toString(), true);
+						}
+					});			
+				}
 	
 }
 
@@ -554,9 +573,9 @@ async function interfaces_ifindex() {
 }
 
 async function dataPolling() {
-		var timer = 30000;
+		var timer1 = 30000;
 		
-		setInterval(interfaces_ifindex, timer);
+		setInterval(interfaces_ifindex, timer1);
 		
 		
 	}
