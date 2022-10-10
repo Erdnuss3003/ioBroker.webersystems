@@ -463,7 +463,7 @@ async function interfaces_ifindex() {
 					});			
 				}
 				if (adapter.config.ifoutdiscards) {			
-					var oidoutdiscards = "1.3.6.1.2.1.2.2.1.2";
+					var oidoutdiscards = "1.3.6.1.2.1.2.2.1.19";
 					var oidoutdiscardsvalue = "0";
 					var oidoutdiscardsvaluee = "0";
 
@@ -483,7 +483,7 @@ async function interfaces_ifindex() {
 					});			
 				}
 				if (adapter.config.ifouterrors) {			
-					var oidouterrors = "1.3.6.1.2.1.2.2.1.2";
+					var oidouterrors = "1.3.6.1.2.1.2.2.1.20";
 					var oidouterrorsvalue = "0";
 					var oidouterrorsvaluee = "0";
 
@@ -503,7 +503,7 @@ async function interfaces_ifindex() {
 					});			
 				}
 				if (adapter.config.ifoutqlen) {			
-					var oidoutqlen = "1.3.6.1.2.1.2.2.1.2";
+					var oidoutqlen = "1.3.6.1.2.1.2.2.1.21";
 					var oidoutqlenvalue = "0";
 					var oidoutqlenvaluee = "0";
 
@@ -523,7 +523,7 @@ async function interfaces_ifindex() {
 					});			
 				}
 				if (adapter.config.ifspecific) {			
-					var oidspecific = "1.3.6.1.2.1.2.2.1.2";
+					var oidspecific = "1.3.6.1.2.1.2.2.1.22";
 					var oidspecificvalue = "0";
 					var oidspecificvaluee = "0";
 
