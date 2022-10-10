@@ -100,7 +100,7 @@ async function systemoids() {
 
 
 async function interfaces_ifindex() {
-	if (adapter.config.ifindex = true) {
+	if (adapter.config.ifindex) {
 		var oid = "1.3.6.1.2.1.2.2.1.1";
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		
