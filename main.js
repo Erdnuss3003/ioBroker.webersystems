@@ -110,7 +110,7 @@ async function interfaces_ifindex() {
 		}
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
-				if (snmp.isVarbindError (varbinds[i]))
+				if (snmp.isVarbindError (varbinds[i])) {
 					 adapter.log.info ('ifindex error walk');
 				}
 				else {
