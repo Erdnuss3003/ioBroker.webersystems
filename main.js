@@ -100,7 +100,7 @@ async function systemoids() {
 
 
 async function interfaces_ifindex() {
-	if (adapter.config.ifdescr) {
+	if (adapter.config.ifindex) {
 		
 		var oid = "1.3.6.1.2.1.2.2.1.1";		
 		
@@ -139,6 +139,26 @@ async function interfaces_ifindex() {
 						} else {
 							adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
+						}
+					});			
+				}
+				if (adapter.config.iftype) {			
+					var oidtype = "1.3.6.1.2.1.2.2.1.3";
+					var oidtypevalue = "0";
+					var oidtypevaluee = "0";
+
+					oidtypevalue = oidtype + "." + varbinds[i].value;
+					oidtypevaluee = oidtypevalue.replace(/\./g, '_');
+					oidtypevaluee = "interface." + varbinds[i].value + "." + oidtypevaluee;
+
+					var oidsiftype = [oidtypevalue];
+
+					session.get (oidsiftype, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error oidsiftype ');
+						} else {
+							adapter.setObjectNotExistsAsync(oidtypevaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setState(oidtypevaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}	
