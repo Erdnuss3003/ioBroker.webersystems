@@ -121,26 +121,7 @@ async function interfaces_ifindex() {
 					adapter.setObjectNotExistsAsync(oidsifindex, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oidsifindex, varbinds[i].value.toString(), true);
 					
-					if (adapter.config.ifdescr) {
-						var oiddescr = "1.3.6.1.2.1.2.2.1.2";
-						var oiddescrvalue = "0";
-						var oiddescrvaluee = "0";
-						
-						oiddescrvalue = oiddescr + "." + varbinds[i].value;
-						oiddescrvaluee = oiddescrvalue.replace(/\./g, '_');
-						oiddescrvaluee = "interface." + varbinds[i].value + "." + oiddescrvaluee;
-						
-						var oidsifdescr = [oiddescrvalue];
-					
-						session.get (oidsifdescr, function (error, varbinds) {
-						if (error) {
-								adapter.log.info('snmp error oidsifdescr ');
-							} else {
-								adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
-								adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
-							}
-						}			
-					}								
+													
 				}	
 			}
 		}
