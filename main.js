@@ -22,8 +22,9 @@ function startAdapter(options) {
 		
         unload: (callback) => {
             try {
-                clearInterval(timerif);
 				clearInterval(timersys);
+                clearInterval(timerif);
+				
                 callback();
             } catch (e) {
                 callback();
