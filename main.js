@@ -113,7 +113,7 @@ async function interfaces_ifindex() {
 					 adapter.log.info ('error walk');
 				else
 					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
-					oids = varbinds[i].oid;
+					var oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
 					oids = "interface." + varbinds[i].value + "." + oids;
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
