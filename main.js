@@ -22,8 +22,8 @@ function startAdapter(options) {
 		
         unload: (callback) => {
             try {
-                clearInterval(timer1);
-
+                clearInterval(timerif);
+				clearInterval(timersys);
                 callback();
             } catch (e) {
                 callback();
@@ -89,7 +89,7 @@ function startAdapter(options) {
     }));
 }
 
-async function systemoids() {
+async function system() {
 if (adapter.config.sysDescr) {			
 					var oidsysDescr = "1.3.6.1.2.1.2.2.1.7";
 					var oidsysDescrvalue = "0";
@@ -118,7 +118,7 @@ if (adapter.config.sysDescr) {
 
 
 
-async function interfaces_ifindex() {
+async function interfaces() {
 	if (adapter.config.ifindex) {
 		
 		var oid = "1.3.6.1.2.1.2.2.1.1";		
@@ -573,9 +573,10 @@ async function interfaces_ifindex() {
 }
 
 async function dataPolling() {
-		var timer1 = 30000;
-		
-		setInterval(interfaces_ifindex, timer1);
+		var timersys = 30000;
+		var timerif = 30000;
+		setInterval(system, timersys);
+		setInterval(interfaces, timerif);
 		
 		
 	}
