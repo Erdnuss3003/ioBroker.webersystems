@@ -115,11 +115,11 @@ async function interfaces_ifindex() {
 				
 				else 
 					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
-					var oidsifindex = varbinds[i].oidifindex;
-					oidsifindex = oidsifindex.replace(/\./g, '_');
-					oidsifindex = "interface." + varbinds[i].value + "." + oidsifindex;
-					adapter.setObjectNotExistsAsync(oidsifindex, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-					adapter.setState(oidsifindex, varbinds[i].value.toString(), true);
+					var oids = varbinds[i].oidifindex;
+					oids = oids.replace(/\./g, '_');
+					oids = "interface." + varbinds[i].value + "." + oids;
+					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
 					if (adapter.config.ifdescr) {
 						var oiddescr = "1.3.6.1.2.1.2.2.1.2";
