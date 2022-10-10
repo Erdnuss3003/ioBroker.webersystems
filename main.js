@@ -112,7 +112,8 @@ async function interfaces_ifindex() {
 			for (var i = 0; i < varbinds.length; i++) {
 				if (snmp.isVarbindError (varbinds[i]))
 					 adapter.log.info ('ifindex error walk');
-				else
+				}
+				else {
 					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
 					var oidsifindex = varbinds[i].oidifindex;
 					oidsifindex = oidsifindex.replace(/\./g, '_');
@@ -140,7 +141,7 @@ async function interfaces_ifindex() {
 							}
 						}			
 					}								
-					
+				}	
 			}
 		}
 		var maxRepetitions = 20;
