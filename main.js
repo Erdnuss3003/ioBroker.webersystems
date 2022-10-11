@@ -143,7 +143,7 @@ async function system() {
 			} else {
 				adapter.setObjectNotExistsAsync(oidsysContactvalue, {type: 'state', common: {name: 'sysContact', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysContactvalue, varbinds[0].value.toString(), true);
-				adapter.subscribeStates(oidsysContact);
+				//adapter.subscribeStates(oidsysContact);
 			}
 		});			
 	}
@@ -162,7 +162,7 @@ async function system() {
 			} else {
 				adapter.setObjectNotExistsAsync(oidsysNamevalue, {type: 'state', common: {name: 'sysName', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysNamevalue, varbinds[0].value.toString(), true);
-				adapter.subscribeStates(oidsysName);
+				//adapter.subscribeStates(oidsysName);
 			}
 		});			
 	}
@@ -181,7 +181,7 @@ async function system() {
 			} else {
 				adapter.setObjectNotExistsAsync(oidsysLocationvalue, {type: 'state', common: {name: 'sysLocation', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysLocationvalue, varbinds[0].value.toString(), true);
-				adapter.subscribeStates(oidsysLocation);
+				//adapter.subscribeStates(oidsysLocation);
 			}
 		});			
 	}
@@ -333,7 +333,7 @@ async function interfaces() {
 						} else {
 							adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidadminstatusvaluee, varbinds[0].value.toString(), true);
-							adapter.subscribeStates(oidadminstatusvaluee);
+							//adapter.subscribeStates(oidadminstatusvaluee);
 						}
 					});			
 				}
