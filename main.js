@@ -24,7 +24,7 @@ function startAdapter(options) {
             try {
 				clearInterval(timersys);
                 clearInterval(timerif);
-				
+				clearInterval(timerpoe);
                 callback();
             } catch (e) {
                 callback();
@@ -202,7 +202,7 @@ async function interfaces() {
 		
 		function doneCb (error) {
 			if (error)
-				 adapter.log.info ("done Cb" + error.toString ());
+				 adapter.log.info ("Interfaces done Cb" + error.toString ());
 		}
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
@@ -648,12 +648,80 @@ async function interfaces() {
 	}	
 }
 
+
+
+
+
+
+async function poe() {
+	if (adapter.config.poeadminenable) {
+		
+		var oid = "1.3.6.1.2.1.105.1.1.1.1";		
+		
+		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
+		
+		function doneCb (error) {
+			if (error)
+				 adapter.log.info ("POE done Cb" + error.toString ());
+		}
+		function feedCb (varbinds) {
+			for (var i = 0; i < varbinds.length; i++) {
+				if (snmp.isVarbindError (varbinds[i]))
+					 adapter.log.info ('error walk');
+				else
+					// adapter.log.info (varbinds[i].oid + "|" + varbinds[i].value);
+					var oids = varbinds[i].oid;
+					oids = oids.replace(/\./g, '_');
+					oids = "poe." + varbinds[i].value + "." + oids;
+					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'poeAdminEnable', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+					adapter.setState(oids, varbinds[i].value.toString(), true);
+				/*	
+				if (adapter.config.ifdescr) {			
+					var oiddescr = "1.3.6.1.2.1.2.2.1.2";
+					var oiddescrvalue = "0";
+					var oiddescrvaluee = "0";
+
+					oiddescrvalue = oiddescr + "." + varbinds[i].value;
+					oiddescrvaluee = oiddescrvalue.replace(/\./g, '_');
+					oiddescrvaluee = "poe." + varbinds[i].value + "." + oiddescrvaluee;
+
+					var oidsifdescr = [oiddescrvalue];
+
+					session.get (oidsifdescr, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error oidsifdescr ');
+						} else {
+							adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
+						}
+					});			
+				}
+				*/
+			}
+		}
+		var maxRepetitions = 20;
+
+
+		oid = "1.3.6.1.2.1.2.2.1.1";
+		session.subtree (oid, maxRepetitions, feedCb, doneCb);
+	}	
+}
+
+
+
+
+
+
+
+
+
 async function dataPolling() {
 		var timersys = 30000;
 		var timerif = 30000;
+		var timerpoe = 30000;
 		setInterval(system, timersys);
 		setInterval(interfaces, timerif);
-		
+		setInterval(poe, timerpoe);
 		
 	}
 
