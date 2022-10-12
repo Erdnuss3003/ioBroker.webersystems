@@ -688,7 +688,7 @@ async function poe() {
 					oiddetectionstatusvaluee = oiddetectionstatusvalue.replace(/\./g, '_');
 					oiddetectionstatusvaluee = "poe." + varbinds[i].value + "." + oiddetectionstatusvaluee + varbinds[i].value;
 
-					var oidspoedetectionstatus = [oiddescrvalue];
+					var oidspoedetectionstatus = [oiddetectionstatus];
 
 					session.get (oidspoedetectionstatus, function (error, varbinds) {
 						if (error) {
