@@ -721,7 +721,7 @@ async function poe() {
 
 async function dataPolling() {
 		var timerstartpolling = 30000;
-		setInterval(system, timerstartpolling);
+		setInterval(startpolling, timerstartpolling);
 		
 	}
 
