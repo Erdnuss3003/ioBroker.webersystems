@@ -659,7 +659,7 @@ async function interfaces() {
 
 async function poe() {
 	if (adapter.config.poeadminenable) {
-		
+		var oidi = 0;
 		var oid = "1.3.6.1.2.1.105.1.1.1.3";	
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		
@@ -678,7 +678,7 @@ async function poe() {
 					oids = "poe." + varbinds[i].value + "." + oids;
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'poeAdminEnable', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
-				var oidi = 0;	
+				
 				oidi = oidi++;	
 				if (adapter.config.poedetectionstatus) {			
 					var oiddetectionstatus = "1.3.6.1.2.1.105.1.1.1.6" + "." + varbinds[i].value + "." + oidi;
