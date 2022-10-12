@@ -680,7 +680,8 @@ async function poe() {
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
 				if (adapter.config.poedetectionstatus) {			
-					var oiddetectionstatus = "1.3.6.1.2.1.105.1.1.1.6";
+					var oiddetectionstatus = "1.3.6.1.2.1.105.1.1.1.6" + "." + varbinds[i].value;
+					oiddetectionstatus = "1.3.6.1.2.1.105.1.1.1.6";
 					var oiddetectionstatusvalue = "0";
 					var oiddetectionstatusvaluee = "0";
 
