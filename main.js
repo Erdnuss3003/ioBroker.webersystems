@@ -660,7 +660,7 @@ async function interfaces() {
 async function poe() {
 	if (adapter.config.poeadminenable) {
 		
-		var oid = "1.3.6.1.2.1.105.1.1.1.1";	
+		var oid = "1.3.6.1.2.1.105.1.1.1";	
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		
 		function doneCb (error) {
@@ -705,7 +705,7 @@ async function poe() {
 		var maxRepetitions = 20;
 
 
-		oid = "1.3.6.1.2.1.105.1.1.1.1";
+		oid = "1.3.6.1.2.1.105.1.1.1";
 		session.subtree (oid, maxRepetitions, feedCb, doneCb);
 	}	
 }
