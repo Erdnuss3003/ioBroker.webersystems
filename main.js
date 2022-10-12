@@ -684,7 +684,7 @@ async function poe() {
 					var oiddetectionstatusvalue = "0";
 					var oiddetectionstatusvaluee = "0";
 
-					oiddetectionstatusvalue = oiddetectionstatus + "." + varbinds[i].value;
+					oiddetectionstatusvalue = oiddetectionstatus;
 					oiddetectionstatusvaluee = oiddetectionstatusvalue.replace(/\./g, '_');
 					oiddetectionstatusvaluee = "poe." + varbinds[i].value + "." + oiddetectionstatusvaluee;
 
