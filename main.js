@@ -208,6 +208,7 @@ async function interfaces() {
 			if (error)
 				 adapter.log.info ("Interfaces done Cb" + error.toString ());
 		}
+		var varbinds = 0;
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
 				if (snmp.isVarbindError (varbinds[i]))
@@ -668,6 +669,7 @@ async function poe() {
 			if (error)
 				 adapter.log.info ("POE done Cb" + error.toString ());
 		}
+		var varbinds = 0;
 		function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
 				if (snmp.isVarbindError (varbinds[i]))
