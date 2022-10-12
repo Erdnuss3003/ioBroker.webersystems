@@ -88,7 +88,7 @@ function startAdapter(options) {
     }));
 }
 
-function startpolling(options) {
+function startpolling() {
 system();
 interfaces();
 poe();
