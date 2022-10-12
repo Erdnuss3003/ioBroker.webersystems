@@ -693,7 +693,7 @@ async function poe() {
 
 					session.get (oidspoedetectionstatus, function (error, varbinds) {
 						if (error) {
-							adapter.log.info('snmp error oidspoedetectionstatus');
+							adapter.log.info('snmp error oidspoedetectionstatus' + oiddetectionstatus);
 						} else {
 							adapter.setObjectNotExistsAsync(oiddetectionstatusvaluee, {type: 'state', common: {name: 'poeDetectionStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oiddetectionstatusvaluee, varbinds[0].value.toString(), true);
