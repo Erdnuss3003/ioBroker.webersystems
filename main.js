@@ -22,9 +22,7 @@ function startAdapter(options) {
 		
         unload: (callback) => {
             try {
-				clearInterval(timersys);
-                clearInterval(timerif);
-				clearInterval(timerpoe);
+				clearInterval(timerstartpolling);
                 callback();
             } catch (e) {
                 callback();
@@ -88,6 +86,12 @@ function startAdapter(options) {
 
 
     }));
+}
+
+function startpolling(options) {
+system();
+interfaces();
+poe();
 }
 
 async function system() {
@@ -716,12 +720,8 @@ async function poe() {
 
 
 async function dataPolling() {
-		var timersys = 30000;
-		var timerif = 30000;
-		var timerpoe = 30000;
-		setInterval(system, timersys);
-		setInterval(interfaces, timerif);
-		setInterval(poe, timerpoe);
+		var timerstartpolling = 30000;
+		setInterval(system, timerstartpolling);
 		
 	}
 
