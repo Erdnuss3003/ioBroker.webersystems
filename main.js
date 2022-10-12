@@ -200,7 +200,8 @@ async function system() {
 async function interfaces() {
 	if (adapter.config.ifindex) {
 		
-		var oid = "1.3.6.1.2.1.2.2.1.1";		
+		var oid = "0";		
+		oid = "1.3.6.1.2.1.2.2.1.1";
 		
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		
@@ -661,8 +662,8 @@ async function interfaces() {
 async function poe() {
 	if (adapter.config.poeadminenable) {
 		
-		var oid = "1.3.6.1.2.1.105.1.1.1.1";		
-		
+		var oid = "0";		
+		oid = "1.3.6.1.2.1.105.1.1.1.1";	
 		var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
 		
 		function doneCb (error) {
