@@ -7,10 +7,7 @@ const utils = require('@iobroker/adapter-core');
 var snmp = require ("net-snmp");
 
 
-
 let adapter;
-
-
 
 
 function startAdapter(options) {
@@ -95,11 +92,13 @@ function startAdapter(options) {
     }));
 }
 
+
 function startpolling() {
 system();
 interfaces();
 poe();
 }
+
 
 async function system() {
 	var session = snmp.createSession (adapter.config.ipadresse, adapter.config.snmpcommunity);
@@ -198,10 +197,6 @@ async function system() {
 	}
 	
 }
-
-
-
-
 
 
 async function interfaces() {
@@ -735,13 +730,6 @@ async function poe() {
 		session.subtree (oid, maxRepetitions, feedCb, doneCb);
 	}	
 }
-
-
-
-
-
-
-
 
 
 async function dataPolling() {
