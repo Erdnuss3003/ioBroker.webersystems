@@ -30,7 +30,7 @@ function startAdapter(options) {
         },
 
          stateChange: (id, state) => {
-            if (state) {
+            if (!state.ack) {
                 // The state was changed
                 // adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 				
@@ -147,7 +147,7 @@ async function system() {
 			} else {
 				adapter.setObjectNotExistsAsync(oidsysContactvalue, {type: 'state', common: {name: 'sysContact', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysContactvalue, varbinds[0].value.toString(), true);
-				//adapter.subscribeStates(oidsysContact);
+				adapter.subscribeStates(oidsysContact);
 			}
 		});			
 	}
