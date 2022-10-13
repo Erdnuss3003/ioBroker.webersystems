@@ -61,7 +61,7 @@ function startAdapter(options) {
 						}];
 					adapter.log.info("change to Interger");
 				}
-				if (changeoid.match(regex2)) {
+				else if (changeoid.match(regex2)) {
 					state.val = Number(state.val);
 					var varbindss = [
 						{
