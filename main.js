@@ -107,7 +107,7 @@ async function system() {
 				adapter.log.info('snmp error oidssysDescr ');
 			} else {
 				adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
-				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
+				// adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
 			}
 		});			
 	}
@@ -125,7 +125,7 @@ async function system() {
 				adapter.log.info('snmp error oidssysUpTime ');
 			} else {
 				adapter.setObjectNotExistsAsync(oidsysUpTimevalue, {type: 'state', common: {name: 'sysUpTime', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
-				adapter.setState(oidsysUpTimevalue, varbinds[0].value.toString(), true);
+				//adapter.setState(oidsysUpTimevalue, varbinds[0].value.toString(), true);
 			}
 		});			
 	}
