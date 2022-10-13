@@ -135,14 +135,14 @@ async function system() {
 
 		oidsysContactvalue = oidsysContact.replace(/\./g, '_');
 		oidsysContactvalue = "systems." + oidsysContactvalue;
-
+		adapter.setObjectNotExistsAsync(oidsysContactvalue, {type: 'state', common: {name: 'sysContact', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				
 		var oidssysContact = [oidsysContact];
 
 		session.get (oidssysContact, function (error, varbinds) {
 			if (error) {
 				adapter.log.info('snmp error oidssysContact ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysContactvalue, {type: 'state', common: {name: 'sysContact', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysContactvalue, varbinds[0].value.toString(), true);
 				adapter.subscribeStates(oidsysContactvalue);
 			}
@@ -154,14 +154,14 @@ async function system() {
 
 		oidsysNamevalue = oidsysName.replace(/\./g, '_');
 		oidsysNamevalue = "systems." + oidsysNamevalue;
-
+		adapter.setObjectNotExistsAsync(oidsysNamevalue, {type: 'state', common: {name: 'sysName', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				
 		var oidssysName = [oidsysName];
 
 		session.get (oidssysName, function (error, varbinds) {
 			if (error) {
 				adapter.log.info('snmp error oidssysName ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysNamevalue, {type: 'state', common: {name: 'sysName', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysNamevalue, varbinds[0].value.toString(), true);
 				adapter.subscribeStates(oidsysNamevalue);
 			}
@@ -173,14 +173,14 @@ async function system() {
 
 		oidsysLocationvalue = oidsysLocation.replace(/\./g, '_');
 		oidsysLocationvalue = "systems." + oidsysLocationvalue;
-
+		adapter.setObjectNotExistsAsync(oidsysLocationvalue, {type: 'state', common: {name: 'sysLocation', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				
 		var oidssysLocation = [oidsysLocation];
 
 		session.get (oidssysLocation, function (error, varbinds) {
 			if (error) {
 				adapter.log.info('snmp error oidssysLocation ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysLocationvalue, {type: 'state', common: {name: 'sysLocation', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysLocationvalue, varbinds[0].value.toString(), true);
 				adapter.subscribeStates(oidsysLocationvalue);
 			}
