@@ -99,15 +99,14 @@ async function system() {
 
 		oidsysDescrvalue = oidsysDescr.replace(/\./g, '_');
 		oidsysDescrvalue = "systems." + oidsysDescrvalue;
-
+		adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				
 		var oidssysDescr = [oidsysDescr];
 
 		session.get (oidssysDescr, function (error, varbinds) {
 			if (error) {
 				adapter.log.info('snmp error oidssysDescr ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
-				sleep(500);
 				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
 			}
 		});			
@@ -118,15 +117,14 @@ async function system() {
 
 		oidsysUpTimevalue = oidsysUpTime.replace(/\./g, '_');
 		oidsysUpTimevalue = "systems." + oidsysUpTimevalue;
-
+		adapter.setObjectNotExistsAsync(oidsysUpTimevalue, {type: 'state', common: {name: 'sysUpTime', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				
 		var oidssysUpTime = [oidsysUpTime];
 
 		session.get (oidssysUpTime, function (error, varbinds) {
 			if (error) {
 				adapter.log.info('snmp error oidssysUpTime ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysUpTimevalue, {type: 'state', common: {name: 'sysUpTime', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
-				sleep(500);
 				adapter.setState(oidsysUpTimevalue, varbinds[0].value.toString(), true);
 			}
 		});			
