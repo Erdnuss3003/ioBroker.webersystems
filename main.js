@@ -49,9 +49,19 @@ function startAdapter(options) {
 								
 
 				var regex = /1.3.6.1.2.1.2.2.1.7.[0-9]+/g;
-				
+				var regex2 = /1.3.6.1.2.1.2.2.1.7.[0-9]+/g;
 				
 				if (changeoid.match(regex)) {
+					state.val = Number(state.val);
+					var varbindss = [
+						{
+						oid: changeoid,
+						type: snmp.ObjectType.Integer32,
+						value: state.val
+						}];
+					adapter.log.info("change to Interger");
+				}
+				if (changeoid.match(regex2)) {
 					state.val = Number(state.val);
 					var varbindss = [
 						{
@@ -671,6 +681,7 @@ async function poe() {
 					oids = "poe." + varbinds[i].value + "." + oids;
 					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'poeAdminEnable', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);	
+					adapter.subscribeStates(oids);
 				oidi++;	
 				if (adapter.config.poedetectionstatus) {			
 					var oiddetectionstatus = "1.3.6.1.2.1.105.1.1.1.6" + "." + varbinds[i].value + "." + oidi;
