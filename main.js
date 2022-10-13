@@ -235,14 +235,14 @@ async function interfaces() {
 					oiddescrvalue = oiddescr + "." + varbinds[i].value;
 					oiddescrvaluee = oiddescrvalue.replace(/\./g, '_');
 					oiddescrvaluee = "interface." + varbinds[i].value + "." + oiddescrvaluee;
-
+					adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+						
 					var oidsifdescr = [oiddescrvalue];
 
 					session.get (oidsifdescr, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifdescr ');
 						} else {
-							adapter.setObjectNotExistsAsync(oiddescrvaluee, {type: 'state', common: {name: 'ifDecsr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -255,14 +255,14 @@ async function interfaces() {
 					oidtypevalue = oidtype + "." + varbinds[i].value;
 					oidtypevaluee = oidtypevalue.replace(/\./g, '_');
 					oidtypevaluee = "interface." + varbinds[i].value + "." + oidtypevaluee;
-
+					adapter.setObjectNotExistsAsync(oidtypevaluee, {type: 'state', common: {name: 'ifType', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+						
 					var oidsiftype = [oidtypevalue];
 
 					session.get (oidsiftype, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsiftype ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidtypevaluee, {type: 'state', common: {name: 'ifType', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidtypevaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -275,14 +275,14 @@ async function interfaces() {
 					oidmtuvalue = oidmtu + "." + varbinds[i].value;
 					oidmtuvaluee = oidmtuvalue.replace(/\./g, '_');
 					oidmtuvaluee = "interface." + varbinds[i].value + "." + oidmtuvaluee;
-
+					adapter.setObjectNotExistsAsync(oidmtuvaluee, {type: 'state', common: {name: 'ifMtu', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+						
 					var oidsifmtu = [oidmtuvalue];
 
 					session.get (oidsifmtu, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifmtu ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidmtuvaluee, {type: 'state', common: {name: 'ifMtu', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidmtuvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -295,14 +295,14 @@ async function interfaces() {
 					oidspeedvalue = oidspeed + "." + varbinds[i].value;
 					oidspeedvaluee = oidspeedvalue.replace(/\./g, '_');
 					oidspeedvaluee = "interface." + varbinds[i].value + "." + oidspeedvaluee;
-
+					adapter.setObjectNotExistsAsync(oidspeedvaluee, {type: 'state', common: {name: 'ifSpeed', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifspeed = [oidspeedvalue];
 
 					session.get (oidsifspeed, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifspeed ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidspeedvaluee, {type: 'state', common: {name: 'ifSpeed', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidspeedvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -315,14 +315,14 @@ async function interfaces() {
 					oidphysaddressvalue = oidphysaddress + "." + varbinds[i].value;
 					oidphysaddressvaluee = oidphysaddressvalue.replace(/\./g, '_');
 					oidphysaddressvaluee = "interface." + varbinds[i].value + "." + oidphysaddressvaluee;
-
+					adapter.setObjectNotExistsAsync(oidphysaddressvaluee, {type: 'state', common: {name: 'ifPhysAddress', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifphysaddress = [oidphysaddressvalue];
 
 					session.get (oidsifphysaddress, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifphysaddress ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidphysaddressvaluee, {type: 'state', common: {name: 'ifPhysAddress', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidphysaddressvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -335,14 +335,14 @@ async function interfaces() {
 					oidadminstatusvalue = oidadminstatus + "." + varbinds[i].value;
 					oidadminstatusvaluee = oidadminstatusvalue.replace(/\./g, '_');
 					oidadminstatusvaluee = "interface." + varbinds[i].value + "." + oidadminstatusvaluee;
-
+					adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+						
 					var oidsifadminstatus = [oidadminstatusvalue];
 
 					session.get (oidsifadminstatus, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifadminstatus ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidadminstatusvaluee, {type: 'state', common: {name: 'ifAdminStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidadminstatusvaluee, varbinds[0].value.toString(), true);
 							adapter.subscribeStates(oidadminstatusvaluee);
 						}
@@ -356,14 +356,14 @@ async function interfaces() {
 					oidoperstatusvalue = oidoperstatus + "." + varbinds[i].value;
 					oidoperstatusvaluee = oidoperstatusvalue.replace(/\./g, '_');
 					oidoperstatusvaluee = "interface." + varbinds[i].value + "." + oidoperstatusvaluee;
-
+					adapter.setObjectNotExistsAsync(oidoperstatusvaluee, {type: 'state', common: {name: 'ifOperStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifoperstatus = [oidoperstatusvalue];
 
 					session.get (oidsifoperstatus, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifoperstatus ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoperstatusvaluee, {type: 'state', common: {name: 'ifOperStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoperstatusvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -376,14 +376,14 @@ async function interfaces() {
 					oidlastchangevalue = oidlastchange + "." + varbinds[i].value;
 					oidlastchangevaluee = oidlastchangevalue.replace(/\./g, '_');
 					oidlastchangevaluee = "interface." + varbinds[i].value + "." + oidlastchangevaluee;
-
+					adapter.setObjectNotExistsAsync(oidlastchangevaluee, {type: 'state', common: {name: 'ifLastChange', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsiflastchange = [oidlastchangevalue];
 
 					session.get (oidsiflastchange, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsiflastchange ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidlastchangevaluee, {type: 'state', common: {name: 'ifLastChange', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidlastchangevaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -396,14 +396,14 @@ async function interfaces() {
 					oidinoctetsvalue = oidinoctets + "." + varbinds[i].value;
 					oidinoctetsvaluee = oidinoctetsvalue.replace(/\./g, '_');
 					oidinoctetsvaluee = "interface." + varbinds[i].value + "." + oidinoctetsvaluee;
-
+					adapter.setObjectNotExistsAsync(oidinoctetsvaluee, {type: 'state', common: {name: 'ifInOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifinoctets = [oidinoctetsvalue];
 
 					session.get (oidsifinoctets, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifinoctets ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidinoctetsvaluee, {type: 'state', common: {name: 'ifInOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidinoctetsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -416,14 +416,14 @@ async function interfaces() {
 					oidinucastpktsvalue = oidinucastpkts + "." + varbinds[i].value;
 					oidinucastpktsvaluee = oidinucastpktsvalue.replace(/\./g, '_');
 					oidinucastpktsvaluee = "interface." + varbinds[i].value + "." + oidinucastpktsvaluee;
-
+					adapter.setObjectNotExistsAsync(oidinucastpktsvaluee, {type: 'state', common: {name: 'ifInUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifinucastpkts = [oidinucastpktsvalue];
 
 					session.get (oidsifinucastpkts, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifinucastpkts ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidinucastpktsvaluee, {type: 'state', common: {name: 'ifInUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidinucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -436,14 +436,14 @@ async function interfaces() {
 					oidinnucastpktsvalue = oidinnucastpkts + "." + varbinds[i].value;
 					oidinnucastpktsvaluee = oidinnucastpktsvalue.replace(/\./g, '_');
 					oidinnucastpktsvaluee = "interface." + varbinds[i].value + "." + oidinnucastpktsvaluee;
-
+					adapter.setObjectNotExistsAsync(oidinnucastpktsvaluee, {type: 'state', common: {name: 'ifInNUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+						
 					var oidsifinnucastpkts = [oidinnucastpktsvalue];
 
 					session.get (oidsifinnucastpkts, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifinnucastpkts ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidinnucastpktsvaluee, {type: 'state', common: {name: 'ifInNUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidinnucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -456,14 +456,14 @@ async function interfaces() {
 					oidindiscardsvalue = oidindiscards + "." + varbinds[i].value;
 					oidindiscardsvaluee = oidindiscardsvalue.replace(/\./g, '_');
 					oidindiscardsvaluee = "interface." + varbinds[i].value + "." + oidindiscardsvaluee;
-
+					adapter.setObjectNotExistsAsync(oidindiscardsvaluee, {type: 'state', common: {name: 'ifInDiscards', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+						
 					var oidsifindiscards = [oidindiscardsvalue];
 
 					session.get (oidsifindiscards, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifindiscards ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidindiscardsvaluee, {type: 'state', common: {name: 'ifInDiscards', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidindiscardsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -476,14 +476,14 @@ async function interfaces() {
 					oidinerrorsvalue = oidinerrors + "." + varbinds[i].value;
 					oidinerrorsvaluee = oidinerrorsvalue.replace(/\./g, '_');
 					oidinerrorsvaluee = "interface." + varbinds[i].value + "." + oidinerrorsvaluee;
-
+					adapter.setObjectNotExistsAsync(oidinerrorsvaluee, {type: 'state', common: {name: 'ifInErrors', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+						
 					var oidsifinerrors = [oidinerrorsvalue];
 
 					session.get (oidsifinerrors, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifinerrors ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidinerrorsvaluee, {type: 'state', common: {name: 'ifInErrors', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidinerrorsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -496,14 +496,14 @@ async function interfaces() {
 					oidinunkownprotosvalue = oidinunkownprotos + "." + varbinds[i].value;
 					oidinunkownprotosvaluee = oidinunkownprotosvalue.replace(/\./g, '_');
 					oidinunkownprotosvaluee = "interface." + varbinds[i].value + "." + oidinunkownprotosvaluee;
-
+					adapter.setObjectNotExistsAsync(oidinunkownprotosvaluee, {type: 'state', common: {name: 'ifInUnknownProtos', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifinunkownprotos = [oidinunkownprotosvalue];
 
 					session.get (oidsifinunkownprotos, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifinunkownprotos ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidinunkownprotosvaluee, {type: 'state', common: {name: 'ifInUnknownProtos', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidinunkownprotosvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -516,14 +516,14 @@ async function interfaces() {
 					oidoutoctetsvalue = oidoutoctets + "." + varbinds[i].value;
 					oidoutoctetsvaluee = oidoutoctetsvalue.replace(/\./g, '_');
 					oidoutoctetsvaluee = "interface." + varbinds[i].value + "." + oidoutoctetsvaluee;
-
+					adapter.setObjectNotExistsAsync(oidoutoctetsvaluee, {type: 'state', common: {name: 'ifOutOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifoutoctets = [oidoutoctetsvalue];
 
 					session.get (oidsifoutoctets, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutoctets ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoutoctetsvaluee, {type: 'state', common: {name: 'ifOutOctets', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoutoctetsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -536,14 +536,14 @@ async function interfaces() {
 					oidoutucastpktsvalue = oidoutucastpkts + "." + varbinds[i].value;
 					oidoutucastpktsvaluee = oidoutucastpktsvalue.replace(/\./g, '_');
 					oidoutucastpktsvaluee = "interface." + varbinds[i].value + "." + oidoutucastpktsvaluee;
-
+					adapter.setObjectNotExistsAsync(oidoutucastpktsvaluee, {type: 'state', common: {name: 'ifOutUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifoutucastpkts = [oidoutucastpktsvalue];
 
 					session.get (oidsifoutucastpkts, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutucastpkts ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoutucastpktsvaluee, {type: 'state', common: {name: 'ifOutUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoutucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -556,14 +556,14 @@ async function interfaces() {
 					oidoutnucastpktsvalue = oidoutnucastpkts + "." + varbinds[i].value;
 					oidoutnucastpktsvaluee = oidoutnucastpktsvalue.replace(/\./g, '_');
 					oidoutnucastpktsvaluee = "interface." + varbinds[i].value + "." + oidoutnucastpktsvaluee;
-
+					adapter.setObjectNotExistsAsync(oidoutnucastpktsvaluee, {type: 'state', common: {name: 'ifOutNUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifoutnucastpkts = [oidoutnucastpktsvalue];
 
 					session.get (oidsifoutnucastpkts, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutnucastpkts ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoutnucastpktsvaluee, {type: 'state', common: {name: 'ifOutNUcastPkts', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoutnucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -576,14 +576,14 @@ async function interfaces() {
 					oidoutdiscardsvalue = oidoutdiscards + "." + varbinds[i].value;
 					oidoutdiscardsvaluee = oidoutdiscardsvalue.replace(/\./g, '_');
 					oidoutdiscardsvaluee = "interface." + varbinds[i].value + "." + oidoutdiscardsvaluee;
-
+					adapter.setObjectNotExistsAsync(oidoutdiscardsvaluee, {type: 'state', common: {name: 'ifOutDiscards', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifoutdiscards = [oidoutdiscardsvalue];
 
 					session.get (oidsifoutdiscards, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutdiscards ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoutdiscardsvaluee, {type: 'state', common: {name: 'ifOutDiscards', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoutdiscardsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -596,14 +596,14 @@ async function interfaces() {
 					oidouterrorsvalue = oidouterrors + "." + varbinds[i].value;
 					oidouterrorsvaluee = oidouterrorsvalue.replace(/\./g, '_');
 					oidouterrorsvaluee = "interface." + varbinds[i].value + "." + oidouterrorsvaluee;
-
+					adapter.setObjectNotExistsAsync(oidouterrorsvaluee, {type: 'state', common: {name: 'ifOutErrors', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifouterrors = [oidouterrorsvalue];
 
 					session.get (oidsifouterrors, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifouterrors ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidouterrorsvaluee, {type: 'state', common: {name: 'ifOutErrors', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidouterrorsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -616,14 +616,14 @@ async function interfaces() {
 					oidoutqlenvalue = oidoutqlen + "." + varbinds[i].value;
 					oidoutqlenvaluee = oidoutqlenvalue.replace(/\./g, '_');
 					oidoutqlenvaluee = "interface." + varbinds[i].value + "." + oidoutqlenvaluee;
-
+					adapter.setObjectNotExistsAsync(oidoutqlenvaluee, {type: 'state', common: {name: 'ifOutQLen', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifoutqlen = [oidoutqlenvalue];
 
 					session.get (oidsifoutqlen, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutqlen ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidoutqlenvaluee, {type: 'state', common: {name: 'ifOutQLen', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidoutqlenvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -636,14 +636,14 @@ async function interfaces() {
 					oidspecificvalue = oidspecific + "." + varbinds[i].value;
 					oidspecificvaluee = oidspecificvalue.replace(/\./g, '_');
 					oidspecificvaluee = "interface." + varbinds[i].value + "." + oidspecificvaluee;
-
+					adapter.setObjectNotExistsAsync(oidspecificvaluee, {type: 'state', common: {name: 'ifSpecific', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 					var oidsifspecific = [oidspecificvalue];
 
 					session.get (oidsifspecific, function (error, varbinds) {
 						if (error) {
 							adapter.log.info('snmp error oidsifspecific ');
 						} else {
-							adapter.setObjectNotExistsAsync(oidspecificvaluee, {type: 'state', common: {name: 'ifSpecific', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidspecificvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -691,6 +691,8 @@ async function poe() {
 					oiddetectionstatusvalue = oiddetectionstatus;
 					oiddetectionstatusvaluee = oiddetectionstatusvalue.replace(/\./g, '_');
 					oiddetectionstatusvaluee = "poe." + varbinds[i].value + "." + oiddetectionstatusvaluee;
+					adapter.setObjectNotExistsAsync(oiddetectionstatusvaluee, {type: 'state', common: {name: 'poeDetectionStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 
 					var oidspoedetectionstatus = [oiddetectionstatus];
 
@@ -698,7 +700,6 @@ async function poe() {
 						if (error) {
 							adapter.log.info('snmp error oidspoedetectionstatus' + oiddetectionstatus);
 						} else {
-							adapter.setObjectNotExistsAsync(oiddetectionstatusvaluee, {type: 'state', common: {name: 'poeDetectionStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oiddetectionstatusvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
@@ -711,6 +712,8 @@ async function poe() {
 					oidpowerclassificationsvalue = oidpowerclassifications;
 					oidpowerclassificationsvaluee = oidpowerclassificationsvalue.replace(/\./g, '_');
 					oidpowerclassificationsvaluee = "poe." + varbinds[i].value + "." + oidpowerclassificationsvaluee;
+					adapter.setObjectNotExistsAsync(oidpowerclassificationsvaluee, {type: 'state', common: {name: 'poePowerClassifications', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							
 
 					var oidspoepowerclassifications = [oidpowerclassifications];
 
@@ -718,7 +721,6 @@ async function poe() {
 						if (error) {
 							adapter.log.info('snmp error oidspoepowerclassifications' + oidpowerclassifications);
 						} else {
-							adapter.setObjectNotExistsAsync(oidpowerclassificationsvaluee, {type: 'state', common: {name: 'poePowerClassifications', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oidpowerclassificationsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
