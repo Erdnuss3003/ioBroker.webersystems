@@ -78,9 +78,6 @@ function startAdapter(options) {
 						}
 				});		
 				
-            } else {
-               
-                adapter.log.info(`state ${id} deleted`);
             }
         },
 
@@ -147,7 +144,7 @@ async function system() {
 			} else {
 				adapter.setObjectNotExistsAsync(oidsysContactvalue, {type: 'state', common: {name: 'sysContact', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysContactvalue, varbinds[0].value.toString(), true);
-				//adapter.subscribeStates(oidsysContact);
+				adapter.subscribeStates(oidsysContact);
 			}
 		});			
 	}
