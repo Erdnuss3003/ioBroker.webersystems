@@ -182,7 +182,7 @@ async function system() {
 			} else {
 				adapter.setObjectNotExistsAsync(oidsysLocationvalue, {type: 'state', common: {name: 'sysLocation', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysLocationvalue, varbinds[0].value.toString(), true);
-				//adapter.subscribeStates(oidsysLocation);
+				//adapter.subscribeStates(oidsysLocationvalue);
 			}
 		});			
 	}
