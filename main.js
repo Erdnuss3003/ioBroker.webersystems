@@ -650,10 +650,6 @@ async function interfaces() {
 }
 
 
-
-
-
-
 async function poe() {
 	if (adapter.config.poeadminenable) {
 		var oidi = 0;
@@ -693,6 +689,26 @@ async function poe() {
 						} else {
 							adapter.setObjectNotExistsAsync(oiddetectionstatusvaluee, {type: 'state', common: {name: 'poeDetectionStatus', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 							adapter.setState(oiddetectionstatusvaluee, varbinds[0].value.toString(), true);
+						}
+					});			
+				}
+				if (adapter.config.poepowerclassifications) {			
+					var oidpowerclassifications = "1.3.6.1.2.1.105.1.1.1.10" + "." + varbinds[i].value + "." + oidi;
+					var oidpowerclassificationsvalue = "0";
+					var oidpowerclassificationsvaluee = "0";
+
+					oidpowerclassificationsvalue = oidpowerclassifications;
+					oidpowerclassificationsvaluee = oidpowerclassificationsvalue.replace(/\./g, '_');
+					oidpowerclassificationsvaluee = "poe." + varbinds[i].value + "." + oidpowerclassificationsvaluee;
+
+					var oidspoepowerclassifications = [oidpowerclassifications];
+
+					session.get (oidspoepowerclassifications, function (error, varbinds) {
+						if (error) {
+							adapter.log.info('snmp error oidspoepowerclassifications' + oidpowerclassifications);
+						} else {
+							adapter.setObjectNotExistsAsync(oidpowerclassificationsvaluee, {type: 'state', common: {name: 'poePowerClassifications', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+							adapter.setState(oidpowerclassificationsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
