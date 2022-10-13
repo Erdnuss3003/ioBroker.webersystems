@@ -106,7 +106,7 @@ async function system() {
 			if (error) {
 				adapter.log.info('snmp error oidssysDescr ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				await adapter.setObjectNotExistsAsync(oidsysDescrvalue, {type: 'state', common: {name: 'sysDescr', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
 			}
 		});			
@@ -124,7 +124,7 @@ async function system() {
 			if (error) {
 				adapter.log.info('snmp error oidssysUpTime ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysUpTimevalue, {type: 'state', common: {name: 'sysUpTime', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				await adapter.setObjectNotExistsAsync(oidsysUpTimevalue, {type: 'state', common: {name: 'sysUpTime', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysUpTimevalue, varbinds[0].value.toString(), true);
 			}
 		});			
@@ -142,7 +142,7 @@ async function system() {
 			if (error) {
 				adapter.log.info('snmp error oidssysContact ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysContactvalue, {type: 'state', common: {name: 'sysContact', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				await adapter.setObjectNotExistsAsync(oidsysContactvalue, {type: 'state', common: {name: 'sysContact', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysContactvalue, varbinds[0].value.toString(), true);
 				adapter.subscribeStates(oidsysContactvalue);
 			}
@@ -161,7 +161,7 @@ async function system() {
 			if (error) {
 				adapter.log.info('snmp error oidssysName ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysNamevalue, {type: 'state', common: {name: 'sysName', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				await adapter.setObjectNotExistsAsync(oidsysNamevalue, {type: 'state', common: {name: 'sysName', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysNamevalue, varbinds[0].value.toString(), true);
 				adapter.subscribeStates(oidsysNamevalue);
 			}
@@ -180,7 +180,7 @@ async function system() {
 			if (error) {
 				adapter.log.info('snmp error oidssysLocation ');
 			} else {
-				adapter.setObjectNotExistsAsync(oidsysLocationvalue, {type: 'state', common: {name: 'sysLocation', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
+				await adapter.setObjectNotExistsAsync(oidsysLocationvalue, {type: 'state', common: {name: 'sysLocation', type: 'string', role: 'value', read: true, write: false}, native: {}, });									
 				adapter.setState(oidsysLocationvalue, varbinds[0].value.toString(), true);
 				adapter.subscribeStates(oidsysLocationvalue);
 			}
