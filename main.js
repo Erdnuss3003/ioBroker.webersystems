@@ -49,7 +49,7 @@ function startAdapter(options) {
 								
 
 				var regex = /1.3.6.1.2.1.2.2.1.7.[0-9]+/g;
-				var regex2 = /1.3.6.1.2.1.2.2.1.7.[0-9]+/g;
+				var regex2 = /1.3.6.1.2.1.105.1.1.1.3.1.[0-9]+/g;
 				
 				if (changeoid.match(regex)) {
 					state.val = Number(state.val);
