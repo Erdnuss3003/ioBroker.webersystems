@@ -30,7 +30,7 @@ function startAdapter(options) {
         },
 
          stateChange: (id, state) => {
-            if (state) {
+            if (id && state && !state.ack) { {
                 // The state was changed
                 // adapter.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
 				
