@@ -219,10 +219,9 @@ async function interfaces() {
 					var oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
 					oids = "interface." + varbinds[i].value + "." + oids;
-					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-					setTimeout(() => { 	
+					await adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
-					}, 50);
+					
 				if (adapter.config.ifdescr) {			
 					var oiddescr = "1.3.6.1.2.1.2.2.1.2";
 					var oiddescrvalue = "0";
@@ -675,11 +674,9 @@ async function poe() {
 					var oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
 					oids = "poe." + varbinds[i].value + "." + oids;
-					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'poeAdminEnable', type: 'string', role: 'value', read: true, write: false}, native: {}, });
-					setTimeout(() => {	
+					await adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'poeAdminEnable', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);	
 					adapter.subscribeStates(oids);
-					}, 50);	
 				oidi++;	
 				if (adapter.config.poedetectionstatus) {			
 					var oiddetectionstatus = "1.3.6.1.2.1.105.1.1.1.6" + "." + varbinds[i].value + "." + oidi;
