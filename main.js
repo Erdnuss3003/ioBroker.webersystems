@@ -219,7 +219,7 @@ async function interfaces() {
 					var oids = varbinds[i].oid;
 					oids = oids.replace(/\./g, '_');
 					oids = "interface." + varbinds[i].value + "." + oids;
-					await adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
+					adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
 					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
 				if (adapter.config.ifdescr) {			
@@ -665,7 +665,7 @@ async function poe() {
 			if (error)
 				 adapter.log.info ("POE done Cb" + error.toString ());
 		}
-		function feedCb (varbinds) {
+		async function feedCb (varbinds) {
 			for (var i = 0; i < varbinds.length; i++) {
 				if (snmp.isVarbindError (varbinds[i]))
 					 adapter.log.info ('error walk');
