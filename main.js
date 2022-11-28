@@ -116,7 +116,7 @@ async function system() {
 			if (error) {
 				adapter.log.info('snmp error oidssysDescr ');
 			} else {
-				await adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
+				adapter.setState(oidsysDescrvalue, varbinds[0].value.toString(), true);
 			}
 		});			
 	}
@@ -134,7 +134,7 @@ async function system() {
 			if (error) {
 				adapter.log.info('snmp error oidssysUpTime ');
 			} else {
-				await adapter.setState(oidsysUpTimevalue, varbinds[0].value.toString(), true);
+				adapter.setState(oidsysUpTimevalue, varbinds[0].value.toString(), true);
 			}
 		});			
 	}
@@ -152,7 +152,7 @@ async function system() {
 			if (error) {
 				adapter.log.info('snmp error oidssysContact ');
 			} else {
-				await adapter.setState(oidsysContactvalue, varbinds[0].value.toString(), true);
+				adapter.setState(oidsysContactvalue, varbinds[0].value.toString(), true);
 				adapter.subscribeStates(oidsysContactvalue);
 			}
 		});			
@@ -171,7 +171,7 @@ async function system() {
 			if (error) {
 				adapter.log.info('snmp error oidssysName ');
 			} else {
-				await adapter.setState(oidsysNamevalue, varbinds[0].value.toString(), true);
+				adapter.setState(oidsysNamevalue, varbinds[0].value.toString(), true);
 				adapter.subscribeStates(oidsysNamevalue);
 			}
 		});			
@@ -190,7 +190,7 @@ async function system() {
 			if (error) {
 				adapter.log.info('snmp error oidssysLocation ');
 			} else {
-				await adapter.setState(oidsysLocationvalue, varbinds[0].value.toString(), true);
+				adapter.setState(oidsysLocationvalue, varbinds[0].value.toString(), true);
 				adapter.subscribeStates(oidsysLocationvalue);
 			}
 		});			
@@ -220,7 +220,7 @@ async function interfaces() {
 					oids = oids.replace(/\./g, '_');
 					oids = "interface." + varbinds[i].value + "." + oids;
 					await adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'ifIndex', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-					await adapter.setState(oids, varbinds[i].value.toString(), true);
+					adapter.setState(oids, varbinds[i].value.toString(), true);
 					
 				if (adapter.config.ifdescr) {			
 					var oiddescr = "1.3.6.1.2.1.2.2.1.2";
@@ -238,7 +238,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifdescr ');
 						} else {
-							await adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oiddescrvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -258,7 +258,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsiftype ');
 						} else {
-							await adapter.setState(oidtypevaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidtypevaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -278,7 +278,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifmtu ');
 						} else {
-							await adapter.setState(oidmtuvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidmtuvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -298,7 +298,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifspeed ');
 						} else {
-							await adapter.setState(oidspeedvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidspeedvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -318,7 +318,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifphysaddress ');
 						} else {
-							await adapter.setState(oidphysaddressvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidphysaddressvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -338,7 +338,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifadminstatus ');
 						} else {
-							await adapter.setState(oidadminstatusvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidadminstatusvaluee, varbinds[0].value.toString(), true);
 							adapter.subscribeStates(oidadminstatusvaluee);
 						}
 					});			
@@ -359,7 +359,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoperstatus ');
 						} else {
-							await adapter.setState(oidoperstatusvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidoperstatusvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -379,7 +379,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsiflastchange ');
 						} else {
-							await adapter.setState(oidlastchangevaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidlastchangevaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -399,7 +399,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifinoctets ');
 						} else {
-							await adapter.setState(oidinoctetsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidinoctetsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -419,7 +419,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifinucastpkts ');
 						} else {
-							await adapter.setState(oidinucastpktsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidinucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -439,7 +439,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifinnucastpkts ');
 						} else {
-							await adapter.setState(oidinnucastpktsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidinnucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -459,7 +459,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifindiscards ');
 						} else {
-							await adapter.setState(oidindiscardsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidindiscardsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -479,7 +479,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifinerrors ');
 						} else {
-							await adapter.setState(oidinerrorsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidinerrorsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -499,7 +499,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifinunkownprotos ');
 						} else {
-							await adapter.setState(oidinunkownprotosvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidinunkownprotosvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -519,7 +519,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutoctets ');
 						} else {
-							await adapter.setState(oidoutoctetsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidoutoctetsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -539,7 +539,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutucastpkts ');
 						} else {
-							await adapter.setState(oidoutucastpktsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidoutucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -559,7 +559,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutnucastpkts ');
 						} else {
-							await adapter.setState(oidoutnucastpktsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidoutnucastpktsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -579,7 +579,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutdiscards ');
 						} else {
-							await adapter.setState(oidoutdiscardsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidoutdiscardsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -599,7 +599,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifouterrors ');
 						} else {
-							await adapter.setState(oidouterrorsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidouterrorsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -619,7 +619,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifoutqlen ');
 						} else {
-							await adapter.setState(oidoutqlenvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidoutqlenvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -639,7 +639,7 @@ async function interfaces() {
 						if (error) {
 							adapter.log.info('snmp error oidsifspecific ');
 						} else {
-							await adapter.setState(oidspecificvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidspecificvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -675,7 +675,7 @@ async function poe() {
 					oids = oids.replace(/\./g, '_');
 					oids = "poe." + varbinds[i].value + "." + oids;
 					await adapter.setObjectNotExistsAsync(oids, {type: 'state', common: {name: 'poeAdminEnable', type: 'string', role: 'value', read: true, write: false}, native: {}, });								 
-					await adapter.setState(oids, varbinds[i].value.toString(), true);	
+					adapter.setState(oids, varbinds[i].value.toString(), true);	
 					adapter.subscribeStates(oids);
 				oidi++;	
 				if (adapter.config.poedetectionstatus) {			
@@ -695,7 +695,7 @@ async function poe() {
 						if (error) {
 							adapter.log.info('snmp error oidspoedetectionstatus' + oiddetectionstatus);
 						} else {
-							await adapter.setState(oiddetectionstatusvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oiddetectionstatusvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
@@ -716,7 +716,7 @@ async function poe() {
 						if (error) {
 							adapter.log.info('snmp error oidspoepowerclassifications' + oidpowerclassifications);
 						} else {
-							await adapter.setState(oidpowerclassificationsvaluee, varbinds[0].value.toString(), true);
+							adapter.setState(oidpowerclassificationsvaluee, varbinds[0].value.toString(), true);
 						}
 					});			
 				}
